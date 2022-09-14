@@ -43,7 +43,7 @@
 
 
 
-<svg bind:this={parallaxSvg} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" preserveAspectRatio="xMidYMid slice" >
+<svg bind:this={parallaxSvg} xmlns="http://www.w3.org/2000/svg" viewBox="-100 -100 1500 1300" preserveAspectRatio="xMidYMid slice" >
 	<defs>
 		<style>
 			.cls-1 {
