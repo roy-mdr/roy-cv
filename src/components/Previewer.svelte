@@ -1,13 +1,20 @@
 <script>
 	import Default from "./previews/Default.svelte";
 
+	import { prevProj } from '../stores/previewing.js';
 </script>
 
 
 
 <div class="previewer">
 	<div class="content">
+		{#if $prevProj === ''}
 		<Default />
+		{:else if $prevProj === 'es-proj-viz'}
+		<b>:)</b>
+		{:else}
+		{$prevProj}
+		{/if}
 	</div>
 </div>
 
