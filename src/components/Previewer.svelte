@@ -1,5 +1,7 @@
 <script>
 	import Default from "./previews/Default.svelte";
+	import EsProjViz from "./previews/EsProjViz.svelte";
+	import NoPoll from "./previews/NoPoll.svelte";
 
 	import { prevProj } from '../stores/previewing.js';
 </script>
@@ -11,7 +13,9 @@
 		{#if $prevProj === ''}
 		<Default />
 		{:else if $prevProj === 'es-proj-viz'}
-		<b>:)</b>
+		<EsProjViz />
+		{:else if $prevProj === 'no-poll'}
+		<NoPoll />
 		{:else}
 		{$prevProj}
 		{/if}

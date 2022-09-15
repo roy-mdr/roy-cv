@@ -32,7 +32,7 @@
 	};
 
 	onMount( async () => {
-		VanillaTilt.init(skillEl, tiltOptions);
+		// VanillaTilt.init(skillEl, tiltOptions);
 	});
 
 	export let skill: string;
@@ -83,7 +83,7 @@
 <div bind:this={skillEl} class="skill">
 	{#if skillSet[skill]}
 	<!-- <img src={skillSet[skill].icon + "&color=" + skillSet[skill].color} width={iconSize} height={iconSize} alt={skillSet[skill].name}> -->
-	<svg data-src={skillSet[skill].icon} width={iconSize} height={iconSize} color={"#" + skillSet[skill].color}></svg>
+	<svg data-src={skillSet[skill].icon} width={iconSize} height={iconSize} color={"#"}></svg>
 	<div class="level" style="max-height: {skillSet[skill].level * 100}%;"></div>
 	<div class="name">{skillSet[skill].name}</div>
 	{:else}
@@ -131,6 +131,7 @@
 		bottom: 0;
 		left: 0;
 		transition: height 0.5s;
+		/* transition: height var(--speed-normal); */
 	}
 
 	.skill:hover .level {
@@ -144,7 +145,6 @@
 		position: absolute;
 		top: 110%;
 		left: 0;
-		transition: height 0.5s;
 		padding: 0 0.5em;
 		z-index: -1;
 	}

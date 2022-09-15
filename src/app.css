@@ -14,7 +14,7 @@
 .light-theme {
   --background: white;
   --carpet: #f1f3f4;
-  --mid: #999;
+  --mid: #999; /* Between carpet and main-text */
   --main-text: #222;
   /* --accent: #c81414; */
   --accent: #cf3b3b;
@@ -23,7 +23,7 @@
 .dark-theme {
   --background: black;
   --carpet: #222;
-  --mid: #999;
+  --mid: #999; /* Between carpet and main-text */
   --main-text: #f1f3f4;
   /* --accent: brown; */
   /* --accent: lawngreen; */
@@ -35,15 +35,16 @@
 .blue-theme {
   --background: rgb(0, 23, 31);
   --carpet: rgb(13, 51, 63);
-  --mid: #999;
+  --mid: rgb(65, 126, 145); /* Between carpet and main-text */
   --main-text: #cce8ff;
   --accent: brown;
 }
 
 .vapor-theme {
-  --background: rgb(255, 154, 176);
+  /* --background: rgb(255, 154, 176); */
+  --background: rgb(255, 144, 168);
   --carpet: #8fffbd;
-  --mid: #999;
+  --mid: #3f7054; /* Between carpet and main-text */
   --main-text: rgb(32, 32, 32);
   --accent: rgb(255, 235, 168);
 }
@@ -51,9 +52,9 @@
 .backrooms-theme {
   --background: rgb(226, 225, 149);
   --carpet: rgb(216, 201, 118);
-  --mid: #999;
+  --mid: rgb(134, 125, 73); /* Between carpet and main-text */
   --main-text: #493a19;
-  --accent: rgb(32, 32, 32);
+  --accent: firebrick;
 }
 
 h1, h2, h3, h4, h5, h6,

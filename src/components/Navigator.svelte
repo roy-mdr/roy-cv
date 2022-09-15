@@ -41,17 +41,16 @@
 
 <div class="navigator vertical">
 	<div class="vertical">
-		<button on:click={toggleTheme} style="text-align: center; align-items: center; justify-content: center;">— <img src="https://s2.svgbox.net/materialui.svg?ic=lightbulb&color=999" width="16" height="16" alt="Dark/Light Mode"> —</button>
-		<!-- <button on:click={toggleTheme}><svg data-src={skillSet[skill].icon} width={iconSize} height={iconSize} color={"#" + skillSet[skill].color}></svg></button> -->
-		<a href="/en/">EN <img src="https://s2.svgbox.net/materialui.svg?ic=translate&color=999" width="16" height="16" alt="Select language"></a>
-		<a href="/es/">ES <img src="https://s2.svgbox.net/materialui.svg?ic=translate&color=999" width="16" height="16" alt="Select language"></a>
-		<a href="/de/">DE <img src="https://s2.svgbox.net/materialui.svg?ic=translate&color=999" width="16" height="16" alt="Select language"></a>
+		<button on:click={toggleTheme} style="text-align: center; align-items: center; justify-content: center;">— <svg data-src="https://s2.svgbox.net/materialui.svg?ic=lightbulb" width="16" height="16" color={"#"}></svg> —</button>
+		<a href="/en/">EN <svg data-src="https://s2.svgbox.net/materialui.svg?ic=translate" width="16" height="16" color={"#"}></svg></a>
+		<a href="/es/">ES <svg data-src="https://s2.svgbox.net/materialui.svg?ic=translate" width="16" height="16" color={"#"}></svg></a>
+		<a href="/de/">DE <svg data-src="https://s2.svgbox.net/materialui.svg?ic=translate" width="16" height="16" color={"#"}></svg></a>
 	</div>
 	<hr>
 	<div class="horizontal" style="justify-content: center;">
-		<a href="https://www.linkedin.com/" target="_blank"><img src="https://s2.svgbox.net/social.svg?ic=linkedin&color=999" width="16" height="16" alt="My Linkedin"></a>
-		<a href="https://github.com/" target="_blank"><img src="https://s2.svgbox.net/social.svg?ic=github&color=999" width="16" height="16" alt="My Github"></a>
-		<a href="https://instagram.com/" target="_blank"><img src="https://s2.svgbox.net/social.svg?ic=instagram&color=999" width="16" height="16" alt="My Github"></a>
+		<a href="https://www.linkedin.com/" target="_blank"><svg data-src="https://s2.svgbox.net/social.svg?ic=linkedin" width="16" height="16" color={"#"}></svg></a>
+		<a href="https://github.com/" target="_blank"><svg data-src="https://s2.svgbox.net/social.svg?ic=github" width="16" height="16" color={"#"}></svg></a>
+		<a href="https://instagram.com/" target="_blank"><svg data-src="https://s2.svgbox.net/social.svg?ic=instagram" width="16" height="16" color={"#"}></svg></a>
 		<!-- <a href="/">- instagram? xD</a> -->
 	</div>
 	<hr>
@@ -124,8 +123,8 @@
 		background-color: var(--main-text);
 	}
 
-	.navigator a img,
-	.navigator button img {
+	.navigator a svg,
+	.navigator button svg {
 		margin: 4px;
 	}
 

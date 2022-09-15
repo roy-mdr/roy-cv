@@ -2,7 +2,6 @@
 	import { onMount } from 'svelte';
 
 	import Parallax from 'parallax-js';
-	// import ParallaxSvg from "../../assets/ParallaxSvg.svelte";
 
 	let parallaxSvg;
 

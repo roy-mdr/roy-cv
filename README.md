@@ -3,11 +3,19 @@
 ## Setup
 
 1. Make sure you have installed Git and Node.js + NPM
+
 1. Open a terminal and clone repo using Git
+
     `git clone https://github.com/roy-mdr/roy-cv.git`
+
 1. Cd to folder and run:
+
     `npm i`
+
     `COPY /Y .\src\lib\parallax.js .\node_modules\parallax-js\dist\parallax.js`
+
+    > IMPORTANT TO RUN THIS COMMAND BEFORE RUN OR BUILD
+
     > This command is because there are unmerged PRs in Parallax.js library and haven't been able to compile on my own... So...
 
 ## Run / build
@@ -20,6 +28,7 @@
 - [ ] Add first project preview!
 - [ ] Make modal component
 - [ ] Prompt filter on page land? (what do you want to see?)
+- [ ] Add save settings to localStorage (lang, theme)
 - [ ] Design "What's next?" section
 - [ ] Design "Education" section
 - [ ] Design "Skills" section (kinda done but...)
