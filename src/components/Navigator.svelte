@@ -55,14 +55,14 @@
 	</div>
 	<hr>
 	<div class="vertical">
-		<a href="/#presentation">Inicio</a>
-		<a href="/#education">Educación</a>
-		<a href="/#experience">Experienca</a>
-		<a href="/#projects">Proyectos</a>
-		<a href="/#skills">Habilidades</a>
-		<a href="/#languages">Idiomas</a>
-		<a href="/#references">Referencias</a>
-		<a href="/#contact">Contacto</a>
+		<a href="#presentation">Inicio</a>
+		<a href="#education">Educación</a>
+		<a href="#experience">Experienca</a>
+		<a href="#projects">Proyectos</a>
+		<a href="#skills">Habilidades</a>
+		<a href="#languages">Idiomas</a>
+		<a href="#references">Referencias</a>
+		<a href="#contact">Contacto</a>
 	</div>
 </div>
 

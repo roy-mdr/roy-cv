@@ -17,7 +17,8 @@
   --mid: #999; /* Between carpet and main-text */
   --main-text: #222;
   /* --accent: #c81414; */
-  --accent: #cf3b3b;
+  /* --accent: #cf3b3b; */
+  --accent: #e24848;
 }
 
 .dark-theme {
@@ -54,7 +55,8 @@
   --carpet: rgb(216, 201, 118);
   --mid: rgb(134, 125, 73); /* Between carpet and main-text */
   --main-text: #493a19;
-  --accent: firebrick;
+  /* --accent: firebrick; */
+  --accent: peru;
 }
 
 h1, h2, h3, h4, h5, h6,

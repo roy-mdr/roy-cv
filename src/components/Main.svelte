@@ -173,19 +173,20 @@
 			<Skill skill="powerpoint" />
 			<Skill skill="illustrator" />
 			<Skill skill="photoshop" />
+			<Skill skill="lightroom" />
 			<Skill skill="premiere" />
 			<Skill skill="indesign" />
 			<Skill skill="autocad" />
 			<Skill skill="revit" />
-			<Skill skill="sketchup" />
-			<Skill skill="3dsmax" />
-			<Skill skill="cinema4d" />
+			<Skill skill="_3dsmax" />
 			<Skill skill="vray" />
+			<Skill skill="sketchup" />
+			<Skill skill="cinema4d" />
 			<Skill skill="lumion" />
 			<Skill skill="twinmotion" />
 			<Skill skill="arcgis" />
 			<Skill skill="metashape" />
-			<Skill skill="3dzephyr" />
+			<Skill skill="_3dzephyr" />
 			<Skill skill="rhinoceros" />
 			<Skill skill="grasshopper" />
 			<Skill skill="ladybug" />
@@ -194,8 +195,7 @@
 		<h3>Software / Hardware</h3>
 		<h4>Tecnologías</h4>
 		<div class="skillset">
-			<Skill skill="uinx" />
-			<Skill skill="cmd" />
+			<Skill skill="shell" />
 			<Skill skill="git" />
 			<Skill skill="github" />
 			<Skill skill="docker" />
@@ -218,10 +218,12 @@
 			<Skill skill="arduino" />
 			<Skill skill="autoit" />
 			<Skill skill="processing" />
+			<Skill skill="java" />
 		</div>
 
 		<h4>Front End</h4>
 		<div class="skillset">
+			<Skill skill="xd" />
 			<Skill skill="javascript" />
 			<Skill skill="html" />
 			<Skill skill="css" />

@@ -3,6 +3,75 @@
 	import { onMount } from 'svelte';
 	import "external-svg-loader";
 
+	/* <IMAGES> */
+	import svg3dsmax from '../assets/icons/3dsmax.svg';
+	import svg3dzephyr from '../assets/icons/3dzephyr.svg';
+	import svgAfterfx from '../assets/icons/afterfx.svg';
+	import svgApache from '../assets/icons/apache.svg';
+	import svgArcgis from '../assets/icons/arcgis.svg';
+	import svgArduino from '../assets/icons/arduino.svg';
+	import svgAudition from '../assets/icons/audition.svg';
+	import svgAutocad from '../assets/icons/autocad.svg';
+	import svgAutoit from '../assets/icons/autoit.svg';
+	import svgCinema4d from '../assets/icons/cinema4d.svg';
+	import svgCpp from '../assets/icons/cpp.svg';
+	import svgCss from '../assets/icons/css.svg';
+	import svgDesign from '../assets/icons/design.svg';
+	import svgDocker from '../assets/icons/docker.svg';
+	import svgDrawing from '../assets/icons/drawing.svg';
+	import svgExcel from '../assets/icons/excel.svg';
+	import svgGit from '../assets/icons/git.svg';
+	import svgGithub from '../assets/icons/github.svg';
+	import svgGlasses from '../assets/icons/glasses.svg';
+	import svgGraphql from '../assets/icons/graphql.svg';
+	import svgGrasshopper from '../assets/icons/grasshopper.svg';
+	import svgHoneybee from '../assets/icons/honeybee.svg';
+	import svgHtml from '../assets/icons/html.svg';
+	import svgIllustrator from '../assets/icons/illustrator.svg';
+	import svgIndesign from '../assets/icons/indesign.svg';
+	import svgInsomia from '../assets/icons/insomia.svg';
+	import svgJava from '../assets/icons/java.svg';
+	import svgJavascript from '../assets/icons/javascript.svg';
+	import svgJson from '../assets/icons/json.svg';
+	import svgLadybug from '../assets/icons/ladybug.svg';
+	import svgLaravel from '../assets/icons/laravel.svg';
+	import svgLightroom from '../assets/icons/lightroom.svg';
+	import svgLive from '../assets/icons/live.svg';
+	import svgLumion from '../assets/icons/lumion.svg';
+	import svgMariadb from '../assets/icons/mariadb.svg';
+	import svgMarkdown from '../assets/icons/markdown.svg';
+	import svgMetashape from '../assets/icons/metashape.svg';
+	import svgMongo from '../assets/icons/mongo.svg';
+	import svgMuse from '../assets/icons/muse.svg';
+	import svgMysql from '../assets/icons/mysql.svg';
+	import svgNetwork from '../assets/icons/network.svg';
+	import svgNginx from '../assets/icons/nginx.svg';
+	import svgNodejs from '../assets/icons/nodejs.svg';
+	import svgPhotoshop from '../assets/icons/photoshop.svg';
+	import svgPhp from '../assets/icons/php.svg';
+	import svgPostman from '../assets/icons/postman.svg';
+	import svgPowerpoint from '../assets/icons/powerpoint.svg';
+	import svgPremiere from '../assets/icons/premiere.svg';
+	import svgProcessing from '../assets/icons/processing.svg';
+	import svgPython from '../assets/icons/python.svg';
+	import svgQt from '../assets/icons/qt.svg';
+	import svgRevit from '../assets/icons/revit.svg';
+	import svgRhinoceros from '../assets/icons/rhinoceros.svg';
+	import svgShell from '../assets/icons/shell.svg';
+	import svgSketchup from '../assets/icons/sketchup.svg';
+	import svgStudioone from '../assets/icons/studioone.svg';
+	import svgSublime from '../assets/icons/sublime.svg';
+	import svgSvelte from '../assets/icons/svelte.svg';
+	import svgTwinmotion from '../assets/icons/twinmotion.svg';
+	import svgTypescript from '../assets/icons/typescript.svg';
+	import svgVray from '../assets/icons/vray.svg';
+	import svgVscode from '../assets/icons/vscode.svg';
+	import svgVue from '../assets/icons/vue.svg';
+	import svgWord from '../assets/icons/word.svg';
+	import svgWordpress from '../assets/icons/wordpress.svg';
+	import svgXd from '../assets/icons/xd.svg';
+	/* </IMAGES> */
+
 	let skillEl;
 
 	const tiltOptions = {
@@ -38,43 +107,72 @@
 	export let skill: string;
 
 	let iconSize: number = 32;
-	let iconColor: number = 222;
 
 	let skillSet: object = {
-		apache:      {icon: "https://s2.svgbox.net/files.svg?ic=apache",              name: "Apache",      level: 0},
-		arduino:     {icon: "https://s2.svgbox.net/files.svg?ic=arduino",             name: "Arduino",     level: 0.8},
-		autoit:      {icon: "https://s2.svgbox.net/files.svg?ic=autoit",              name: "Autoit",      level: 0.8},
-		cpp:         {icon: "https://s2.svgbox.net/files.svg?ic=cpp2",                name: "C++",         level: 0.5},
-		css:         {icon: "https://s2.svgbox.net/files.svg?ic=css",                 name: "CSS",         level: 0.9},
-		docker:      {icon: "https://s2.svgbox.net/files.svg?ic=docker2",             name: "Docker",      level: 0.5},
-		draw:        {icon: "https://s2.svgbox.net/hero-solid.svg?ic=pencil",         name: "Drawing",     level: 0.75},
-		excel:       {icon: "https://s2.svgbox.net/files.svg?ic=excel2",              name: "Excel",       level: 0.8},
-		git:         {icon: "https://s2.svgbox.net/files.svg?ic=git",                 name: "Git",         level: 0.9},
-		github:      {icon: "https://s2.svgbox.net/social.svg?ic=github",             name: "Github",      level: 0.8},
-		graphql:     {icon: "https://s2.svgbox.net/files.svg?ic=graphql",             name: "Graphql",     level: 0.2},
-		html:        {icon: "https://s2.svgbox.net/files.svg?ic=html",                name: "HTML",        level: 1},
-		illustrator: {icon: "https://s2.svgbox.net/files.svg?ic=ai",                  name: "Illustrator", level: 1},
-		javascript:  {icon: "https://s2.svgbox.net/files.svg?ic=js-official",         name: "Javascript",  level: 0.9},
-		json:        {icon: "https://s2.svgbox.net/files.svg?ic=json",                name: "JSON",        level: 1},
-		laravel:     {icon: "https://s2.svgbox.net/files.svg?ic=blade",               name: "Laravel",     level: 0.2},
-		mariadb:     {icon: "https://s2.svgbox.net/files.svg?ic=mariadb",             name: "Maraidb",     level: 0.8},
-		markdown:    {icon: "https://s2.svgbox.net/files.svg?ic=markdown",            name: "Markdown",    level: 1},
-		mongodb:     {icon: "https://s2.svgbox.net/files.svg?ic=mongo",               name: "Mongodb",     level: 0.2},
-		mysql:       {icon: "https://s2.svgbox.net/files.svg?ic=mysql",               name: "Mysql",       level: 0.8},
-		nginx:       {icon: "https://s2.svgbox.net/files.svg?ic=nginx",               name: "Nginx",       level: 0.2},
-		nodejs:      {icon: "https://s2.svgbox.net/files.svg?ic=node",                name: "Node Js",     level: 0.7},
-		photoshop:   {icon: "https://s2.svgbox.net/files.svg?ic=photoshop",           name: "Photoshop",   level: 1},
-		php:         {icon: "https://s2.svgbox.net/files.svg?ic=php3",                name: "PHP",         level: 0.7},
-		powerpoint:  {icon: "https://s2.svgbox.net/files.svg?ic=powerpoint2",         name: "Powerpoint",  level: 1},
-		processing:  {icon: "https://s2.svgbox.net/files.svg?ic=processing-lang",     name: "Processing",  level: 0.5},
-		python:      {icon: "https://s2.svgbox.net/files.svg?ic=python",              name: "Python",      level: 0.2},
-		qt:          {icon: "https://s2.svgbox.net/files.svg?ic=qml",                 name: "Qt",          level: 0.2},
-		svelte:      {icon: "https://s2.svgbox.net/files.svg?ic=svelte",              name: "Svelte Js",   level: 0.8},
-		typescript:  {icon: "https://s2.svgbox.net/files.svg?ic=typescript-official", name: "Typescript",  level: 0.6},
-		vscode:      {icon: "https://s2.svgbox.net/files.svg?ic=vscode2",             name: "VS Code",     level: 1},
-		vue:         {icon: "https://s2.svgbox.net/files.svg?ic=vue",                 name: "Vue Js",      level: 0.6},
-		word:        {icon: "https://s2.svgbox.net/files.svg?ic=word2",               name: "Word",        level: 1},
-		wordpress:   {icon: "https://s2.svgbox.net/social.svg?ic=wordpress",          name: "Wordpress",   level: 0.8},
+		apache:      {icon: svgApache,      name: "Apache",                 level: 0.6},
+		arduino:     {icon: svgArduino,     name: "Arduino",                level: 0.8},
+		autoit:      {icon: svgAutoit,      name: "Autoit",                 level: 0.8},
+		cpp:         {icon: svgCpp,         name: "C++",                    level: 0.5},
+		css:         {icon: svgCss,         name: "CSS",                    level: 0.9},
+		docker:      {icon: svgDocker,      name: "Docker",                 level: 0.5},
+		draw:        {icon: svgDrawing,     name: "Hand Drawing",           level: 0.8},
+		excel:       {icon: svgExcel,       name: "Excel",                  level: 0.8},
+		git:         {icon: svgGit,         name: "Git",                    level: 0.9},
+		github:      {icon: svgGithub,      name: "Github",                 level: 0.8},
+		graphql:     {icon: svgGraphql,     name: "Graphql",                level: 0.2},
+		html:        {icon: svgHtml,        name: "HTML",                   level: 1.0},
+		illustrator: {icon: svgIllustrator, name: "Illustrator",            level: 1.0},
+		javascript:  {icon: svgJavascript,  name: "Javascript",             level: 0.9},
+		json:        {icon: svgJson,        name: "JSON",                   level: 1.0},
+		laravel:     {icon: svgLaravel,     name: "Laravel",                level: 0.2},
+		mariadb:     {icon: svgMariadb,     name: "Maraidb",                level: 0.8},
+		markdown:    {icon: svgMarkdown,    name: "Markdown",               level: 1.0},
+		mongodb:     {icon: svgMongo,       name: "Mongodb",                level: 0.2},
+		mysql:       {icon: svgMysql,       name: "Mysql",                  level: 0.8},
+		nginx:       {icon: svgNginx,       name: "Nginx",                  level: 0.2},
+		nodejs:      {icon: svgNodejs,      name: "Node Js",                level: 0.7},
+		photoshop:   {icon: svgPhotoshop,   name: "Photoshop",              level: 1.0},
+		php:         {icon: svgPhp,         name: "PHP",                    level: 0.7},
+		powerpoint:  {icon: svgPowerpoint,  name: "Powerpoint",             level: 1.0},
+		processing:  {icon: svgProcessing,  name: "Processing",             level: 0.5},
+		python:      {icon: svgPython,      name: "Python",                 level: 0.2},
+		qt:          {icon: svgQt,          name: "Qt",                     level: 0.2},
+		svelte:      {icon: svgSvelte,      name: "Svelte Js",              level: 0.8},
+		typescript:  {icon: svgTypescript,  name: "Typescript",             level: 0.6},
+		vscode:      {icon: svgVscode,      name: "VS Code",                level: 1.0},
+		vue:         {icon: svgVue,         name: "Vue Js",                 level: 0.6},
+		word:        {icon: svgWord,        name: "Word",                   level: 1.0},
+		wordpress:   {icon: svgWordpress,   name: "Wordpress",              level: 0.8},
+		premiere:    {icon: svgPremiere,    name: "Premiere Pro",           level: 0.6},
+		indesign:    {icon: svgIndesign,    name: "Indesign",               level: 0.7},
+		autocad:     {icon: svgAutocad,     name: "Autocad",                level: 1.0},
+		revit:       {icon: svgRevit,       name: "Revit",                  level: 0.2},
+		sketchup:    {icon: svgSketchup,    name: "Sketchup",               level: 0.8},
+		_3dsmax:     {icon: svg3dsmax,      name: "3ds Max",                level: 0.8},
+		cinema4d:    {icon: svgCinema4d,    name: "Cinema 4D",              level: 0.8},
+		vray:        {icon: svgVray,        name: "Vray",                   level: 1.0},
+		lumion:      {icon: svgLumion,      name: "Lumion",                 level: 1.0},
+		twinmotion:  {icon: svgTwinmotion,  name: "Twinmotion",             level: 1.0},
+		arcgis:      {icon: svgArcgis,      name: "ArcGIS",                 level: 0.3},
+		metashape:   {icon: svgMetashape,   name: "Metashape",              level: 0.9},
+		_3dzephyr:   {icon: svg3dzephyr,    name: "3d Zephyr",              level: 0.9},
+		rhinoceros:  {icon: svgRhinoceros,  name: "Rhinoceros",             level: 0.8},
+		grasshopper: {icon: svgGrasshopper, name: "Grasshopper",            level: 0.8},
+		ladybug:     {icon: svgLadybug,     name: "Ladybug",                level: 0.3},
+		shell:       {icon: svgShell,       name: "Unix & CMD",             level: 0.8},
+		sublime:     {icon: svgSublime,     name: "Sublime Text",           level: 0.8},
+		insomia:     {icon: svgInsomia,     name: "Insomia",                level: 1.0},
+		postman:     {icon: svgPostman,     name: "Postman",                level: 1.0},
+		networks:    {icon: svgNetwork,     name: "Networks Understanding", level: 0.8},
+		apis:        {icon: svgGraphql,     name: "API experience",         level: 0.8},
+		design:      {icon: svgGlasses,     name: "Design concepts",        level: 0.8},
+		audition:    {icon: svgAudition,    name: "Audition",               level: 0.8},
+		afterfx:     {icon: svgAfterfx,     name: "After Effects",          level: 0.8},
+		abletonlive: {icon: svgLive,        name: "Ableton Live",           level: 0.8},
+		studioone:   {icon: svgStudioone,   name: "Studio One",             level: 0.8},
+		java:        {icon: svgJava,        name: "Java",                   level: 0.3},
+		xd:          {icon: svgXd,          name: "Xd",                     level: 0.6},
+		lightroom:   {icon: svgLightroom,   name: "Lightroom",              level: 0.8},
 	}
 </script>
 
@@ -98,21 +196,26 @@
 		/* width: calc(10% - 4px); */
 		cursor: context-menu;
 		display: block;
-		padding: 1em;
+		padding: 0.5em;
 		margin: 1px;
-		border: 2px solid var(--main-text);
-		background-color: var(--carpet);
+		/* border: 2px solid var(--main-text); */
+		/* background-color: var(--carpet); */
+		/* box-sizing: border-box; */
+
 		transform-style: preserve-3d;
 		transform: perspective(1000px);
-		/* box-sizing: border-box; */
 	}
 
 	.skill svg {
-		filter: saturate(0);
+		color: var(--mid);
+		/* filter: saturate(0); */
 		display: block;
-		transform: translateZ(20px);
+		z-index: 1;
 		/* width: 32px; */
 		/* height: 32px; */
+		transition: color var(--speed-normal);
+
+		/* transform: translateZ(20px); */
 	}
 
 	.skill:hover {
@@ -120,6 +223,7 @@
 	}
 
 	.skill:hover svg {
+		color: var(--accent);
 		filter: saturate(1);
 	}
 
@@ -131,6 +235,7 @@
 		bottom: 0;
 		left: 0;
 		transition: height 0.5s;
+		z-index: -1;
 		/* transition: height var(--speed-normal); */
 	}
 
@@ -146,7 +251,7 @@
 		top: 110%;
 		left: 0;
 		padding: 0 0.5em;
-		z-index: -1;
+		/* z-index: -1; */
 	}
 
 	.skill:hover .name {
