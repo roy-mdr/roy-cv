@@ -25,21 +25,21 @@
 
 ## To Do
 
-- [ ] Add first project preview!
+- [x] Add first project preview!
 - [ ] Make modal component
 - [ ] Prompt filter on page land? (what do you want to see?)
-- [ ] Add save settings to localStorage (lang, theme)
+- [x] Add save settings to localStorage (lang, theme)
 - [ ] Design "What's next?" section
 - [ ] Design "Education" section
 - [ ] Design "Skills" section (kinda done but...)
 - [ ] Design "Contact" section
 - [ ] Design "Languages" section
-- [ ] Move "Languages" section to the top
+- [x] Move "Languages" section to the top
 - [ ] Add hand-drawing sketch to end of page.
 - [ ] Update links
-- [ ] Make app icons
-- [ ] Add English language
+- [x] Make app icons
+- [x] Add English language
 - [ ] Add Deutsch language
 - [ ] Find references :(
-- [ ] Add router :)
+- [ ] Add router :) ?? necesary?
 - [ ] Make it responsive 😬 (and fix mobile weird issues)

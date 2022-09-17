@@ -8,8 +8,189 @@
 	import PrevProjBtn from './PrevProjBtn.svelte';
 	import Skill from './Skill.svelte';
 
-	import { appTheme } from '../stores/theme.js';
+	import { appTheme, appLang } from '../stores/appState.js';
 	import { prevProj } from '../stores/previewing.js';
+
+	const content = {
+		es: {
+			altCoverPic: "Foto de portada",
+			altProfilePic: "Foto de perfil",
+			h2Presentation: "Presentación",
+			presentationP_1: "Arquitecto, web dev y amante de la música.",
+			presentationP_2: "Me apasiona encontrar puntos de fusión entre mis intereses y desarrollar proyectos creativos que desafíen el estado de lo tradicional, buscando la incorporación y creación de tecnologías sin extraviar la sensibilidad.",
+			downloadCV: "Descargar CV:",
+			profileArq: "Perifl Arquitecto",
+			profileDev: "Perifl Desarrollador",
+			profileAudio: "Perifl Productor de Audio",
+			h3WhatsNext: "¿Qué sigue?",
+			wNext_1: "Desarrollo de la etapa de seguimiento (post-entrega) de obra arquitectónica y reintegración al proceso de diseño.",
+			wNext_2: "Desarrollo de herramientas para el método de diseño arquitectónico y urbano.",
+			wNext_3: "Innovación en tecnologías de Internet of Things, análisis de datos e inteligencia artificial.",
+			wNext_4: "Desarrollo de proyectos espaciales, audiovisuales y sensoriales.",
+			h2Lang: "Idiomas",
+			langEs: "Español (nativo)",
+			langEn: "Inglés",
+			langDe: "Alemán",
+			h2Edu: "Educación",
+			edu_1: "Grado de Arquitectura en la Universidad Autónoma de Aguascalientes (2016-2021) promedio 9.6/10",
+			edu_2: "Estudios en la Escuela Técnica Superior de Arquitectura de la Universidad de Granada en Granada, España. (2019) >>>>> con un par de materias sobresaliente ?? <<<<<<",
+			h3Achiv: "Logros",
+			achiv_1: "Equipo ganador del 1er lugar nacional del Concurso Infonavit 2020",
+			achiv_2: "Desempeño sobresaliente en examen nacional de egreso arquitectura EGEL 2021",
+			achiv_3: "Mención honorífica por desempeño académico en la Universidad Autónoma de Aguascalientes",
+			h3ExtraCourse: "Cursos extracurriculares",
+			xCourse_1: "Post-producción de audio y video certificación Adobe en Master Class (2012)",
+			xCourse_2: "Curso de producción, mezcla y master musical en Pop Music Ags (2015)",
+			xCourse_3: ">>>>>> Cerámica Landelof? <<<<<<<",
+			h2Exp: "Experiencia",
+			h3ESustenta: "Estudio Sustenta Arq. (desde 2016)",
+			eSus_1: "Residente de obra",
+			eSus_2: "Levantamientos topográficos (dron + fotogrametría + estación total)",
+			eSus_3: "Proyectista y dibujante",
+			eSus_4: "Modelado 3D, render y realidad virtual",
+			eSus_5: "Desarrollador de sistemas (software / web)",
+			eSus_6: "Administración de equipo (PC / servidor propio / NAS)",
+			eSus_7: "Administrador de red (Routers, DHCP, DNS, Puertos, etc.)",
+			eSus_8: "Administración de proxys y reverse-proxys",
+			eSus_9: "Administración de paquetes y Docker",
+			h3Pozas: "Pozas Arq. (Mty 2018)",
+			pz_1: "Diseño ejecutivo de mobiliario residencial",
+			h3UAA: "Universidad Autónoma de Aguascalientes",
+			uaa_1: "Capacitación de visualización arquitectónica en realidad virtual",
+			uaa_2: "Profesor asistente en Diseño Arquitectónico II (2021)",
+			uaa_3: "Profesor asistente en Metodología del Diseño II (2022)",
+			uaa_4: "Participante en proyecto de renovación del método de diseño arquitectónico de la UAA",
+			projects: "Proyectos",
+			architecture: "Arquitectura",
+			audioviz: "Audiovisuales",
+			skills: "Habilidades",
+			tech: "Tecnologías",
+			lang: "Lenguajes",
+			reference: "Referencias",
+			contact: "Contacto",
+			send: "ENVIAR",
+		},
+
+		en: {
+			altCoverPic: "Cover pic",
+			altProfilePic: "Profile pic",
+			h2Presentation: "Presentation",
+			presentationP_1: "Architect, web developer and music lover.",
+			presentationP_2: "I find passionate looking for common areas between my interests and developing creative projects that challenge the state of the traditional, seeking the incorporation and creation of technologies without losing the aspect of sensitivity.",
+			downloadCV: "Download CV:",
+			profileArq: "Architect profile",
+			profileDev: "Soft. Developer profile",
+			profileAudio: "Audio Producer profile",
+			h3WhatsNext: "What's next?",
+			wNext_1: "Development of the post-delivery stage of building construction and reintegration into the design process.",
+			wNext_2: "Development of tools for the urban and architectural design process.",
+			wNext_3: "Innovation of technologies of Internet of Things, data analysis and IA.",
+			wNext_4: "Development of spatial, audiovisual and sensorial projects.",
+			h2Lang: "Languages",
+			langEs: "Spanish (native)",
+			langEn: "English",
+			langDe: "Deutsch",
+			h2Edu: "Education",
+			edu_1: "Architecture degree at the Autonomous University of Aguascalientes (UAA 2016-2021) grade 9.6/10",
+			edu_2: "Studies at the Higher Technical School of Architecture of the University of Granada in Granada, Spain. (2019) with a couple of outstanding subjects ??",
+			h3Achiv: "Achievements",
+			achiv_1: "1st national place winning-team of Infonavit Contest 2020",
+			achiv_2: "Outstanding grade performance in the national architecture graduation exam EGEL 2021",
+			achiv_3: "Honorable mention for academic performance at the Autonomous University of Aguascalientes (UAA 2021)",
+			h3ExtraCourse: "Extracurricular Courses",
+			xCourse_1: "Audio and video post-production training (Adobe certification) at Master Class (2012)",
+			xCourse_2: "Music production, mix and master bootcamp at Pop Music Ags (2015)",
+			xCourse_3: ">>>>>> Landelof ceramics? <<<<<<<",
+			h2Exp: "Experience",
+			h3ESustenta: "Estudio Sustenta (Arq. Firm) (since 2016)",
+			eSus_1: "On-Site Building Project Manager",
+			eSus_2: "Site survey (drone + photogrammetry + total station)",
+			eSus_3: "Designer and draftsman",
+			eSus_4: "3D modeling, rendering and VR",
+			eSus_5: "Systems developer (software / web)",
+			eSus_6: "Hardware administrator (PC / servers / NAS)",
+			eSus_7: "Network administrator (Routers, DHCP, DNS, Puertos, etc.)",
+			eSus_8: "Proxy/Reverse-proxy administrator",
+			eSus_9: "Docker setup and package mantainement",
+			h3Pozas: "Pozas Architects (2018)",
+			pz_1: "Custom residential furniture design",
+			h3UAA: "Autonomous University of Aguascalientes",
+			uaa_1: "VR Architectural Visualization Training",
+			uaa_2: "Assistant Professor in Architectural Design II (2021)",
+			uaa_3: "Assistant Professor in Design Methodology II (2022)",
+			uaa_4: "Participant of the project of renewal of the design methodology for architecture at UAA",
+			projects: "Projects",
+			architecture: "Architecture",
+			audioviz: "Audiovisual",
+			skills: "Skills",
+			tech: "Technologies",
+			lang: "Lenguages",
+			reference: "Reference",
+			contact: "Contact",
+			send: "SEND",
+		},
+
+		de: {
+			altCoverPic: "",
+			altProfilePic: "",
+			h2Presentation: "",
+			presentationP_1: "",
+			presentationP_2: "",
+			downloadCV: "",
+			profileArq: "",
+			profileDev: "",
+			profileAudio: "",
+			h3WhatsNext: "",
+			wNext_1: "",
+			wNext_2: "",
+			wNext_3: "",
+			wNext_4: "",
+			h2Lang: "",
+			langEs: "",
+			langEn: "",
+			langDe: "",
+			h2Edu: "",
+			edu_1: "",
+			edu_2: "",
+			h3Achiv: "",
+			achiv_1: "",
+			achiv_2: "",
+			achiv_3: "",
+			h3ExtraCourse: "",
+			xCourse_1: "",
+			xCourse_2: "",
+			xCourse_3: "",
+			h2Exp: "",
+			h3ESustenta: "",
+			eSus_1: "",
+			eSus_2: "",
+			eSus_3: "",
+			eSus_4: "",
+			eSus_5: "",
+			eSus_6: "",
+			eSus_7: "",
+			eSus_8: "",
+			eSus_9: "",
+			h3Pozas: "",
+			pz_1: "",
+			h3UAA: "",
+			uaa_1: "",
+			uaa_2: "",
+			uaa_3: "",
+			uaa_4: "",
+			projects: "",
+			architecture: "",
+			shWare: "",
+			audioviz: "",
+			skills: "",
+			tech: "",
+			lang: "",
+			reference: "",
+			contact: "",
+			send: "",
+		},
+	}
+
 </script>
 
 
@@ -17,11 +198,11 @@
 <main>
 	<section id="presentation" style="padding-top: 0;">
 		{#if $appTheme == 'vapor'}
-		<img src={imgVapor} alt="Cover Pic" style="width: 100%; display: block;">
+		<img src={imgVapor} alt={content[$appLang].altCoverPic || content['en'].altCoverPic} style="width: 100%; display: block;">
 		{:else if $appTheme == 'backrooms'}
-		<img src={imgBackroom} alt="Cover Pic" style="width: 100%; display: block;">
+		<img src={imgBackroom} alt={content[$appLang].altCoverPic || content['en'].altCoverPic} style="width: 100%; display: block;">
 		{:else}
-		<img src={imgVoid} alt="Cover Pic" style="width: 100%; display: block;">
+		<img src={imgVoid} alt={content[$appLang].altCoverPic || content['en'].altCoverPic} style="width: 100%; display: block;">
 		{/if}
 		<div class="my-name">
 			<!-- <img src={pPic} alt="Foto de perfil" width="100px" height="100px"> -->
@@ -36,30 +217,30 @@
 
 		<div class="pad light">
 			{#if $appTheme == 'vapor'}
-			<img src={vwStatue} alt="Foto de perfil" width="150px" height="150px" class="p-pic">
+			<img src={vwStatue} alt={content[$appLang].altProfilePic || content['en'].altProfilePic} width="150px" height="150px" class="p-pic">
 			{:else if $appTheme == 'backrooms'}
-			<img src={brEntity} alt="Foto de perfil" width="150px" height="150px" class="p-pic">
+			<img src={brEntity} alt={content[$appLang].altProfilePic || content['en'].altProfilePic} width="150px" height="150px" class="p-pic">
 			{:else}
-			<img src={pPic} alt="Foto de perfil" width="150px" height="150px" class="p-pic">
+			<img src={pPic} alt={content[$appLang].altProfilePic || content['en'].altProfilePic} width="150px" height="150px" class="p-pic">
 			{/if}
-			<h2>Presentación</h2>
+			<h2>{content[$appLang].h2Presentation || content['en'].h2Presentation}</h2>
 			<i>
-				<p>Arquitecto, web dev y amante de la música.</p>
-				<p>Me apasiona encontrar puntos de fusión entre mis intereses y desarrollar proyectos creativos que desafíen el estado de lo tradicional, buscando la incorporación y creación de tecnologías sin extraviar la sensibilidad.</p>
+				<p style="max-width: 60%;">{content[$appLang].presentationP_1 || content['en'].presentationP_1}</p>
+				<p>{content[$appLang].presentationP_2 || content['en'].presentationP_2}</p>
 			</i>
 			<div style="display: flex; justify-content: center;">
-				<a href="/" class="btn cta"><b>Descargar CV:</b> Perifl Arquitecto</a>
-				<a href="/" class="btn cta"><b>Descargar CV:</b> Perifl Desarrollador</a>
-				<a href="/" class="btn cta"><b>Descargar CV:</b> Perifl Productor de Audio</a>
+				<a href="/" class="btn cta"><b>{content[$appLang].downloadCV || content['en'].downloadCV}</b> {content[$appLang].profileArq || content['en'].profileArq}</a>
+				<a href="/" class="btn cta"><b>{content[$appLang].downloadCV || content['en'].downloadCV}</b> {content[$appLang].profileDev || content['en'].profileDev}</a>
+				<a href="/" class="btn cta"><b>{content[$appLang].downloadCV || content['en'].downloadCV}</b> {content[$appLang].profileAudio || content['en'].profileAudio}</a>
 			</div>
 		</div>
 
-		<h3>A futuro...</h3>
+		<h3>{content[$appLang].h3WhatsNext || content['en'].h3WhatsNext}</h3>
 		<ul>
-			<li>Desarrollo de la etapa de seguimiento (post-entrega) de obra arquitectónica y reintegración al ciclo de diseño.</li>
-			<li>Desarrollo de herramientas para el método de diseño arquitectónico y urbano.</li>
-			<li>Innovación en tecnologías de Internet of Things, análisis de datos e inteligencia artificial.</li>
-			<li>Desarrollo de proyectos espaciales, audiovisuales y sensoriales.</li>
+			<li>{content[$appLang].wNext_1 || content['en'].wNext_1}</li>
+			<li>{content[$appLang].wNext_2 || content['en'].wNext_2}</li>
+			<li>{content[$appLang].wNext_3 || content['en'].wNext_3}</li>
+			<li>{content[$appLang].wNext_4 || content['en'].wNext_4}</li>
 		</ul>
 
 		<div>
@@ -71,65 +252,73 @@
 
 	</section>
 
+	<section id="languages">
+		<h2>{content[$appLang].h2Lang || content['en'].h2Lang}</h2>
+		<ul>
+			<li>{content[$appLang].langEs || content['en'].langEs}</li>
+			<li>{content[$appLang].langEn || content['en'].langEn}</li>
+			<li>{content[$appLang].langDe || content['en'].langDe}</li>
+		</ul>
+	</section>
+
 	<section id="education">
-		<h2>Educación</h2>
+		<h2>{content[$appLang].h2Edu || content['en'].h2Edu}</h2>
 		<ul>
-			<li><PrevProjBtn open="infonavit2021" />Grado de Arquitectura en la Universidad Autónoma de Aguascalientes (2016-2021) promedio 9.6/10</li>
-			<li><PrevProjBtn open="infonavit2021" />Estudios en la Escuela Técnica Superior de Arquitectura de la Universidad de Granada en Granada, España. (2019) con un par de materias sobresaliente?</li>
+			<li><PrevProjBtn open="infonavit2021" />{content[$appLang].edu_1 || content['en'].edu_1}</li>
+			<li><PrevProjBtn open="infonavit2021" />{content[$appLang].edu_2 || content['en'].edu_2}</li>
 		</ul>
 
-		<h3>LOGROS</h3>
+		<h3>{content[$appLang].h3Achiv || content['en'].h3Achiv}</h3>
 		<ul>
-			<li><PrevProjBtn open="infonavit2021" />Equipo ganador 1er lugar nacional Concurso Infonavit 2020</li>
-			<li><PrevProjBtn open="infonavit2021" />Desempeño sobresaliente en examen nacional de egreso arquitectura EGEL 2021</li>
-			<li><PrevProjBtn open="infonavit2021" />Mención honorífica por desempeño académico en la Universidad Autónoma de Aguascalientes</li>
+			<li><PrevProjBtn open="infonavit2021" />{content[$appLang].achiv_1 || content['en'].achiv_1}</li>
+			<li><PrevProjBtn open="infonavit2021" />{content[$appLang].achiv_2 || content['en'].achiv_2}</li>
+			<li><PrevProjBtn open="infonavit2021" />{content[$appLang].achiv_3 || content['en'].achiv_3}</li>
 		</ul>
 
-		<h3>CURSOS EXTRACURRICULARES</h3>
+		<h3>{content[$appLang].h3ExtraCourse || content['en'].h3ExtraCourse}</h3>
 		<ul>
-			<li><PrevProjBtn open="infonavit2021" />Post-producción de audio y video certificación Adobe en Masters no se qué (2012)</li>
-			<li><PrevProjBtn open="infonavit2021" />Curso de producción, mezcla y master musical en Pop Music Ags (2015)</li>
-			<li><PrevProjBtn open="infonavit2021" />Cerámica Landelof? ;0</li>
+			<li><PrevProjBtn open="infonavit2021" />{content[$appLang].xCourse_1 || content['en'].xCourse_1}</li>
+			<li><PrevProjBtn open="infonavit2021" />{content[$appLang].xCourse_2 || content['en'].xCourse_2}</li>
+			<li><PrevProjBtn open="infonavit2021" />{content[$appLang].xCourse_3 || content['en'].xCourse_3}</li>
 		</ul>
 	</section>
 
 	<section id="experience">
-		<h2>Experiencia</h2>
+		<h2>{content[$appLang].h2Exp || content['en'].h2Exp}</h2>
 
-		<h3>Estudio Sustenta Arq. (desde 2016)</h3>
+		<h3>{content[$appLang].h3ESustenta || content['en'].h3ESustenta}</h3>
 		<ul>
-			<li>Residente de obra</li>
-			<li>Levantamientos topográficos (dron + fotogrametría + estación total)</li>
-			<li>Proyectista y dibujante</li>
-			<li>Modelado 3D, render y realidad virtual</li>
-			<li>Desarrollador de sistemas software / web</li>
-			<li>Administrador de red</li>
+			<li>{content[$appLang].eSus_1 || content['en'].eSus_1}</li>
+			<li>{content[$appLang].eSus_2 || content['en'].eSus_2}</li>
+			<li>{content[$appLang].eSus_3 || content['en'].eSus_3}</li>
+			<li>{content[$appLang].eSus_4 || content['en'].eSus_4}</li>
+			<li>{content[$appLang].eSus_5 || content['en'].eSus_5}</li>
+			<li>{content[$appLang].eSus_6 || content['en'].eSus_6}</li>
 			<ul>
-				<li>Administración de equipo (PC + servidor propio + NAS)</li>
-				<li>Administración de routers (DHCP, DNS, Puertos, etc.)</li>
-				<li>Administración de proxys y reverse-proxys</li>
-				<li>Administración de paquetes y Docker</li>
+				<li>{content[$appLang].eSus_7 || content['en'].eSus_7}</li>
+				<li>{content[$appLang].eSus_8 || content['en'].eSus_8}</li>
+				<li>{content[$appLang].eSus_9 || content['en'].eSus_9}</li>
 			</ul>
 		</ul>
 
-		<h3>Pozas Arq. (SPGG 2018)</h3>
+		<h3>{content[$appLang].h3Pozas || content['en'].h3Pozas}</h3>
 		<ul>
-			<li>Diseño ejecutivo de mobiliario residencial</li>
+			<li>{content[$appLang].pz_1 || content['en'].pz_1}</li>
 		</ul>
 
-		<h3>Universidad Autónoma de Aguascalientes</h3>
+		<h3>{content[$appLang].h3UAA || content['en'].h3UAA}</h3>
 		<ul>
-			<li>Capacitación de visualización arquitectónica en realidad virtual</li>
-			<li>Profesor asistente en Diseño Arquitectónico II (2021)</li>
-			<li>Profesor asistente en Metodología del Diseño II (2022)</li>
-			<li>Participante en proyecto de renovación del método de diseño arquitectónico de la UAA</li>
+			<li>{content[$appLang].uaa_1 || content['en'].uaa_1}</li>
+			<li>{content[$appLang].uaa_2 || content['en'].uaa_2}</li>
+			<li>{content[$appLang].uaa_3 || content['en'].uaa_3}</li>
+			<li>{content[$appLang].uaa_4 || content['en'].uaa_4}</li>
 		</ul>
 	</section>
 
 	<section id="projects">
-		<h2>Proyectos</h2>
+		<h2>{content[$appLang].projects || content['en'].projects}</h2>
 
-		<h3>Arquitectura</h3>
+		<h3>{content[$appLang].architecture || content['en'].architecture}</h3>
 		<div class="proj-container">
 			<div class="project noselect" on:click={() => $prevProj = '08-final'}>Edificio multi.</div>
 			<div class="project noselect" on:click={() => $prevProj = '08-hornedo'}>Remod. Hornedo</div>
@@ -154,7 +343,7 @@
 			<div class="project noselect" on:click={() => $prevProj = 'app-gtd'}>App Getting Things Done</div>
 		</div>
 
-		<h3>Audiovisuales</h3>
+		<h3>{content[$appLang].audioviz || content['en'].audioviz}</h3>
 		<div class="proj-container">
 			<div class="project noselect" on:click={() => $prevProj = 'bluish'}>Bluish</div>
 			<div class="project noselect" on:click={() => $prevProj = 'dovele'}>Dovele</div>
@@ -163,9 +352,9 @@
 	</section>
 
 	<section id="skills">
-		<h2>Habilidades</h2>
+		<h2>{content[$appLang].skills || content['en'].skills}</h2>
 
-		<h3>Arquitectura</h3>
+		<h3>{content[$appLang].architecture || content['en'].architecture}</h3>
 		<div class="skillset">
 			<Skill skill="draw" />
 			<Skill skill="word" />
@@ -193,7 +382,7 @@
 		</div>
 
 		<h3>Software / Hardware</h3>
-		<h4>Tecnologías</h4>
+		<h4>{content[$appLang].tech || content['en'].tech}</h4>
 		<div class="skillset">
 			<Skill skill="shell" />
 			<Skill skill="git" />
@@ -209,7 +398,7 @@
 			<Skill skill="design" />
 		</div>
 
-		<h4>Lenguajes</h4>
+		<h4>{content[$appLang].lang || content['en'].lang}</h4>
 		<div class="skillset">
 			<Skill skill="javascript" />
 			<Skill skill="php" />
@@ -253,27 +442,19 @@
 		</div>
 	</section>
 
-	<section id="languages">
-		<h2>Idiomas</h2>
-		<ul>
-			<li>Español (nativo)</li>
-			<li>Inglés</li>
-			<li>Alemán</li>
-		</ul>
-	</section>
-
 	<section id="references">
-		<h2>Referencias</h2>
+		<h2>{content[$appLang].reference || content['en'].reference}</h2>
 		<ul>
 			<li>:(</li>
 		</ul>
 	</section>
 
 	<section id="contact">
-		<h2>Contacto</h2>
+		<h2>{content[$appLang].contact || content['en'].contact}</h2>
 		<form>
 			<input type="email">
 			<textarea></textarea>
+			<button type="submit">{content[$appLang].send || content['en'].send}</button>
 		</form>
 	</section>
 

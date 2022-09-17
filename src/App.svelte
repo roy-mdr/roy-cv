@@ -1,9 +1,35 @@
 <script lang="ts">
+	import {onMount} from 'svelte';
+
 	import Navigator from './components/Navigator.svelte';
 	import Main from './components/Main.svelte';
 	import Previewer from './components/Previewer.svelte';
 
-	import { appTheme } from './stores/theme.js';
+	import { appTheme, appLang, appProfile } from './stores/appState.js';
+
+	let init = false;
+
+	onMount( async () => {
+		init = true;
+		const settingsJSON = localStorage.getItem('appSettings');
+		if (!settingsJSON) return; // Ask for settings (modal)
+		const appSettings = JSON.parse(settingsJSON);
+
+		$appTheme = appSettings.theme;
+		$appLang = appSettings.lang;
+		$appProfile = appSettings.profile;
+	});
+
+	/* WATCHER */
+	function onAppSettingsChange(theme, lang, profile) {
+		if (!init) return;
+		localStorage.appSettings = JSON.stringify({
+			lang: lang,
+			theme: theme,
+			profile: profile
+		});
+	}
+	$: settingsChange = onAppSettingsChange($appTheme, $appLang, $appProfile)
 </script>
 
 

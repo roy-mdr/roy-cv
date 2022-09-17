@@ -1,7 +1,40 @@
 <script>
 	import "external-svg-loader";
 
-	import { appTheme } from '../stores/theme.js';
+	import { appTheme, appLang, appProfile } from '../stores/appState.js';
+
+	const content = {
+		es: {
+			presentation: "Inicio",
+			languages: "Idiomas",
+			education: "Educación",
+			experience: "Experienca",
+			projects: "Proyectos",
+			skills: "Habilidades",
+			references: "Referencias",
+			contact: "Contacto",
+		},
+		en: {
+			presentation: "Start",
+			languages: "Languages",
+			education: "Education",
+			experience: "Experience",
+			projects: "Projects",
+			skills: "Skills",
+			references: "Reference",
+			contact: "Contact",
+		},
+		de: {
+			presentation: "",
+			languages: "",
+			education: "",
+			experience: "",
+			projects: "",
+			skills: "",
+			references: "",
+			contact: "",
+		},
+	}
 
 	function toggleTheme() {
 		switch ($appTheme) {
@@ -42,9 +75,9 @@
 <div class="navigator vertical">
 	<div class="vertical">
 		<button on:click={toggleTheme} style="text-align: center; align-items: center; justify-content: center;">— <svg data-src="https://s2.svgbox.net/materialui.svg?ic=lightbulb" width="16" height="16" color={"#"}></svg> —</button>
-		<a href="/en/">EN <svg data-src="https://s2.svgbox.net/materialui.svg?ic=translate" width="16" height="16" color={"#"}></svg></a>
-		<a href="/es/">ES <svg data-src="https://s2.svgbox.net/materialui.svg?ic=translate" width="16" height="16" color={"#"}></svg></a>
-		<a href="/de/">DE <svg data-src="https://s2.svgbox.net/materialui.svg?ic=translate" width="16" height="16" color={"#"}></svg></a>
+		<button on:click={() => { $appLang = 'en'}} class:current={$appLang == 'en'}>EN <svg data-src="https://s2.svgbox.net/materialui.svg?ic=translate" width="16" height="16" color={"#"}></svg></button>
+		<button on:click={() => { $appLang = 'es'}} class:current={$appLang == 'es'}>ES <svg data-src="https://s2.svgbox.net/materialui.svg?ic=translate" width="16" height="16" color={"#"}></svg></button>
+		<button on:click={() => { $appLang = 'de'}} class:current={$appLang == 'de'}>DE <svg data-src="https://s2.svgbox.net/materialui.svg?ic=translate" width="16" height="16" color={"#"}></svg></button>
 	</div>
 	<hr>
 	<div class="horizontal" style="justify-content: center;">
@@ -55,14 +88,14 @@
 	</div>
 	<hr>
 	<div class="vertical">
-		<a href="#presentation">Inicio</a>
-		<a href="#education">Educación</a>
-		<a href="#experience">Experienca</a>
-		<a href="#projects">Proyectos</a>
-		<a href="#skills">Habilidades</a>
-		<a href="#languages">Idiomas</a>
-		<a href="#references">Referencias</a>
-		<a href="#contact">Contacto</a>
+		<a href="#presentation">{content[$appLang].presentation || content['en'].presentation}</a>
+		<a href="#languages">{content[$appLang].languages || content['en'].languages}</a>
+		<a href="#education">{content[$appLang].education || content['en'].education}</a>
+		<a href="#experience">{content[$appLang].experience || content['en'].experience}</a>
+		<a href="#projects">{content[$appLang].projects || content['en'].projects}</a>
+		<a href="#skills">{content[$appLang].skills || content['en'].skills}</a>
+		<a href="#references">{content[$appLang].references || content['en'].references}</a>
+		<a href="#contact">{content[$appLang].contact || content['en'].contact}</a>
 	</div>
 </div>
 
@@ -136,5 +169,9 @@
 	.vertical {
 		display: flex;
 		flex-direction: column;
+	}
+
+	.current {
+		color: var(--accent) !important;
 	}
 </style>
