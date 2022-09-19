@@ -3,7 +3,7 @@
 
 	import Navigator from './components/Navigator.svelte';
 	import Main from './components/Main.svelte';
-	import Previewer from './components/Previewer.svelte';
+	import PreviewRouter from './components/PreviewRouter.svelte';
 
 	import { appTheme, appLang, appProfile } from './stores/appState.js';
 
@@ -25,7 +25,7 @@
 		if (!init) return;
 		localStorage.appSettings = JSON.stringify({
 			lang: lang,
-			theme: theme,
+			theme: theme == 'backrooms' ? 'vapor' : theme,
 			profile: profile
 		});
 	}
@@ -37,7 +37,7 @@
 <div class="app-content" class:light-theme={$appTheme == 'light'} class:dark-theme={$appTheme == 'dark'} class:blue-theme={$appTheme == 'blue'} class:vapor-theme={$appTheme == 'vapor'} class:backrooms-theme={$appTheme == 'backrooms'}>
 	<Navigator />
 	<Main />
-	<Previewer />
+	<PreviewRouter />
 </div>
 
 

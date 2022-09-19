@@ -243,12 +243,12 @@
 			<li>{content[$appLang].wNext_4 || content['en'].wNext_4}</li>
 		</ul>
 
-		<div>
+		<!-- <div>
 			<button>Ver todo</button>
 			<button>Filtrar: Perifl Arquitecto</button>
 			<button>Filtrar: Perifl Desarrollador</button>
 			<button>Filtrar: Perifl Productor de Audio</button>
-		</div>
+		</div> -->
 
 	</section>
 
@@ -332,8 +332,9 @@
 		<div class="proj-container">
 			<div class="project noselect" on:click={() => $prevProj = '2521'}>Website 2521</div>
 			<div class="project noselect" on:click={() => $prevProj = 'vigilost'}>VigiLost</div>
+			<!-- <div class="project noselect" on:click={() => $prevProj = 'bloom'}>Bloom Portfolio</div> -->
 			<div class="project noselect" on:click={() => $prevProj = 'splash-creator'}>Splash Creator</div>
-			<div class="project noselect" on:click={() => $prevProj = 'lshdrms'}>LSHD//DRMS</div>
+			<div class="project noselect" on:click={() => $prevProj = 'lshdrms'}>LSHD//DRMS + Chrome Extension</div>
 			<div class="project noselect" on:click={() => $prevProj = 'es-web'}>Webapp + Website Estudio Sustenta</div>
 			<div class="project noselect" on:click={() => $prevProj = 'vr-ctrl'}>VR Controller</div>
 			<div class="project noselect" on:click={() => $prevProj = 'iot'}>IoT firmware</div>
@@ -356,96 +357,96 @@
 
 		<h3>{content[$appLang].architecture || content['en'].architecture}</h3>
 		<div class="skillset">
-			<Skill skill="draw" />
-			<Skill skill="word" />
-			<Skill skill="excel" />
-			<Skill skill="powerpoint" />
-			<Skill skill="illustrator" />
-			<Skill skill="photoshop" />
-			<Skill skill="lightroom" />
-			<Skill skill="premiere" />
-			<Skill skill="indesign" />
-			<Skill skill="autocad" />
-			<Skill skill="revit" />
-			<Skill skill="_3dsmax" />
-			<Skill skill="vray" />
-			<Skill skill="sketchup" />
-			<Skill skill="cinema4d" />
-			<Skill skill="lumion" />
-			<Skill skill="twinmotion" />
-			<Skill skill="arcgis" />
-			<Skill skill="metashape" />
-			<Skill skill="_3dzephyr" />
-			<Skill skill="rhinoceros" />
-			<Skill skill="grasshopper" />
-			<Skill skill="ladybug" />
+			<Skill level={true} skill="draw" />
+			<Skill level={true} skill="word" />
+			<Skill level={true} skill="excel" />
+			<Skill level={true} skill="powerpoint" />
+			<Skill level={true} skill="illustrator" />
+			<Skill level={true} skill="photoshop" />
+			<Skill level={true} skill="lightroom" />
+			<Skill level={true} skill="premiere" />
+			<Skill level={true} skill="indesign" />
+			<Skill level={true} skill="autocad" />
+			<Skill level={true} skill="revit" />
+			<Skill level={true} skill="_3dsmax" />
+			<Skill level={true} skill="vray" />
+			<Skill level={true} skill="sketchup" />
+			<Skill level={true} skill="cinema4d" />
+			<Skill level={true} skill="lumion" />
+			<Skill level={true} skill="twinmotion" />
+			<Skill level={true} skill="arcgis" />
+			<Skill level={true} skill="metashape" />
+			<Skill level={true} skill="_3dzephyr" />
+			<Skill level={true} skill="rhinoceros" />
+			<Skill level={true} skill="grasshopper" />
+			<Skill level={true} skill="ladybug" />
 		</div>
 
 		<h3>Software / Hardware</h3>
 		<h4>{content[$appLang].tech || content['en'].tech}</h4>
 		<div class="skillset">
-			<Skill skill="shell" />
-			<Skill skill="git" />
-			<Skill skill="github" />
-			<Skill skill="docker" />
-			<Skill skill="vscode" />
-			<Skill skill="sublime" />
-			<Skill skill="insomia" />
-			<Skill skill="postman" />
-			<Skill skill="markdown" />
-			<Skill skill="networks" />
-			<Skill skill="apis" />
-			<Skill skill="design" />
+			<Skill level={true} skill="shell" />
+			<Skill level={true} skill="git" />
+			<Skill level={true} skill="github" />
+			<Skill level={true} skill="docker" />
+			<Skill level={true} skill="vscode" />
+			<Skill level={true} skill="sublime" />
+			<Skill level={true} skill="insomia" />
+			<Skill level={true} skill="postman" />
+			<Skill level={true} skill="markdown" />
+			<Skill level={true} skill="networks" />
+			<Skill level={true} skill="apis" />
+			<Skill level={true} skill="design" />
 		</div>
 
 		<h4>{content[$appLang].lang || content['en'].lang}</h4>
 		<div class="skillset">
-			<Skill skill="javascript" />
-			<Skill skill="php" />
-			<Skill skill="cpp" />
-			<Skill skill="python" />
-			<Skill skill="arduino" />
-			<Skill skill="autoit" />
-			<Skill skill="processing" />
-			<Skill skill="java" />
+			<Skill level={true} skill="javascript" />
+			<Skill level={true} skill="php" />
+			<Skill level={true} skill="cpp" />
+			<Skill level={true} skill="python" />
+			<Skill level={true} skill="arduino" />
+			<Skill level={true} skill="autoit" />
+			<Skill level={true} skill="processing" />
+			<Skill level={true} skill="java" />
 		</div>
 
 		<h4>Front End</h4>
 		<div class="skillset">
-			<Skill skill="xd" />
-			<Skill skill="javascript" />
-			<Skill skill="html" />
-			<Skill skill="css" />
-			<Skill skill="vue" />
-			<Skill skill="svelte" />
+			<Skill level={true} skill="xd" />
+			<Skill level={true} skill="javascript" />
+			<Skill level={true} skill="html" />
+			<Skill level={true} skill="css" />
+			<Skill level={true} skill="vue" />
+			<Skill level={true} skill="svelte" />
 		</div>
 		<h4>Back End</h4>
 		<div class="skillset">
-			<Skill skill="php" />
-			<Skill skill="nodejs" />
-			<Skill skill="typescript" />
+			<Skill level={true} skill="php" />
+			<Skill level={true} skill="nodejs" />
+			<Skill level={true} skill="typescript" />
 		</div>
 		<h4>Database</h4>
 		<div class="skillset">
-			<Skill skill="mariadb" />
-			<Skill skill="mongodb" />
-			<Skill skill="mysql" />
+			<Skill level={true} skill="mariadb" />
+			<Skill level={true} skill="mongodb" />
+			<Skill level={true} skill="mysql" />
 		</div>
 
 		<h3>Audiovisuales</h3>
 		<div class="skillset">
-			<Skill skill="premiere" />
-			<Skill skill="audition" />
-			<Skill skill="afterfx" />
-			<Skill skill="abletonlive" />
-			<Skill skill="studioone" />
+			<Skill level={true} skill="premiere" />
+			<Skill level={true} skill="audition" />
+			<Skill level={true} skill="afterfx" />
+			<Skill level={true} skill="abletonlive" />
+			<Skill level={true} skill="studioone" />
 		</div>
 	</section>
 
 	<section id="references">
 		<h2>{content[$appLang].reference || content['en'].reference}</h2>
 		<ul>
-			<li>:(</li>
+			<li>Gustavo Martínez Velasco (Estudio Sustenta)</li>
 		</ul>
 	</section>
 
@@ -459,7 +460,7 @@
 	</section>
 
 	<footer>
-		<span>roy-mdr @ 2022 | <a href="https://github.com/">View source code</a></span>
+		<span>roy-mdr @ 2022 | <a href="https://github.com/roy-mdr/roy-cv" target="_blank">View source code</a></span>
 	</footer>
 
 </main>

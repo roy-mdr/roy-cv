@@ -1,4 +1,6 @@
 <script lang="ts">
+	import "external-svg-loader";
+
 	export let open: string;
 
 	function previewProject() {
@@ -8,7 +10,7 @@
 
 
 
-<div class="prev-proj" on:click={previewProject}><img src="https://s2.svgbox.net/materialui.svg?ic=remove_red_eye&color=f1f3f4" width="16" height="16" alt="Preview project"></div>
+<div class="prev-proj" on:click={previewProject}><svg data-src="https://s2.svgbox.net/materialui.svg?ic=remove_red_eye" width="16" height="16" color={"#"}></svg></div>
 
 
 
@@ -21,7 +23,8 @@
 		transition: opacity var(--speed-normal), background-color var(--speed-normal);
 	}
 
-	.prev-proj img {
+	.prev-proj svg {
 		display: block;
+		color: var(--carpet);
 	}
 </style>

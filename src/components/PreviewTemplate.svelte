@@ -3,10 +3,25 @@
 	import "external-svg-loader";
 
 	import { prevProj } from '../stores/previewing.js';
+	import { appLang } from '../stores/appState.js';
+    import Skill from './Skill.svelte';
 
 	export let title: string;
 	export let link = '';
-	export let buttonText = 'VER PROYECTO';
+	export let technologies = [];
+	export let buttonText = '';
+
+	const content = {
+		es: {
+			btnTxt: "VER PROYECTO",
+		},
+		en: {
+			btnTxt: "GO TO PROJECT",
+		},
+		de: {
+			btnTxt: "",
+		},
+	};
 
 	function drop(node, { duration }) {
 		const fromHeight = 10;
@@ -28,14 +43,17 @@
 <div in:drop={{duration: 500}} class="container">
 	<svg data-src="https://s2.svgbox.net/hero-solid.svg?ic=x" width="24" height="24" color="var(--carpet)" class="close" on:click={() => $prevProj = ''}></svg>
 	<h1 class="title">{title}</h1>
-	<div class="center">
+	<div class="center" in:drop={{duration: 1000}}>
 		<div class="content">
-			<slot name="preview">
-			</slot>
-			<slot name="description">
-			</slot>
+			<slot name="preview"></slot>
+			<slot name="description"></slot>
+			<div class="skillset">
+				{#each technologies as skill}
+					<Skill skill={skill} />
+				{/each}
+			</div>
 			{#if link !== ''}
-			<a href={link} target="_blank" class="btn">{buttonText}</a>
+			<a href={link} target="_blank" class="btn" in:drop={{duration: 1500}}>{buttonText || content[$appLang].btnTxt || content["en"].btnTxt}</a>
 			{/if}
 		</div>
 	</div>
@@ -52,6 +70,7 @@
 		height: 100%;
 		display: flex;
 		flex-direction: column;
+		overflow: auto;
 		/* flex-flow: column; */
 	}
 
@@ -109,5 +128,10 @@
 		margin: 2em 0 0 0;
 		width: max-content;
 		transition: background-color var(--speed-normal), color var(--speed-normal);
+	}
+
+	.skillset {
+		display: flex;
+		flex-wrap: wrap;
 	}
 </style>

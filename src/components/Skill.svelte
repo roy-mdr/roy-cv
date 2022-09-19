@@ -105,74 +105,76 @@
 	});
 
 	export let skill: string;
+	export let level = false;
 
 	let iconSize: number = 32;
 
 	let skillSet: object = {
+		_3dsmax:     {icon: svg3dsmax,      name: "3ds Max",                level: 0.8},
+		_3dzephyr:   {icon: svg3dzephyr,    name: "3d Zephyr",              level: 0.9},
+		abletonlive: {icon: svgLive,        name: "Ableton Live",           level: 0.8},
+		afterfx:     {icon: svgAfterfx,     name: "After Effects",          level: 0.8},
 		apache:      {icon: svgApache,      name: "Apache",                 level: 0.6},
+		apis:        {icon: svgGraphql,     name: "API experience",         level: 0.8},
+		arcgis:      {icon: svgArcgis,      name: "ArcGIS",                 level: 0.3},
 		arduino:     {icon: svgArduino,     name: "Arduino",                level: 0.8},
+		audition:    {icon: svgAudition,    name: "Audition",               level: 0.8},
+		autocad:     {icon: svgAutocad,     name: "Autocad",                level: 1.0},
 		autoit:      {icon: svgAutoit,      name: "Autoit",                 level: 0.8},
+		cinema4d:    {icon: svgCinema4d,    name: "Cinema 4D",              level: 0.8},
 		cpp:         {icon: svgCpp,         name: "C++",                    level: 0.5},
 		css:         {icon: svgCss,         name: "CSS",                    level: 0.9},
+		design:      {icon: svgGlasses,     name: "Design concepts",        level: 0.8},
 		docker:      {icon: svgDocker,      name: "Docker",                 level: 0.5},
 		draw:        {icon: svgDrawing,     name: "Hand Drawing",           level: 0.8},
 		excel:       {icon: svgExcel,       name: "Excel",                  level: 0.8},
 		git:         {icon: svgGit,         name: "Git",                    level: 0.9},
 		github:      {icon: svgGithub,      name: "Github",                 level: 0.8},
 		graphql:     {icon: svgGraphql,     name: "Graphql",                level: 0.2},
+		grasshopper: {icon: svgGrasshopper, name: "Grasshopper",            level: 0.8},
 		html:        {icon: svgHtml,        name: "HTML",                   level: 1.0},
 		illustrator: {icon: svgIllustrator, name: "Illustrator",            level: 1.0},
+		indesign:    {icon: svgIndesign,    name: "Indesign",               level: 0.7},
+		insomia:     {icon: svgInsomia,     name: "Insomia",                level: 1.0},
+		java:        {icon: svgJava,        name: "Java",                   level: 0.3},
 		javascript:  {icon: svgJavascript,  name: "Javascript",             level: 0.9},
 		json:        {icon: svgJson,        name: "JSON",                   level: 1.0},
+		ladybug:     {icon: svgLadybug,     name: "Ladybug",                level: 0.3},
 		laravel:     {icon: svgLaravel,     name: "Laravel",                level: 0.2},
+		lightroom:   {icon: svgLightroom,   name: "Lightroom",              level: 0.8},
+		lumion:      {icon: svgLumion,      name: "Lumion",                 level: 1.0},
 		mariadb:     {icon: svgMariadb,     name: "Maraidb",                level: 0.8},
 		markdown:    {icon: svgMarkdown,    name: "Markdown",               level: 1.0},
+		metashape:   {icon: svgMetashape,   name: "Metashape",              level: 0.9},
 		mongodb:     {icon: svgMongo,       name: "Mongodb",                level: 0.2},
+		muse:        {icon: svgMuse,        name: "Adobe Muse",             level: 0.9},
 		mysql:       {icon: svgMysql,       name: "Mysql",                  level: 0.8},
+		networks:    {icon: svgNetwork,     name: "Networks Understanding", level: 0.8},
 		nginx:       {icon: svgNginx,       name: "Nginx",                  level: 0.2},
 		nodejs:      {icon: svgNodejs,      name: "Node Js",                level: 0.7},
 		photoshop:   {icon: svgPhotoshop,   name: "Photoshop",              level: 1.0},
 		php:         {icon: svgPhp,         name: "PHP",                    level: 0.7},
+		postman:     {icon: svgPostman,     name: "Postman",                level: 1.0},
 		powerpoint:  {icon: svgPowerpoint,  name: "Powerpoint",             level: 1.0},
+		premiere:    {icon: svgPremiere,    name: "Premiere Pro",           level: 0.6},
 		processing:  {icon: svgProcessing,  name: "Processing",             level: 0.5},
 		python:      {icon: svgPython,      name: "Python",                 level: 0.2},
 		qt:          {icon: svgQt,          name: "Qt",                     level: 0.2},
+		revit:       {icon: svgRevit,       name: "Revit",                  level: 0.2},
+		rhinoceros:  {icon: svgRhinoceros,  name: "Rhinoceros",             level: 0.8},
+		shell:       {icon: svgShell,       name: "Unix & CMD",             level: 0.8},
+		sketchup:    {icon: svgSketchup,    name: "Sketchup",               level: 0.8},
+		studioone:   {icon: svgStudioone,   name: "Studio One",             level: 0.8},
+		sublime:     {icon: svgSublime,     name: "Sublime Text",           level: 0.8},
 		svelte:      {icon: svgSvelte,      name: "Svelte Js",              level: 0.8},
+		twinmotion:  {icon: svgTwinmotion,  name: "Twinmotion",             level: 1.0},
 		typescript:  {icon: svgTypescript,  name: "Typescript",             level: 0.6},
+		vray:        {icon: svgVray,        name: "Vray",                   level: 1.0},
 		vscode:      {icon: svgVscode,      name: "VS Code",                level: 1.0},
 		vue:         {icon: svgVue,         name: "Vue Js",                 level: 0.6},
 		word:        {icon: svgWord,        name: "Word",                   level: 1.0},
 		wordpress:   {icon: svgWordpress,   name: "Wordpress",              level: 0.8},
-		premiere:    {icon: svgPremiere,    name: "Premiere Pro",           level: 0.6},
-		indesign:    {icon: svgIndesign,    name: "Indesign",               level: 0.7},
-		autocad:     {icon: svgAutocad,     name: "Autocad",                level: 1.0},
-		revit:       {icon: svgRevit,       name: "Revit",                  level: 0.2},
-		sketchup:    {icon: svgSketchup,    name: "Sketchup",               level: 0.8},
-		_3dsmax:     {icon: svg3dsmax,      name: "3ds Max",                level: 0.8},
-		cinema4d:    {icon: svgCinema4d,    name: "Cinema 4D",              level: 0.8},
-		vray:        {icon: svgVray,        name: "Vray",                   level: 1.0},
-		lumion:      {icon: svgLumion,      name: "Lumion",                 level: 1.0},
-		twinmotion:  {icon: svgTwinmotion,  name: "Twinmotion",             level: 1.0},
-		arcgis:      {icon: svgArcgis,      name: "ArcGIS",                 level: 0.3},
-		metashape:   {icon: svgMetashape,   name: "Metashape",              level: 0.9},
-		_3dzephyr:   {icon: svg3dzephyr,    name: "3d Zephyr",              level: 0.9},
-		rhinoceros:  {icon: svgRhinoceros,  name: "Rhinoceros",             level: 0.8},
-		grasshopper: {icon: svgGrasshopper, name: "Grasshopper",            level: 0.8},
-		ladybug:     {icon: svgLadybug,     name: "Ladybug",                level: 0.3},
-		shell:       {icon: svgShell,       name: "Unix & CMD",             level: 0.8},
-		sublime:     {icon: svgSublime,     name: "Sublime Text",           level: 0.8},
-		insomia:     {icon: svgInsomia,     name: "Insomia",                level: 1.0},
-		postman:     {icon: svgPostman,     name: "Postman",                level: 1.0},
-		networks:    {icon: svgNetwork,     name: "Networks Understanding", level: 0.8},
-		apis:        {icon: svgGraphql,     name: "API experience",         level: 0.8},
-		design:      {icon: svgGlasses,     name: "Design concepts",        level: 0.8},
-		audition:    {icon: svgAudition,    name: "Audition",               level: 0.8},
-		afterfx:     {icon: svgAfterfx,     name: "After Effects",          level: 0.8},
-		abletonlive: {icon: svgLive,        name: "Ableton Live",           level: 0.8},
-		studioone:   {icon: svgStudioone,   name: "Studio One",             level: 0.8},
-		java:        {icon: svgJava,        name: "Java",                   level: 0.3},
 		xd:          {icon: svgXd,          name: "Xd",                     level: 0.6},
-		lightroom:   {icon: svgLightroom,   name: "Lightroom",              level: 0.8},
 	}
 </script>
 
@@ -182,7 +184,9 @@
 	{#if skillSet[skill]}
 	<!-- <img src={skillSet[skill].icon + "&color=" + skillSet[skill].color} width={iconSize} height={iconSize} alt={skillSet[skill].name}> -->
 	<svg data-src={skillSet[skill].icon} width={iconSize} height={iconSize} color={"#"}></svg>
+	{#if level}
 	<div class="level" style="max-height: {skillSet[skill].level * 100}%;"></div>
+	{/if}
 	<div class="name">{skillSet[skill].name}</div>
 	{:else}
 	{skill}
@@ -248,9 +252,10 @@
 		color: var(--carpet);
 		background-color: var(--main-text);
 		position: absolute;
-		top: 110%;
+		top: calc(100% + 2px);
 		left: 0;
 		padding: 0 0.5em;
+		pointer-events: none;
 		/* z-index: -1; */
 	}
 
