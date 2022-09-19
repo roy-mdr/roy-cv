@@ -77,6 +77,7 @@
 			lang: "Lenguajes",
 			reference: "Referencias",
 			contact: "Contacto",
+			contact_txt: "Puedes enviarme un correo a <a href=\"mailto://roy.mdr.mx@gmail.com\" target=\"_blank\">roy.mdr.mx@gmail.com</a> o dejar tu mensaje en la caja:",
 			send: "ENVIAR",
 		},
 
@@ -136,6 +137,7 @@
 			lang: "Lenguages",
 			reference: "Reference",
 			contact: "Contact",
+			contact_txt: "You can send me an email to <a href=\"mailto://roy.mdr.mx@gmail.com\" target=\"_blank\">roy.mdr.mx@gmail.com</a> or leave your message in the box:",
 			send: "SEND",
 		},
 
@@ -196,6 +198,7 @@
 			lang: "",
 			reference: "",
 			contact: "",
+			contact_txt: "",
 			send: "",
 		},
 	}
@@ -210,6 +213,12 @@
 		if ( !validateEmail(contactEmail) ) {
 			contactError  = true;
 			contactOutput = "Invalid email";
+			return;
+		}
+
+		if ( contactMessage.replace(/\s|\t|\n|\r|\0|\x0B/g, '') == "" ) {
+			contactError  = true;
+			contactOutput = "Message can't be empty!";
 			return;
 		}
 
@@ -231,6 +240,9 @@
 			contactMessage = "";
 			contactOutput = "Message sent successfully!";
 			contactError = false;
+			setTimeout( () => {
+				contactOutput = "";
+			}, 3000 );
 		})
 		.catch( (err) => {
 			contactError = true;
@@ -284,9 +296,9 @@
 				<p>{content[$appLang].presentationP_2 || content['en'].presentationP_2}</p>
 			</i>
 			<div style="display: flex; justify-content: center;">
-				<a href="/" class="btn cta"><b>{content[$appLang].downloadCV || content['en'].downloadCV}</b> {content[$appLang].profileArq || content['en'].profileArq}</a>
-				<a href="/" class="btn cta"><b>{content[$appLang].downloadCV || content['en'].downloadCV}</b> {content[$appLang].profileDev || content['en'].profileDev}</a>
-				<a href="/" class="btn cta"><b>{content[$appLang].downloadCV || content['en'].downloadCV}</b> {content[$appLang].profileAudio || content['en'].profileAudio}</a>
+				<a href="/download/Martinez_Del_Rio_Rodrigo-cv_arq.pdf" target="_blank" class="btn cta"><b>{content[$appLang].downloadCV || content['en'].downloadCV}</b> {content[$appLang].profileArq || content['en'].profileArq}</a>
+				<a href="/download/Martinez_Del_Rio_Rodrigo-cv_dev.pdf" target="_blank" class="btn cta"><b>{content[$appLang].downloadCV || content['en'].downloadCV}</b> {content[$appLang].profileDev || content['en'].profileDev}</a>
+				<a href="/download/Martinez_Del_Rio_Rodrigo-cv_aud.pdf" target="_blank" class="btn cta"><b>{content[$appLang].downloadCV || content['en'].downloadCV}</b> {content[$appLang].profileAudio || content['en'].profileAudio}</a>
 			</div>
 		</div>
 
@@ -544,6 +556,7 @@
 	<section id="contact" style="min-height: 10em;">
 		<div class="pad light">
 			<h2>{content[$appLang].contact || content['en'].contact}</h2>
+			<span>{@html content[$appLang].contact_txt || content['en'].contact_txt}</span>
 			<form on:submit|preventDefault={submitMessage} class="contact-form" class:contact-error={contactError}>
 				<input type="email" bind:value={contactEmail} placeholder="your_email@contact.com">
 				<textarea bind:value={contactMessage} placeholder="Your message here!"></textarea>
