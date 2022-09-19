@@ -1,10 +1,12 @@
 <script lang="ts">
 	import "external-svg-loader";
 
+	import { prevProj } from '../stores/previewing.js';
+
 	export let open: string;
 
 	function previewProject() {
-		console.log(open);
+		$prevProj = open;
 	}
 </script>
 

@@ -89,8 +89,8 @@
 	<hr>
 	<div class="vertical">
 		<a href="#presentation">{content[$appLang].presentation || content['en'].presentation}</a>
-		<a href="#languages">{content[$appLang].languages || content['en'].languages}</a>
 		<a href="#education">{content[$appLang].education || content['en'].education}</a>
+		<a href="#languages">{content[$appLang].languages || content['en'].languages}</a>
 		<a href="#experience">{content[$appLang].experience || content['en'].experience}</a>
 		<a href="#projects">{content[$appLang].projects || content['en'].projects}</a>
 		<a href="#skills">{content[$appLang].skills || content['en'].skills}</a>

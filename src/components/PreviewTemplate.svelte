@@ -45,8 +45,8 @@
 	<h1 class="title">{title}</h1>
 	<div class="center" in:drop={{duration: 1000}}>
 		<div class="content">
-			<slot name="preview"></slot>
-			<slot name="description"></slot>
+			<slot name="preview" class="preview"></slot>
+			<slot name="description" class="description"></slot>
 			<div class="skillset">
 				{#each technologies as skill}
 					<Skill skill={skill} />
@@ -112,12 +112,17 @@
 		display: block;
 	}
 
+	.content :global(a) {
+		text-decoration: underline;
+	}
+
 	.btn {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 		text-align: center;
+		text-decoration: none;
 		padding: 0.5em 1em;
 		/* word-wrap: break-word; */
 		/* word-break: break-all; */

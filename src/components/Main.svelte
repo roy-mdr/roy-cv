@@ -1,4 +1,6 @@
-<script>
+<script lang="ts">
+	import "external-svg-loader";
+
 	import pPic from '../assets/pp_color.jpg';
 	import vwStatue from '../assets/helios.jpg';
 	import brEntity from '../assets/entity.jpg';
@@ -11,6 +13,13 @@
 	import { appTheme, appLang } from '../stores/appState.js';
 	import { prevProj } from '../stores/previewing.js';
 
+	/* IMAGES */
+	import svgUAA from '../assets/icons/uaa.svg';
+	import svgETSAG from '../assets/icons/etsag.svg';
+	import svgLandelof from '../assets/icons/landelof.svg';
+	import svgPopmusic from '../assets/icons/popmusic.svg';
+	import svgMasterclass from '../assets/icons/masterclass.svg';
+
 	const content = {
 		es: {
 			altCoverPic: "Foto de portada",
@@ -22,7 +31,7 @@
 			profileArq: "Perifl Arquitecto",
 			profileDev: "Perifl Desarrollador",
 			profileAudio: "Perifl Productor de Audio",
-			h3WhatsNext: "¿Qué sigue?",
+			h3WhatsNext: "A futuro...",
 			wNext_1: "Desarrollo de la etapa de seguimiento (post-entrega) de obra arquitectónica y reintegración al proceso de diseño.",
 			wNext_2: "Desarrollo de herramientas para el método de diseño arquitectónico y urbano.",
 			wNext_3: "Innovación en tecnologías de Internet of Things, análisis de datos e inteligencia artificial.",
@@ -33,15 +42,15 @@
 			langDe: "Alemán",
 			h2Edu: "Educación",
 			edu_1: "Grado de Arquitectura en la Universidad Autónoma de Aguascalientes (2016-2021) promedio 9.6/10",
-			edu_2: "Estudios en la Escuela Técnica Superior de Arquitectura de la Universidad de Granada en Granada, España. (2019) >>>>> con un par de materias sobresaliente ?? <<<<<<",
+			edu_2: "Estudios en la Escuela Técnica Superior de Arquitectura de la Universidad de Granada en Granada, España. (2019)", // >>>>> con un par de materias sobresaliente ?? <<<<<<
 			h3Achiv: "Logros",
 			achiv_1: "Equipo ganador del 1er lugar nacional del Concurso Infonavit 2020",
 			achiv_2: "Desempeño sobresaliente en examen nacional de egreso arquitectura EGEL 2021",
 			achiv_3: "Mención honorífica por desempeño académico en la Universidad Autónoma de Aguascalientes",
 			h3ExtraCourse: "Cursos extracurriculares",
-			xCourse_1: "Post-producción de audio y video certificación Adobe en Master Class (2012)",
+			xCourse_1: "Post-producción de audio y video certificación Adobe en Master Class Ags (2012)",
 			xCourse_2: "Curso de producción, mezcla y master musical en Pop Music Ags (2015)",
-			xCourse_3: ">>>>>> Cerámica Landelof? <<<<<<<",
+			xCourse_3: "Landelof Ceramics",
 			h2Exp: "Experiencia",
 			h3ESustenta: "Estudio Sustenta Arq. (desde 2016)",
 			eSus_1: "Residente de obra",
@@ -81,7 +90,7 @@
 			profileArq: "Architect profile",
 			profileDev: "Soft. Developer profile",
 			profileAudio: "Audio Producer profile",
-			h3WhatsNext: "What's next?",
+			h3WhatsNext: "Looking forward...",
 			wNext_1: "Development of the post-delivery stage of building construction and reintegration into the design process.",
 			wNext_2: "Development of tools for the urban and architectural design process.",
 			wNext_3: "Innovation of technologies of Internet of Things, data analysis and IA.",
@@ -92,15 +101,15 @@
 			langDe: "Deutsch",
 			h2Edu: "Education",
 			edu_1: "Architecture degree at the Autonomous University of Aguascalientes (UAA 2016-2021) grade 9.6/10",
-			edu_2: "Studies at the Higher Technical School of Architecture of the University of Granada in Granada, Spain. (2019) with a couple of outstanding subjects ??",
+			edu_2: "Studies at the Higher Technical School of Architecture of the University of Granada in Granada, Spain. (2019)", // with a couple of outstanding subjects ??
 			h3Achiv: "Achievements",
 			achiv_1: "1st national place winning-team of Infonavit Contest 2020",
 			achiv_2: "Outstanding grade performance in the national architecture graduation exam EGEL 2021",
 			achiv_3: "Honorable mention for academic performance at the Autonomous University of Aguascalientes (UAA 2021)",
 			h3ExtraCourse: "Extracurricular Courses",
-			xCourse_1: "Audio and video post-production training (Adobe certification) at Master Class (2012)",
+			xCourse_1: "Audio and video post-production training (Adobe certification) at Master Class Ags (2012)",
 			xCourse_2: "Music production, mix and master bootcamp at Pop Music Ags (2015)",
-			xCourse_3: ">>>>>> Landelof ceramics? <<<<<<<",
+			xCourse_3: "Landelof Ceramics",
 			h2Exp: "Experience",
 			h3ESustenta: "Estudio Sustenta (Arq. Firm) (since 2016)",
 			eSus_1: "On-Site Building Project Manager",
@@ -191,6 +200,52 @@
 		},
 	}
 
+	let contactEmail = "";
+	let contactMessage = "";
+	let contactError = false;
+	let contactOutput = "";
+
+	function submitMessage() {
+
+		if ( !validateEmail(contactEmail) ) {
+			contactError  = true;
+			contactOutput = "Invalid email";
+			return;
+		}
+
+		fetch("/post_message.php", {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				email: contactEmail,
+				msg: contactMessage
+			})
+		})
+		.then((res) => {
+			if (!res.ok) throw new Error("It seems that the service is not working at the moment :/");
+
+			console.log(res)
+			contactEmail = "";
+			contactMessage = "";
+			contactOutput = "Message sent successfully!";
+			contactError = false;
+		})
+		.catch( (err) => {
+			contactError = true;
+			contactOutput = "There was an error posting the message";
+			console.log("There was an error posting the message");
+			console.log(err);
+		})
+	}
+
+	function validateEmail(mail) {
+		if ( /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail) ) return true
+
+		return false
+	}
+
 </script>
 
 
@@ -252,35 +307,71 @@
 
 	</section>
 
-	<section id="languages">
-		<h2>{content[$appLang].h2Lang || content['en'].h2Lang}</h2>
-		<ul>
-			<li>{content[$appLang].langEs || content['en'].langEs}</li>
-			<li>{content[$appLang].langEn || content['en'].langEn}</li>
-			<li>{content[$appLang].langDe || content['en'].langDe}</li>
-		</ul>
-	</section>
-
 	<section id="education">
 		<h2>{content[$appLang].h2Edu || content['en'].h2Edu}</h2>
-		<ul>
-			<li><PrevProjBtn open="infonavit2021" />{content[$appLang].edu_1 || content['en'].edu_1}</li>
-			<li><PrevProjBtn open="infonavit2021" />{content[$appLang].edu_2 || content['en'].edu_2}</li>
-		</ul>
+		<div style="display: flex;">
+			<div class="logo-text">
+				<svg data-src={svgUAA} width="4em" height="4em" color={"#"}></svg>
+				<span>{content[$appLang].edu_1 || content['en'].edu_1}</span>
+			</div>
+			<div class="logo-text">
+				<svg data-src={svgETSAG} width="4em" height="4em" color={"#"}></svg>
+				<span>{content[$appLang].edu_2 || content['en'].edu_2}</span>
+			</div>
+		</div>
 
-		<h3>{content[$appLang].h3Achiv || content['en'].h3Achiv}</h3>
-		<ul>
-			<li><PrevProjBtn open="infonavit2021" />{content[$appLang].achiv_1 || content['en'].achiv_1}</li>
-			<li><PrevProjBtn open="infonavit2021" />{content[$appLang].achiv_2 || content['en'].achiv_2}</li>
-			<li><PrevProjBtn open="infonavit2021" />{content[$appLang].achiv_3 || content['en'].achiv_3}</li>
-		</ul>
+		<div class="pad light">
+			<h3>{content[$appLang].h3Achiv || content['en'].h3Achiv}</h3>
+			<ul>
+				<li>
+					<!-- <PrevProjBtn open="infonavit2021" /> -->
+					{content[$appLang].achiv_1 || content['en'].achiv_1}
+				</li>
+				<li>
+					<!-- <PrevProjBtn open="infonavit2021" /> -->
+					{content[$appLang].achiv_2 || content['en'].achiv_2}
+				</li>
+				<li>
+					<!-- <PrevProjBtn open="infonavit2021" /> -->
+					{content[$appLang].achiv_3 || content['en'].achiv_3}
+				</li>
+			</ul>
+		</div>
 
 		<h3>{content[$appLang].h3ExtraCourse || content['en'].h3ExtraCourse}</h3>
-		<ul>
-			<li><PrevProjBtn open="infonavit2021" />{content[$appLang].xCourse_1 || content['en'].xCourse_1}</li>
-			<li><PrevProjBtn open="infonavit2021" />{content[$appLang].xCourse_2 || content['en'].xCourse_2}</li>
-			<li><PrevProjBtn open="infonavit2021" />{content[$appLang].xCourse_3 || content['en'].xCourse_3}</li>
-		</ul>
+		<div style="display: flex;">
+			<div class="logo-text">
+				<svg data-src={svgMasterclass} width="4em" height="4em" color={"#"}></svg>
+				<span>{content[$appLang].xCourse_1 || content['en'].xCourse_1}</span>
+			</div>
+			<div class="logo-text">
+				<svg data-src={svgPopmusic} width="4em" height="4em" color={"#"}></svg>
+				<span>{content[$appLang].xCourse_2 || content['en'].xCourse_2}</span>
+			</div>
+			<div class="logo-text">
+				<svg data-src={svgLandelof} width="4em" height="4em" color={"#"}></svg>
+				<span>{content[$appLang].xCourse_3 || content['en'].xCourse_3}</span>
+			</div>
+		</div>
+
+	</section>
+
+	<section id="languages">
+		<h2>{content[$appLang].h2Lang || content['en'].h2Lang}</h2>
+		<div style="display: flex;">
+			<div class="lang">
+				<span>{content[$appLang].langEs || content['en'].langEs}</span>
+				<div class="level" style="max-width: 100%;"></div>
+			</div>
+			<div class="lang">
+				<span>{content[$appLang].langEn || content['en'].langEn}</span>
+				<div class="level" style="max-width: 80%;"></div>
+			</div>
+			<div class="lang">
+				<span>{content[$appLang].langDe || content['en'].langDe}</span>
+				<div class="level" style="max-width: 5%;"></div>
+			</div>
+		</div>
 	</section>
 
 	<section id="experience">
@@ -320,35 +411,35 @@
 
 		<h3>{content[$appLang].architecture || content['en'].architecture}</h3>
 		<div class="proj-container">
-			<div class="project noselect" on:click={() => $prevProj = '08-final'}>Edificio multi.</div>
-			<div class="project noselect" on:click={() => $prevProj = '08-hornedo'}>Remod. Hornedo</div>
-			<div class="project noselect" on:click={() => $prevProj = 'primo-verdad'}>Remod. PV.</div>
-			<div class="project noselect" on:click={() => $prevProj = '10-final'}>Trabajo final</div>
-			<div class="project noselect" on:click={() => $prevProj = 'infonavit-proj'}>Infonavit</div>
-			<div class="project noselect" on:click={() => $prevProj = 'es-amehos2'}>AMEHOS 2</div>
+			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = '08-final'}>Edificio multi.</div>
+			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = '08-hornedo'}>Remod. Hornedo</div>
+			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'primo-verdad'}>Remod. PV.</div>
+			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = '10-final'}>Trabajo final</div>
+			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'infonavit-proj'}>Infonavit</div>
+			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'es-amehos2'}>AMEHOS 2</div>
 		</div>
 
 		<h3>Software / Hardware</h3>
 		<div class="proj-container">
-			<div class="project noselect" on:click={() => $prevProj = '2521'}>Website 2521</div>
-			<div class="project noselect" on:click={() => $prevProj = 'vigilost'}>VigiLost</div>
-			<!-- <div class="project noselect" on:click={() => $prevProj = 'bloom'}>Bloom Portfolio</div> -->
-			<div class="project noselect" on:click={() => $prevProj = 'splash-creator'}>Splash Creator</div>
-			<div class="project noselect" on:click={() => $prevProj = 'lshdrms'}>LSHD//DRMS + Chrome Extension</div>
-			<div class="project noselect" on:click={() => $prevProj = 'es-web'}>Webapp + Website Estudio Sustenta</div>
-			<div class="project noselect" on:click={() => $prevProj = 'vr-ctrl'}>VR Controller</div>
-			<div class="project noselect" on:click={() => $prevProj = 'iot'}>IoT firmware</div>
-			<div class="project noselect" on:click={() => $prevProj = 'no-poll'}>Pub-sub broker + Control API</div>
-			<div class="project noselect" on:click={() => $prevProj = 'es-pcwin'}>Remote Access Tool + Protocol Handler</div>
-			<div class="project noselect" on:click={() => $prevProj = 'es-proj-viz'}>Project Mapper</div>
-			<div class="project noselect" on:click={() => $prevProj = 'app-gtd'}>App Getting Things Done</div>
+			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = '2521'}>Website 2521</div>
+			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'vigilost'}>VigiLost</div>
+			<!-- <div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'bloom'}>Bloom Portfolio</div> -->
+			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'splash-creator'}>Splash Creator</div>
+			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'lshdrms'}>LSHD//DRMS + Chrome Extension</div>
+			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'es-web'}>Webapp + Website Estudio Sustenta</div>
+			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'vr-ctrl'}>VR Controller</div>
+			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'iot'}>IoT firmware</div>
+			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'no-poll'}>Pub-sub broker + Control API</div>
+			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'es-pcwin'}>Remote Access Tool + Protocol Handler</div>
+			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'es-proj-viz'}>Project Mapper</div>
+			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'app-gtd'}>App Getting Things Done</div>
 		</div>
 
 		<h3>{content[$appLang].audioviz || content['en'].audioviz}</h3>
 		<div class="proj-container">
-			<div class="project noselect" on:click={() => $prevProj = 'bluish'}>Bluish</div>
-			<div class="project noselect" on:click={() => $prevProj = 'dovele'}>Dovele</div>
-			<div class="project noselect" on:click={() => $prevProj = 'palmasur'}>Collab: Palmasur</div>
+			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'bluish'}>Bluish</div>
+			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'dovele'}>Dovele</div>
+			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'palmasur'}>Collab: Palmasur</div>
 		</div>
 	</section>
 
@@ -450,13 +541,18 @@
 		</ul>
 	</section>
 
-	<section id="contact">
-		<h2>{content[$appLang].contact || content['en'].contact}</h2>
-		<form>
-			<input type="email">
-			<textarea></textarea>
-			<button type="submit">{content[$appLang].send || content['en'].send}</button>
-		</form>
+	<section id="contact" style="min-height: 10em;">
+		<div class="pad light">
+			<h2>{content[$appLang].contact || content['en'].contact}</h2>
+			<form on:submit|preventDefault={submitMessage} class="contact-form" class:contact-error={contactError}>
+				<input type="email" bind:value={contactEmail} placeholder="your_email@contact.com">
+				<textarea bind:value={contactMessage} placeholder="Your message here!"></textarea>
+				{#if contactOutput != ""}
+				<div>{contactOutput}</div>
+				{/if}
+				<button type="submit">{content[$appLang].send || content['en'].send}</button>
+			</form>
+		</div>
 	</section>
 
 	<footer>
@@ -476,7 +572,13 @@
 		transition: background-color var(--speed-normal);
 	}
 
+	main section:not(:first-child) {
+		/* color: red; */
+		margin-top: 4em;
+	}
+
 	footer {
+		margin-top: 4em;
 		text-align: center;
 		font-size: 12px;
 	}
@@ -486,7 +588,7 @@
 		/* margin-top: 0; */
 		margin-bottom: 1em;
 	}
-	
+
 	/*
 	.my-name {
 		background-color: var(--main-text);
@@ -562,7 +664,7 @@
 		background-color: var(--main-text);
 		color: var(--carpet);
 		/* width: min-content; */
-		margin: 0.5em;
+		margin: 1px;
 		transition: background-color var(--speed-normal), color var(--speed-normal);
 	}
 
@@ -571,8 +673,37 @@
 		flex-wrap: wrap;
 	}
 
+	.lang {
+		position: relative;
+		margin: 1px;
+		background-color: var(--mid);
+		color: var(--carpet);
+		padding: 0.2em 0.5em;
+		z-index: 0;
+		flex: 1;
+		width: 100%;
+		align-items: center;
+		text-align: center;
+	}
+
+	.lang .level {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: var(--main-text);
+		z-index: -1;
+		transition: background-color var(--speed-normal);
+	}
+
+	.lang:hover .level {
+		position: absolute;
+		background-color: var(--accent);
+	}
+
 	.project {
-		cursor: context-menu;
+		cursor: pointer;
 		color: var(--carpet);
 		background-color: var(--main-text);
 		margin: 1px;
@@ -587,14 +718,86 @@
 		color: var(--accent);
 	}
 
-	.cta {
+	.logo-text {
+		margin: 1em;
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		align-items: center;
+		text-align: center;
+	}
+
+	.cta_ {
 		color: var(--accent);
 		background-color: var(--background);
 		border: 2px solid var(--accent);
 	}
 
+	.cta {
+		color: var(--background);
+		background-color: var(--main-text);
+		border: none;
+		transition: color var(--speed-normal);
+		flex: 1;
+	}
+	.cta:hover {
+		color: var(--accent);
+	}
+
 	.skillset {
 		display: flex;
 		flex-wrap: wrap;
+	}
+
+.contact-form {
+	display: flex;
+	flex-direction: column;
+	/* max-width: 50%; */
+}
+
+.contact-form input[type="email"] {
+	font-size: 14px;
+	font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+	border: none;
+	margin: 1px;
+	padding: 1em;
+	background-color: var(--main-text);
+	color: var(--carpet);
+}
+
+.contact-form textarea {
+	font-size: 14px;
+	font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+	border: none;
+	margin: 1px;
+	padding: 1em;
+	background-color: var(--main-text);
+	min-height: 10em;
+	color: var(--carpet);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+	outline: none;
+}
+
+.contact-form button {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		text-decoration: none;
+		padding: 0.5em 1em;
+		/* word-wrap: break-word; */
+		/* word-break: break-all; */
+		background-color: var(--accent);
+		color: var(--main-text);
+		/* width: min-content; */
+		font-weight: bold;
+		margin: 1em 0 0 0;
+		width: max-content;
+		transition: background-color var(--speed-normal), color var(--speed-normal);
 	}
 </style>

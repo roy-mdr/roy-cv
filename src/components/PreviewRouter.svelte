@@ -4,6 +4,7 @@
 	import Default from "./previews/Default.svelte";
 	import EsProjViz from "./previews/EsProjViz.svelte";
 	import GtdApp from './previews/GTDApp.svelte';
+	import InfonavitProj from './previews/InfonavitProj.svelte';
 	import IoTFirmware from './previews/IoTFirmware.svelte';
 	import IotPcWin from './previews/IotPCWin.svelte';
 	import Lshdrms from './previews/LSHDRMS.svelte';
@@ -28,6 +29,9 @@
 
 		{:else if $prevProj === 'app-gtd'}
 		<GtdApp />
+
+		{:else if $prevProj === 'infonavit-proj'}
+		<InfonavitProj />
 
 		{:else if $prevProj === 'iot'}
 		<IoTFirmware />
