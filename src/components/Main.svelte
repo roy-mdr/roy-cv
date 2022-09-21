@@ -1,7 +1,7 @@
 <script lang="ts">
 	import "external-svg-loader";
 
-	import pPic from '../assets/pp_color.jpg';
+	import pPic from '../assets/pp_bw.jpg';
 	import vwStatue from '../assets/helios.jpg';
 	import brEntity from '../assets/entity.jpg';
 	import imgVoid from '../assets/void_bw.jpg';
@@ -25,7 +25,7 @@
 			altCoverPic: "Foto de portada",
 			altProfilePic: "Foto de perfil",
 			h2Presentation: "Presentación",
-			presentationP_1: "Arquitecto, web dev y amante de la música.",
+			presentationP_1: "Arquitecto, web dev y amante de la música. De Aguascalientes, México.",
 			presentationP_2: "Me apasiona encontrar puntos de fusión entre mis intereses y desarrollar proyectos creativos que desafíen el estado de lo tradicional, buscando la incorporación y creación de tecnologías sin extraviar la sensibilidad.",
 			downloadCV: "Descargar CV:",
 			profileArq: "Perifl Arquitecto",
@@ -85,7 +85,7 @@
 			altCoverPic: "Cover pic",
 			altProfilePic: "Profile pic",
 			h2Presentation: "Presentation",
-			presentationP_1: "Architect, web developer and music lover.",
+			presentationP_1: "Architect, web developer and music lover from Aguascalientes, Mexico.",
 			presentationP_2: "I find passionate looking for common areas between my interests and developing creative projects that challenge the state of the traditional, seeking the incorporation and creation of technologies without losing the aspect of sensitivity.",
 			downloadCV: "Download CV:",
 			profileArq: "Architect profile",
@@ -351,7 +351,7 @@
 		</div>
 
 		<h3>{content[$appLang].h3ExtraCourse || content['en'].h3ExtraCourse}</h3>
-		<div style="display: flex;">
+		<div style="display: flex; font-size:small;">
 			<div class="logo-text">
 				<svg data-src={svgMasterclass} width="4em" height="4em" color={"#"}></svg>
 				<span>{content[$appLang].xCourse_1 || content['en'].xCourse_1}</span>
@@ -739,12 +739,6 @@
 		width: 100%;
 		align-items: center;
 		text-align: center;
-	}
-
-	.cta_ {
-		color: var(--accent);
-		background-color: var(--background);
-		border: 2px solid var(--accent);
 	}
 
 	.cta {
