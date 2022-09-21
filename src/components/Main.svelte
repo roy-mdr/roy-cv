@@ -10,7 +10,7 @@
 	import PrevProjBtn from './PrevProjBtn.svelte';
 	import Skill from './Skill.svelte';
 
-	import { appTheme, appLang } from '../stores/appState.js';
+	import { appTheme, appLang, showProfPic } from '../stores/appState.js';
 	import { prevProj } from '../stores/previewing.js';
 
 	/* IMAGES */
@@ -24,6 +24,7 @@
 		es: {
 			altCoverPic: "Foto de portada",
 			altProfilePic: "Foto de perfil",
+			profPicToggMsg: "Click aquí para alternar foto de perfil",
 			h2Presentation: "Presentación",
 			presentationP_1: "Arquitecto, web dev y amante de la música. De Aguascalientes, México.",
 			presentationP_2: "Me apasiona encontrar puntos de fusión entre mis intereses y desarrollar proyectos creativos que desafíen el estado de lo tradicional, buscando la incorporación y creación de tecnologías sin extraviar la sensibilidad.",
@@ -84,6 +85,7 @@
 		en: {
 			altCoverPic: "Cover pic",
 			altProfilePic: "Profile pic",
+			profPicToggMsg: "Click here to toggle Profile Picture",
 			h2Presentation: "Presentation",
 			presentationP_1: "Architect, web developer and music lover from Aguascalientes, Mexico.",
 			presentationP_2: "I find passionate looking for common areas between my interests and developing creative projects that challenge the state of the traditional, seeking the incorporation and creation of technologies without losing the aspect of sensitivity.",
@@ -144,6 +146,7 @@
 		de: {
 			altCoverPic: "",
 			altProfilePic: "",
+			profPicToggMsg: "",
 			h2Presentation: "",
 			presentationP_1: "",
 			presentationP_2: "",
@@ -283,13 +286,19 @@
 		</div>
 
 		<div class="pad light">
-			{#if $appTheme == 'vapor'}
-			<img src={vwStatue} alt={content[$appLang].altProfilePic || content['en'].altProfilePic} width="150px" height="150px" class="p-pic">
-			{:else if $appTheme == 'backrooms'}
-			<img src={brEntity} alt={content[$appLang].altProfilePic || content['en'].altProfilePic} width="150px" height="150px" class="p-pic">
-			{:else}
-			<img src={pPic} alt={content[$appLang].altProfilePic || content['en'].altProfilePic} width="150px" height="150px" class="p-pic">
-			{/if}
+			<div class="p-pic noselect" style="background-color: var(--main-text); width: 150px; height: 150px;" on:click={ () => { $showProfPic = !$showProfPic; } }>
+				{#if $showProfPic}
+					{#if $appTheme == 'vapor'}
+					<img src={vwStatue} alt={content[$appLang].altProfilePic || content['en'].altProfilePic} width="150px" height="150px">
+					{:else if $appTheme == 'backrooms'}
+					<img src={brEntity} alt={content[$appLang].altProfilePic || content['en'].altProfilePic} width="150px" height="150px">
+					{:else}
+					<img src={pPic} alt={content[$appLang].altProfilePic || content['en'].altProfilePic} width="150px" height="150px">
+					{/if}
+				{:else}
+					<span><small>{content[$appLang].profPicToggMsg || content['en'].profPicToggMsg}</small></span>
+				{/if}
+			</div>
 			<h2>{content[$appLang].h2Presentation || content['en'].h2Presentation}</h2>
 			<i>
 				<p style="max-width: 60%;">{content[$appLang].presentationP_1 || content['en'].presentationP_1}</p>
@@ -638,6 +647,17 @@
 		position: absolute;
 		right: 2em;
 		top: -50px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		cursor: pointer;
+	}
+
+	.p-pic span {
+		color: var(--mid);
+		text-align: center;
+		margin: 1em;
+		line-height: 1em;
 	}
 
 	li :global(.prev-proj) {
