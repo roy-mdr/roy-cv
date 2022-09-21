@@ -3,11 +3,13 @@
 
 	import Navigator from './components/Navigator.svelte';
 	import Main from './components/Main.svelte';
+	import Modal from './components/Modal.svelte';
 	import PreviewRouter from './components/PreviewRouter.svelte';
 
 	import { appTheme, appLang, appProfile } from './stores/appState.js';
 
 	let init = false;
+	let modal = true;
 
 	onMount( async () => {
 		init = true;
@@ -38,6 +40,9 @@
 	<Navigator />
 	<Main />
 	<PreviewRouter />
+	{#if modal}
+	<Modal on:closeModal={() => { modal = false; }}>Hello Modal</Modal>
+	{/if}
 </div>
 
 
