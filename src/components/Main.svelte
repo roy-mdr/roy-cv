@@ -432,12 +432,15 @@
 
 		<h3>{content[$appLang].architecture || content['en'].architecture}</h3>
 		<div class="proj-container">
-			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = '08-final'}>Edificio multi.</div>
-			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = '08-hornedo'}>Remod. Hornedo</div>
-			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'primo-verdad'}>Remod. PV.</div>
-			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = '10-final'}>Trabajo final</div>
-			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'infonavit-proj'}>Infonavit</div>
-			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'es-amehos2'}>AMEHOS 2</div>
+			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'renders'}>Renders varios</div>
+			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'castell'}>Castell de Ferro</div>
+			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'conjunto-mi'}>Conjunto M.I.</div>
+			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'hornedo'}>Remod. Hornedo</div>
+			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'black-box'}>The Black Box</div>
+			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'cenco-pv'}>Centro Comunitario P.V.</div>
+			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'infonavit-proj'}>Concurso Infonavit 2020</div>
+			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'es-amehos1'}>AMEHOS I</div>
+			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'es-amehos2'}>AMEHOS II</div>
 		</div>
 
 		<h3>Software / Hardware</h3>

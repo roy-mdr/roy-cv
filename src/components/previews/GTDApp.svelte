@@ -6,6 +6,7 @@
 	import img_gtd_app from '../../assets/projects/gtd_app.jpg';
 
 	const skills = [
+		"xd",
 		"svelte",
 		"nodejs",
 		"mariadb",

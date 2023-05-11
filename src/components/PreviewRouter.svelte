@@ -1,9 +1,14 @@
 <script>
 	import { prevProj } from '../stores/previewing.js';
+    import BlackBox from './previews/BlackBox.svelte';
+    import Castell from './previews/Castell.svelte';
+    import CenCoPv from './previews/CenCoPV.svelte';
+    import ConjuntoMi from './previews/ConjuntoMI.svelte';
 
 	import Default from "./previews/Default.svelte";
 	import EsProjViz from "./previews/EsProjViz.svelte";
 	import GtdApp from './previews/GTDApp.svelte';
+    import Hornedo from './previews/Hornedo.svelte';
 	import InfonavitProj from './previews/InfonavitProj.svelte';
 	import IoTFirmware from './previews/IoTFirmware.svelte';
 	import IotPcWin from './previews/IotPCWin.svelte';
@@ -24,11 +29,26 @@
 		{#if $prevProj === ''}
 		<Default />
 
+		{:else if $prevProj === 'castell'}
+		<Castell />
+
+		{:else if $prevProj === 'conjunto-mi'}
+		<ConjuntoMi />
+
+		{:else if $prevProj === 'black-box'}
+		<BlackBox />
+
+		{:else if $prevProj === 'cenco-pv'}
+		<CenCoPv />
+
 		{:else if $prevProj === 'es-proj-viz'}
 		<EsProjViz />
 
 		{:else if $prevProj === 'app-gtd'}
 		<GtdApp />
+
+		{:else if $prevProj === 'hornedo'}
+		<Hornedo />
 
 		{:else if $prevProj === 'infonavit-proj'}
 		<InfonavitProj />
