@@ -21,6 +21,7 @@
 	import WebESustenta from './previews/WebESustenta.svelte';
 	import LANDA from './previews/LANDA.svelte';
 	import Bluish from './previews/Bluish.svelte';
+	import Dovele from './previews/Dovele.svelte';
 </script>
 
 
@@ -84,6 +85,9 @@
 
 		{:else if $prevProj === 'bluish'}
 		<Bluish />
+
+		{:else if $prevProj === 'dovele'}
+		<Dovele />
 
 		{:else}
 		<NotFound projKey={$prevProj} />
