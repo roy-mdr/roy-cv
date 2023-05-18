@@ -19,6 +19,7 @@
 	import VigiLost from './previews/VigiLost.svelte';
 	import Web2521 from "./previews/Web2521.svelte";
 	import WebESustenta from './previews/WebESustenta.svelte';
+	import LANDA from './previews/LANDA.svelte';
 </script>
 
 
@@ -76,6 +77,9 @@
 
 		{:else if $prevProj === 'es-web'}
 		<WebESustenta />
+
+		{:else if $prevProj === 'landa'}
+		<LANDA />
 
 		{:else}
 		<NotFound projKey={$prevProj} />

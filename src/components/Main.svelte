@@ -457,6 +457,7 @@
 			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'es-pcwin'}>Remote Access Tool + Protocol Handler</div>
 			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'es-proj-viz'}>Project Mapper</div>
 			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'app-gtd'}>App Getting Things Done</div>
+			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'landa'}>LANDA</div>
 		</div>
 
 		<h3>{content[$appLang].audioviz || content['en'].audioviz}</h3>
