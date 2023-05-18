@@ -32,7 +32,7 @@
 
 <PreviewTemplate title={content[$appLang].title || content['en'].title} link="https://www.youtube.com/watch?v=lGQhsFqVt5o" technologies={skills}>
 	<div slot="preview">
-		<img src={img_gtd_app} alt="LANDA">
+		<img src={img_gtd_app} alt="Bluish">
 	</div>
 	<span slot="description">{@html content[$appLang].descHTML || content['en'].descHTML}</span>
 </PreviewTemplate>

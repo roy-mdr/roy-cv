@@ -22,6 +22,7 @@
 	import LANDA from './previews/LANDA.svelte';
 	import Bluish from './previews/Bluish.svelte';
 	import Dovele from './previews/Dovele.svelte';
+	import Palmasur from './previews/Palmasur.svelte';
 </script>
 
 
@@ -88,6 +89,9 @@
 
 		{:else if $prevProj === 'dovele'}
 		<Dovele />
+
+		{:else if $prevProj === 'palmasur'}
+		<Palmasur />
 
 		{:else}
 		<NotFound projKey={$prevProj} />

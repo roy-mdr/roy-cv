@@ -3,7 +3,7 @@
 	import { appLang } from '../../stores/appState.js';
 
 	/* IMAGES */
-	import img_gtd_app from '../../assets/projects/dovele.png';
+	import img_gtd_app from '../../assets/projects/palmasur.jpg';
 
 	const skills = []
 
@@ -11,13 +11,13 @@
 		es: {
 			title: "Dovele",
 			descHTML: `
-				<p>Hogar de algo de mi música electrónica...</p>
+				<p>Colaboración con Mariana Red — Beats para mimir</p>
 			`,
 		},
 		en: {
 			title: "Dovele",
 			descHTML: `
-			<p>Home of some of my electronic music...</p>
+			<p>Collab with Mariana Red — Sleepy beats</p>
 			`,
 		},
 		de: {
@@ -30,9 +30,9 @@
 
 
 
-<PreviewTemplate title={content[$appLang].title || content['en'].title} link="https://www.youtube.com/@lushed.dreams" technologies={skills}>
+<PreviewTemplate title={content[$appLang].title || content['en'].title} link="https://open.spotify.com/album/48iAWaLA0eDyV2O7b1oSYZ" technologies={skills}>
 	<div slot="preview">
-		<img src={img_gtd_app} alt="Konoha">
+		<img src={img_gtd_app} alt="Beats para mimir">
 	</div>
 	<span slot="description">{@html content[$appLang].descHTML || content['en'].descHTML}</span>
 </PreviewTemplate>
