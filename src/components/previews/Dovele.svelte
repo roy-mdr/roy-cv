@@ -17,7 +17,7 @@
 		en: {
 			title: "Dovele",
 			descHTML: `
-			<p>Home of some of my electronic music...</p>
+				<p>Home of some of my electronic music...</p>
 			`,
 		},
 		de: {

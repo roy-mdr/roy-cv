@@ -36,7 +36,7 @@
 
 <PreviewTemplate title={content[$appLang].title || content['en'].title} technologies={skills}>
 	<div slot="preview">
-		<img src={img} alt="Castell de Ferro">
+		<img src={img} alt="Conjunto M.I.">
 	</div>
 	<span slot="description">{@html content[$appLang].descHTML || content['en'].descHTML}</span>
 </PreviewTemplate>

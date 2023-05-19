@@ -18,7 +18,7 @@
 	const content = {
 		es: {
 			title: "Remodelación Hornedo",
-			descHTML: ``,
+			descHTML: `[Proyecto estudiantil] Rediseño de la calle Hornedo en Aguascalientes, México. Cuidando el valor histórico de la calle, las fincas antiguas, casas y comunidades coexisten juntas en un nuevo diseño orientado al peatón y de desarrollo de nuevos edificios para un crecimiento sostenible de la ciudad.`,
 		},
 		en: {
 			title: "Remodelación Hornedo",

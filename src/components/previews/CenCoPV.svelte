@@ -19,7 +19,7 @@
 	const content = {
 		es: {
 			title: "Centro Comunitario Primo Verdad",
-			descHTML: ``,
+			descHTML: `El Centro Comunitario Primo Verdad en la colonia Primo Verdad alberga acividades que la misma comunidad ya hace sin un lugar dedicado, provocando que las calles se aglomeren y en ocaciones se vuelvan hostiles. Este desarrollo urbano facilitará una mejor dinámica en el barrio, promoviendo que ciudadanos externos y locales coexistan.`,
 		},
 		en: {
 			title: "Primo Verdad Community Center",

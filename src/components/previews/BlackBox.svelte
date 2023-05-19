@@ -18,7 +18,7 @@
 	const content = {
 		es: {
 			title: "The Black Box",
-			descHTML: ``,
+			descHTML: `[Proyecto estudiantil] Facilidad para el desarrollo de múltiples diciplinas: software, hardware, materiales de construcción y márketing. Incluye un showroom y espacios colaborativos.`,
 		},
 		en: {
 			title: "The Black Box",

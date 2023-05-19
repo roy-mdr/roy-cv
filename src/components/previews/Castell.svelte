@@ -18,7 +18,7 @@
 	const content = {
 		es: {
 			title: "Castell de Ferro",
-			descHTML: ``,
+			descHTML: `[Proyecto estudiantil] Antes de que la hotelera contrucción en masa devore el estilo de vida del pueblo, un conjunto de edificios esculpe la roca de parcelas vacías en Castell de Ferro en Andalucía, España. Conectando cultura y tradición con una dinámica turística saludable.`,
 		},
 		en: {
 			title: "Castell de Ferro",

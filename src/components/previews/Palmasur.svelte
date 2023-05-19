@@ -9,13 +9,13 @@
 
 	const content = {
 		es: {
-			title: "Dovele",
+			title: "Palmasur Collab",
 			descHTML: `
 				<p>Colaboración con Mariana Red — Beats para mimir</p>
 			`,
 		},
 		en: {
-			title: "Dovele",
+			title: "Palmasur Collab",
 			descHTML: `
 			<p>Collab with Mariana Red — Sleepy beats</p>
 			`,
@@ -32,7 +32,7 @@
 
 <PreviewTemplate title={content[$appLang].title || content['en'].title} link="https://open.spotify.com/album/48iAWaLA0eDyV2O7b1oSYZ" technologies={skills}>
 	<div slot="preview">
-		<img src={img_gtd_app} alt="Beats para mimir">
+		<img src={img_gtd_app} alt="Mariana Red - Beats para mimir">
 	</div>
 	<span slot="description">{@html content[$appLang].descHTML || content['en'].descHTML}</span>
 </PreviewTemplate>
