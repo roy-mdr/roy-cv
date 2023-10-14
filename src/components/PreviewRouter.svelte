@@ -20,6 +20,7 @@
 	import Web2521 from "./previews/Web2521.svelte";
 	import WebESustenta from './previews/WebESustenta.svelte';
 	import LANDA from './previews/LANDA.svelte';
+	import LADE from './previews/LADE.svelte';
 	import Bluish from './previews/Bluish.svelte';
 	import Dovele from './previews/Dovele.svelte';
 	import Palmasur from './previews/Palmasur.svelte';
@@ -85,6 +86,9 @@
 
 		{:else if $prevProj === 'landa'}
 		<LANDA />
+
+		{:else if $prevProj === 'lade'}
+		<LADE />
 
 		{:else if $prevProj === 'bluish'}
 		<Bluish />

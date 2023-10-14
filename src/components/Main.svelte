@@ -445,19 +445,20 @@
 
 		<h3>Software / Hardware</h3>
 		<div class="proj-container">
-			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = '2521'}>Website 2521</div>
+			<!-- <div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = '2521'}>Website 2521</div> -->
 			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'vigilost'}>VigiLost</div>
 			<!-- <div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'bloom'}>Bloom Portfolio</div> -->
 			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'splash-creator'}>Splash Creator</div>
 			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'lshdrms'}>LSHD//DRMS + Chrome Extension</div>
 			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'es-web'}>Webapp + Website Estudio Sustenta</div>
-			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'vr-ctrl'}>VR Controller</div>
+			<!-- <div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'vr-ctrl'}>VR Controller</div> -->
 			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'iot'}>IoT firmware</div>
 			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'no-poll'}>Pub-sub broker + Control API</div>
 			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'es-pcwin'}>Remote Access Tool + Protocol Handler</div>
 			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'es-proj-viz'}>Project Mapper</div>
 			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'app-gtd'}>App Getting Things Done</div>
 			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'landa'}>LANDA</div>
+			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'lade'}>CIDE: Los Archivos del Ejercito</div>
 		</div>
 
 		<h3>{content[$appLang].audioviz || content['en'].audioviz}</h3>
