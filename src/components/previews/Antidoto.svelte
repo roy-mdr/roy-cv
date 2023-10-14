@@ -12,16 +12,14 @@
 			title: "Podcast Antídoto",
 			descHTML: `
 				<p>Sonorización y dirección creativa del podcast <b>Antídoto</b> <i>un espacio para sanar</i></p>
-				<br />
-				Puedes escuchar el tema sonoro <a href="https://youtu.be/m_V5qJTCZvk" target="_blank">aquí</a>.
+				<p>Puedes escuchar el tema sonoro <a href="https://youtu.be/m_V5qJTCZvk" target="_blank">aquí</a>.</p>
 			`,
 		},
 		en: {
 			title: "Antidoto Podcast",
 			descHTML: `
 				<p>Soundtrack production and creative direction of the podcast <b>Antídoto</b> <i>a space to heal</i></p>
-				<br />
-				You can listen to the theme track <a href="https://youtu.be/m_V5qJTCZvk" target="_blank">here</a>.
+				<p>You can listen to the theme track <a href="https://youtu.be/m_V5qJTCZvk" target="_blank">here</a>.</p>
 			`,
 		},
 		de: {

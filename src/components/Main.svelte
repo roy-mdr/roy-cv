@@ -467,6 +467,7 @@
 			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'palmasur'}>Collab: Palmasur</div>
 			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'dosis-sonoras'}>Dosis Sonoras</div>
 			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'antidoto'}>Podcast Antídoto</div>
+			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'pangea'}>PANGEA Mapamundi</div>
 		</div>
 	</section>
 

@@ -24,6 +24,7 @@
 	import Dovele from './previews/Dovele.svelte';
 	import Palmasur from './previews/Palmasur.svelte';
 	import Antidoto from './previews/Antidoto.svelte';
+	import Pangea from './previews/Pangea.svelte';
 </script>
 
 
@@ -96,6 +97,9 @@
 
 		{:else if $prevProj === 'antidoto'}
 		<Antidoto />
+
+		{:else if $prevProj === 'pangea'}
+		<Pangea />
 
 		{:else}
 		<NotFound projKey={$prevProj} />
