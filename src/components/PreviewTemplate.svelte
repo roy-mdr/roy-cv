@@ -103,8 +103,9 @@
 	}
 
 	.content {
+		min-height: 0;
 		max-width: 600px;
-		margin: 2em;
+		margin: 2em 2em 0 2em;
 	}
 
 	.content :global(img) {
@@ -130,7 +131,7 @@
 		color: var(--main-text);
 		/* width: min-content; */
 		font-weight: bold;
-		margin: 2em 0 0 0;
+		margin: 2em 0;
 		width: max-content;
 		transition: background-color var(--speed-normal), color var(--speed-normal);
 	}
