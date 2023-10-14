@@ -1,15 +1,15 @@
 <script lang="ts">
-	import { expoOut } from 'svelte/easing';
+	import { expoOut } from "svelte/easing";
 	import "external-svg-loader";
 
-	import { prevProj } from '../stores/previewing.js';
-	import { appLang } from '../stores/appState.js';
-    import Skill from './Skill.svelte';
+	import { prevProj } from "../stores/previewing.js";
+	import { appLang } from "../stores/appState.js";
+	import Skill from "./Skill.svelte";
 
 	export let title: string;
-	export let link = '';
+	export let link = "";
 	export let technologies = [];
-	export let buttonText = '';
+	export let buttonText = "";
 
 	const content = {
 		es: {
@@ -27,39 +27,50 @@
 		const fromHeight = 10;
 		return {
 			duration,
-			css: t => {
+			css: (t) => {
 				const eased = expoOut(t);
 				return `
 					opacity: ${eased};
-					translate: 0 ${-fromHeight + (eased*fromHeight)}px;
-				`
-			}
+					translate: 0 ${-fromHeight + eased * fromHeight}px;
+				`;
+			},
 		};
 	}
 </script>
 
-
-
-<div in:drop={{duration: 500}} class="container">
-	<svg data-src="https://s2.svgbox.net/hero-solid.svg?ic=x" width="24" height="24" color="var(--carpet)" class="close" on:click={() => $prevProj = ''}></svg>
+<div in:drop={{ duration: 500 }} class="container">
+	<svg
+		data-src="https://s2.svgbox.net/hero-solid.svg?ic=x"
+		width="24"
+		height="24"
+		color="var(--carpet)"
+		class="close"
+		on:click={() => ($prevProj = "")}
+	/>
 	<h1 class="title">{title}</h1>
-	<div class="center" in:drop={{duration: 1000}}>
+	<div class="center" in:drop={{ duration: 1000 }}>
 		<div class="content">
-			<slot name="preview" class="preview"></slot>
-			<slot name="description" class="description"></slot>
+			<slot name="preview" class="preview" />
+			<slot name="description" class="description" />
 			<div class="skillset">
 				{#each technologies as skill}
-					<Skill skill={skill} />
+					<Skill {skill} />
 				{/each}
 			</div>
-			{#if link !== ''}
-			<a href={link} target="_blank" class="btn" in:drop={{duration: 1500}}>{buttonText || content[$appLang].btnTxt || content["en"].btnTxt}</a>
+			{#if link !== ""}
+				<a
+					href={link}
+					target="_blank"
+					class="btn"
+					in:drop={{ duration: 1500 }}
+					>{buttonText ||
+						content[$appLang].btnTxt ||
+						content["en"].btnTxt}</a
+				>
 			{/if}
 		</div>
 	</div>
 </div>
-
-
 
 <style>
 	.container {
@@ -98,14 +109,15 @@
 		justify-content: center;
 		align-items: center;
 		width: 100%;
-		height: 100%;
+		/* height: 100%; */
+		flex-grow: 1;
 		/* flex: 0 1 auto; */
 	}
 
 	.content {
 		min-height: 0;
 		max-width: 600px;
-		margin: 2em 2em 0 2em;
+		padding: 2em;
 	}
 
 	.content :global(img) {
@@ -131,9 +143,10 @@
 		color: var(--main-text);
 		/* width: min-content; */
 		font-weight: bold;
-		margin: 2em 0;
+		margin-top: 2em;
 		width: max-content;
-		transition: background-color var(--speed-normal), color var(--speed-normal);
+		transition: background-color var(--speed-normal),
+			color var(--speed-normal);
 	}
 
 	.skillset {
