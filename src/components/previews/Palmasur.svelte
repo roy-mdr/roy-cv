@@ -3,7 +3,7 @@
 	import { appLang } from '../../stores/appState.js';
 
 	/* IMAGES */
-	import img_gtd_app from '../../assets/projects/palmasur.jpg';
+	import img_palmasur from '../../assets/projects/palmasur.jpg';
 
 	const skills = []
 
@@ -32,7 +32,7 @@
 
 <PreviewTemplate title={content[$appLang].title || content['en'].title} link="https://open.spotify.com/album/48iAWaLA0eDyV2O7b1oSYZ" technologies={skills}>
 	<div slot="preview">
-		<img src={img_gtd_app} alt="Mariana Red - Beats para mimir">
+		<img src={img_palmasur} alt="Mariana Red - Beats para mimir">
 	</div>
 	<span slot="description">{@html content[$appLang].descHTML || content['en'].descHTML}</span>
 </PreviewTemplate>
@@ -40,4 +40,8 @@
 
 
 <style>
+	img {
+		max-width: 300px;
+		margin: auto;
+	}
 </style>

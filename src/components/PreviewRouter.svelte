@@ -23,6 +23,7 @@
 	import Bluish from './previews/Bluish.svelte';
 	import Dovele from './previews/Dovele.svelte';
 	import Palmasur from './previews/Palmasur.svelte';
+	import Antidoto from './previews/Antidoto.svelte';
 </script>
 
 
@@ -92,6 +93,9 @@
 
 		{:else if $prevProj === 'palmasur'}
 		<Palmasur />
+
+		{:else if $prevProj === 'antidoto'}
+		<Antidoto />
 
 		{:else}
 		<NotFound projKey={$prevProj} />
