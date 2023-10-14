@@ -555,6 +555,7 @@
 			<Skill level={true} skill="premiere" />
 			<Skill level={true} skill="audition" />
 			<Skill level={true} skill="afterfx" />
+			<Skill level={true} skill="touchdesigner" />
 			<Skill level={true} skill="abletonlive" />
 			<Skill level={true} skill="studioone" />
 		</div>
