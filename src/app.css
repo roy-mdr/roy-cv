@@ -102,6 +102,12 @@ body {
   min-height: 100vh;
 }
 
+@media (width < 1500px) {
+  body.previewing {
+    overflow: hidden;
+  }
+}
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
@@ -118,6 +124,7 @@ h1 {
   /* padding: 2rem; */
   /* text-align: center; */
   width: 100%;
+  container-type: inline-size;
 }
 
 

@@ -56,7 +56,7 @@
 
 <style>
 .modal-wrapper {
-	align-items: center;
+	/* align-items: center; */
 	background-color: rgba(0, 0, 0, 0.5);
 	color: var(--dark-grey);
 	display: flex;
@@ -70,7 +70,7 @@
 	position: fixed;
 	text-align: left;
 	top: 0;
-	z-index: 1;
+	z-index: 5;
 }
 
 .modal-scroller {
@@ -80,6 +80,8 @@
 	justify-content: center;
 	overflow-y: auto;
 	width: 100%;
+	position: sticky;
+	top: 0;
 }
 
 .modal-margin {

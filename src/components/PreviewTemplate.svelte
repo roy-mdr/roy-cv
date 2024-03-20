@@ -38,41 +38,78 @@
 	}
 </script>
 
-<div in:drop={{ duration: 500 }} class="container">
-	<svg
-		data-src="https://s2.svgbox.net/hero-solid.svg?ic=x"
-		width="24"
-		height="24"
-		color="var(--carpet)"
-		class="close"
-		on:click={() => ($prevProj = "")}
-	/>
-	<h1 class="title">{title}</h1>
-	<div class="center" in:drop={{ duration: 1000 }}>
-		<div class="content">
-			<slot name="preview" class="preview" />
-			<slot name="description" class="description" />
-			<div class="skillset">
-				{#each technologies as skill}
+<div in:drop={{ duration: 500 }} class="container-wrapper">
+	<div class="close-bar">
+		<!-- svelte-ignore a11y-click-events-have-key-events -->
+		<svg
+			data-src="https://s2.svgbox.net/hero-outline.svg?ic=chevron-left"
+			width="24"
+			height="24"
+			color="var(--carpet)"
+			class="close"
+			on:click={() => ($prevProj = "")}
+		/>
+		<span>Back</span>
+	</div>
+	<div class="container">
+
+		<h1 class="title">{title}</h1>
+		<div class="center" in:drop={{ duration: 1000 }}>
+			<div class="content">
+				<slot name="preview" class="preview" />
+				<slot name="description" class="description" />
+				<div class="skillset">
+					{#each technologies as skill}
 					<Skill {skill} />
-				{/each}
-			</div>
-			{#if link !== ""}
+					{/each}
+				</div>
+				{#if link !== ""}
 				<a
-					href={link}
-					target="_blank"
-					class="btn"
-					in:drop={{ duration: 1500 }}
-					>{buttonText ||
+				href={link}
+				target="_blank"
+				class="btn"
+				in:drop={{ duration: 1500 }}
+				>{buttonText ||
 						content[$appLang].btnTxt ||
 						content["en"].btnTxt}</a
 				>
-			{/if}
+				{/if}
+			</div>
 		</div>
 	</div>
 </div>
 
 <style>
+	.container-wrapper {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
+	}
+
+	.container-wrapper .close-bar {
+		background-color: var(--main-text);
+		border-bottom: 2px solid var(--carpet);
+		display: flex;
+		color: var(--carpet);
+		align-items: center;
+	}
+
+	.container-wrapper .close {
+		padding: 1em;
+		cursor: pointer;
+	}
+
+	.container-wrapper span {
+		display: none;
+	}
+
+	.container-wrapper .close:hover + span {
+		display: block;
+	}
+
 	.container {
 		background-color: var(--main-text);
 		color: var(--carpet);
@@ -83,12 +120,6 @@
 		flex-direction: column;
 		overflow: auto;
 		/* flex-flow: column; */
-	}
-
-	.container .close {
-		position: absolute;
-		top: 20px;
-		right: 20px;
 	}
 
 	.container .title {

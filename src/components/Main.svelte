@@ -101,7 +101,7 @@
 			h2Lang: "Languages",
 			langEs: "Spanish (native)",
 			langEn: "English",
-			langDe: "Deutsch",
+			langDe: "German",
 			h2Edu: "Education",
 			edu_1: "Architecture degree at the Autonomous University of Aguascalientes (UAA 2016-2021) grade 9.6/10",
 			edu_2: "Studies at the Higher Technical School of Architecture of the University of Granada in Granada, Spain. (2019)", // with a couple of outstanding subjects ??
@@ -286,6 +286,7 @@
 		</div>
 
 		<div class="pad light">
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<div class="p-pic noselect" style="background-color: var(--main-text); width: 150px; height: 150px;" on:click={ () => { $showProfPic = !$showProfPic; } }>
 				{#if $showProfPic}
 					{#if $appTheme == 'vapor'}
@@ -432,42 +433,71 @@
 
 		<h3>{content[$appLang].architecture || content['en'].architecture}</h3>
 		<div class="proj-container">
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'renders'}>Renders varios</div>
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'castell'}>Castell de Ferro</div>
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'conjunto-mi'}>Conjunto M.I.</div>
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'hornedo'}>Remod. Hornedo</div>
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'black-box'}>The Black Box</div>
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'cenco-pv'}>Centro Comunitario P.V.</div>
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'infonavit-proj'}>Concurso Infonavit 2020</div>
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'es-amehos1'}>AMEHOS I</div>
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'es-amehos2'}>AMEHOS II</div>
 		</div>
 
 		<h3>Software / Hardware</h3>
 		<div class="proj-container">
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<!-- <div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = '2521'}>Website 2521</div> -->
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'vigilost'}>VigiLost</div>
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<!-- <div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'bloom'}>Bloom Portfolio</div> -->
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'splash-creator'}>Splash Creator</div>
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'lshdrms'}>LSHD//DRMS + Chrome Extension</div>
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'es-web'}>Webapp + Website Estudio Sustenta</div>
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<!-- <div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'vr-ctrl'}>VR Controller</div> -->
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'iot'}>IoT firmware</div>
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'no-poll'}>Pub-sub broker + Control API</div>
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'es-pcwin'}>Remote Access Tool + Protocol Handler</div>
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'es-proj-viz'}>Project Mapper</div>
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'app-gtd'}>App Getting Things Done</div>
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'landa'}>LANDA</div>
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'lade'}>CIDE: Los Archivos del Ejercito</div>
 		</div>
 
 		<h3>{content[$appLang].audioviz || content['en'].audioviz}</h3>
 		<div class="proj-container">
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'bluish'}>Bluish</div>
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'dovele'}>Dovele</div>
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'palmasur'}>Collab: Palmasur</div>
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'dosis-sonoras'}>Dosis Sonoras</div>
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'antidoto'}>Podcast Antídoto</div>
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'pangea'}>PANGEA Mapamundi</div>
 		</div>
 	</section>
@@ -601,6 +631,12 @@
 		padding: 2em;
 		margin: 2em 0 2em 0;
 		transition: background-color var(--speed-normal);
+	}
+
+	@container (width < 700px) {
+		main {
+			margin: 0 1em 1em 1em;
+		}
 	}
 
 	main section:not(:first-child) {
@@ -748,6 +784,7 @@
 		cursor: pointer;
 		color: var(--carpet);
 		background-color: var(--main-text);
+		flex-grow: 1;
 		margin: 1px;
 		padding: 0.5em 1em;
 		display: block;

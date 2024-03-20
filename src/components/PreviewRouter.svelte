@@ -26,6 +26,15 @@
 	import Palmasur from './previews/Palmasur.svelte';
 	import Antidoto from './previews/Antidoto.svelte';
 	import Pangea from './previews/Pangea.svelte';
+
+	function setBodyPreviewingClass(previewing) {
+		if (previewing) {
+			document.body.classList.add("previewing");
+		} else {
+			document.body.classList.remove("previewing");
+		}
+	}
+	$: setBodyPreviewingClass($prevProj);
 </script>
 
 
@@ -128,10 +137,23 @@
 
 	.previewer .content {
 		/* height: calc(100% - 4em); */
+		height: 100%;
 		min-height: calc(100% - 4em);
 		margin: 2em;
 		display: flex;
 		justify-content: center;
 		align-items: center;
+	}
+
+	/* @container (width < 1500px) {
+		.previewer .content {
+			margin: 0;
+		}
+	} */
+
+	@container (width < 700px) {
+		.previewer .content {
+			margin: 0;
+		}
 	}
 </style>
