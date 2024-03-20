@@ -8,13 +8,45 @@
 	import PreviewRouter from './components/PreviewRouter.svelte';
 
 	import { appTheme, appLang, appProfile, showProfPic } from './stores/appState.js';
-	import { prevProj } from './stores/previewing.js';
+	import { prevProj, existingProjId } from './stores/previewing.js';
 
 	let init = false;
 	let modal = false;
 	let setProfPicOnClose = false;
 
 	onMount( async () => {
+
+		if (window.location.hash != "" && window.location.hash != "#") {
+			$prevProj = window.location.hash.slice(1);
+		}
+
+		window.addEventListener('hashchange', (ev) => {
+			if ($prevProj && window.location.hash != `#${$prevProj}`) {
+				$prevProj = '';
+			}
+
+			if (window.location.hash != "" && window.location.hash != "#") {
+				$prevProj = window.location.hash.slice(1);
+			}
+		});
+
+		window.addEventListener('keydown', (ev) => {
+			if (ev.key != "Escape") return;
+
+			if (modal) {
+				closeModal();
+				return;
+			}
+
+			if ($prevProj) {
+				$prevProj = "";
+				history.pushState("", document.title, window.location.pathname + window.location.search);
+				return;
+			}
+		})
+
+		// --------------------------------------------------------
+
 		init = true;
 		const settingsJSON = localStorage.getItem('appSettings');
 
@@ -62,7 +94,7 @@
 	</div>
 	<div class="main-wrapper">
 		<Main />
-		<div class="r-previewer" class:no-proj={!$prevProj}>
+		<div class="r-previewer" class:no-proj={!$existingProjId}>
 			<PreviewRouter />
 		</div>
 	</div>

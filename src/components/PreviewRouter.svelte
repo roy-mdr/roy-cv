@@ -1,5 +1,5 @@
 <script>
-	import { prevProj } from '../stores/previewing.js';
+	import { prevProj, existingProjId } from '../stores/previewing.js';
     import BlackBox from './previews/BlackBox.svelte';
     import Castell from './previews/Castell.svelte';
     import CenCoPv from './previews/CenCoPV.svelte';
@@ -27,14 +27,31 @@
 	import Antidoto from './previews/Antidoto.svelte';
 	import Pangea from './previews/Pangea.svelte';
 
+	function checkProjIdExists(previewing) {
+		if (!previewing) {
+			$existingProjId = "";
+			return;
+		}
+
+		const elementExist = document.querySelector(`#projects project[proj-id=${previewing}]`);
+
+		if (elementExist) {
+			$existingProjId = previewing;
+		} else if (window.screen.width < 1500) {
+			$existingProjId = "";
+		}
+	}
+	$: checkProjIdExists($prevProj);
+
 	function setBodyPreviewingClass(previewing) {
+		console.log(previewing);
 		if (previewing) {
 			document.body.classList.add("previewing");
 		} else {
 			document.body.classList.remove("previewing");
 		}
 	}
-	$: setBodyPreviewingClass($prevProj);
+	$: setBodyPreviewingClass($existingProjId);
 </script>
 
 
@@ -42,80 +59,80 @@
 <div class="previewer">
 	<div class="content">
 
-		{#if $prevProj === ''}
+		{#if $existingProjId === ''}
 		<Default />
 
-		{:else if $prevProj === 'castell'}
+		{:else if $existingProjId === 'castell'}
 		<Castell />
 
-		{:else if $prevProj === 'conjunto-mi'}
+		{:else if $existingProjId === 'conjunto-mi'}
 		<ConjuntoMi />
 
-		{:else if $prevProj === 'black-box'}
+		{:else if $existingProjId === 'black-box'}
 		<BlackBox />
 
-		{:else if $prevProj === 'cenco-pv'}
+		{:else if $existingProjId === 'cenco-pv'}
 		<CenCoPv />
 
-		{:else if $prevProj === 'es-proj-viz'}
+		{:else if $existingProjId === 'es-proj-viz'}
 		<EsProjViz />
 
-		{:else if $prevProj === 'app-gtd'}
+		{:else if $existingProjId === 'app-gtd'}
 		<GtdApp />
 
-		{:else if $prevProj === 'hornedo'}
+		{:else if $existingProjId === 'hornedo'}
 		<Hornedo />
 
-		{:else if $prevProj === 'infonavit-proj'}
+		{:else if $existingProjId === 'infonavit-proj'}
 		<InfonavitProj />
 
-		{:else if $prevProj === 'iot'}
+		{:else if $existingProjId === 'iot'}
 		<IoTFirmware />
 
-		{:else if $prevProj === 'es-pcwin'}
+		{:else if $existingProjId === 'es-pcwin'}
 		<IotPcWin />
 
-		{:else if $prevProj === 'lshdrms'}
+		{:else if $existingProjId === 'lshdrms'}
 		<Lshdrms />
 
-		{:else if $prevProj === 'no-poll'}
+		{:else if $existingProjId === 'no-poll'}
 		<NoPoll />
 
-		{:else if $prevProj === 'splash-creator'}
+		{:else if $existingProjId === 'splash-creator'}
 		<QuickSplashCreator />
 
-		{:else if $prevProj === 'vigilost'}
+		{:else if $existingProjId === 'vigilost'}
 		<VigiLost />
 
-		{:else if $prevProj === '2521'}
+		{:else if $existingProjId === '2521'}
 		<Web2521 />
 
-		{:else if $prevProj === 'es-web'}
+		{:else if $existingProjId === 'es-web'}
 		<WebESustenta />
 
-		{:else if $prevProj === 'landa'}
+		{:else if $existingProjId === 'landa'}
 		<LANDA />
 
-		{:else if $prevProj === 'lade'}
+		{:else if $existingProjId === 'lade'}
 		<LADE />
 
-		{:else if $prevProj === 'bluish'}
+		{:else if $existingProjId === 'bluish'}
 		<Bluish />
 
-		{:else if $prevProj === 'dovele'}
+		{:else if $existingProjId === 'dovele'}
 		<Dovele />
 
-		{:else if $prevProj === 'palmasur'}
+		{:else if $existingProjId === 'palmasur'}
 		<Palmasur />
 
-		{:else if $prevProj === 'antidoto'}
+		{:else if $existingProjId === 'antidoto'}
 		<Antidoto />
 
-		{:else if $prevProj === 'pangea'}
+		{:else if $existingProjId === 'pangea'}
 		<Pangea />
 
 		{:else}
-		<NotFound projKey={$prevProj} />
+		<NotFound projKey={$existingProjId} />
 		{/if}
 	</div>
 </div>

@@ -261,6 +261,14 @@
 		return false
 	}
 
+	function setPrevProj(ev) {
+		const projId = ev.target.attributes["proj-id"].nodeValue;
+
+		$prevProj = projId;
+
+		// Handle go-back navigation to close Project Panel
+		window.location.hash = projId;
+	}
 </script>
 
 
@@ -434,71 +442,71 @@
 		<h3>{content[$appLang].architecture || content['en'].architecture}</h3>
 		<div class="proj-container">
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'renders'}>Renders varios</div>
+			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="renders">Renders varios</project>
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'castell'}>Castell de Ferro</div>
+			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="castell">Castell de Ferro</project>
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'conjunto-mi'}>Conjunto M.I.</div>
+			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="conjunto-mi">Conjunto M.I.</project>
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'hornedo'}>Remod. Hornedo</div>
+			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="hornedo">Remod. Hornedo</project>
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'black-box'}>The Black Box</div>
+			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="black-box">The Black Box</project>
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'cenco-pv'}>Centro Comunitario P.V.</div>
+			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="cenco-pv">Centro Comunitario P.V.</project>
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'infonavit-proj'}>Concurso Infonavit 2020</div>
+			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="infonavit-proj">Concurso Infonavit 2020</project>
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'es-amehos1'}>AMEHOS I</div>
+			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="es-amehos1">AMEHOS I</project>
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'es-amehos2'}>AMEHOS II</div>
+			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="es-amehos2">AMEHOS II</project>
 		</div>
 
 		<h3>Software / Hardware</h3>
 		<div class="proj-container">
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<!-- <div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = '2521'}>Website 2521</div> -->
+			<!-- <project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="2521">Website 2521</div> project>
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'vigilost'}>VigiLost</div>
+			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="vigilost">VigiLost</project>
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<!-- <div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'bloom'}>Bloom Portfolio</div> -->
+			<!-- <project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="bloom">Bloom Portfolio</div> project>
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'splash-creator'}>Splash Creator</div>
+			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="splash-creator">Splash Creator</project>
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'lshdrms'}>LSHD//DRMS + Chrome Extension</div>
+			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="lshdrms">LSHD//DRMS + Chrome Extension</project>
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'es-web'}>Webapp + Website Estudio Sustenta</div>
+			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="es-web">Webapp + Website Estudio Sustenta</project>
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<!-- <div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'vr-ctrl'}>VR Controller</div> -->
+			<!-- <project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="vr-ctrl">VR Controller</div> project>
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'iot'}>IoT firmware</div>
+			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="iot">IoT firmware</project>
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'no-poll'}>Pub-sub broker + Control API</div>
+			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="no-poll">Pub-sub broker + Control API</project>
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'es-pcwin'}>Remote Access Tool + Protocol Handler</div>
+			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="es-pcwin">Remote Access Tool + Protocol Handler</project>
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'es-proj-viz'}>Project Mapper</div>
+			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="es-proj-viz">Project Mapper</project>
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'app-gtd'}>App Getting Things Done</div>
+			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="app-gtd">App Getting Things Done</project>
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'landa'}>LANDA</div>
+			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="landa">LANDA</project>
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'lade'}>CIDE: Los Archivos del Ejercito</div>
+			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="lade">CIDE: Los Archivos del Ejercito</project>
 		</div>
 
 		<h3>{content[$appLang].audioviz || content['en'].audioviz}</h3>
 		<div class="proj-container">
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'bluish'}>Bluish</div>
+			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="bluish">Bluish</project>
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'dovele'}>Dovele</div>
+			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="dovele">Dovele</project>
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'palmasur'}>Collab: Palmasur</div>
+			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="palmasur">Collab: Palmasur</project>
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'dosis-sonoras'}>Dosis Sonoras</div>
+			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="dosis-sonoras">Dosis Sonoras</project>
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'antidoto'}>Podcast Antídoto</div>
+			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="antidoto">Podcast Antídoto</project>
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<div class="project noselect" tabindex="0" role="button" on:click={() => $prevProj = 'pangea'}>PANGEA Mapamundi</div>
+			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="pangea">PANGEA Mapamundi</project>
 		</div>
 	</section>
 

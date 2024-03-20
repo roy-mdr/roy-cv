@@ -36,6 +36,11 @@
 			},
 		};
 	}
+
+	function closeProj() {
+		$prevProj = "";
+		history.pushState("", document.title, window.location.pathname + window.location.search);
+	}
 </script>
 
 <div in:drop={{ duration: 500 }} class="container-wrapper">
@@ -47,7 +52,7 @@
 			height="24"
 			color="var(--carpet)"
 			class="close"
-			on:click={() => ($prevProj = "")}
+			on:click={() => closeProj()}
 		/>
 		<span>Back</span>
 	</div>
