@@ -206,6 +206,247 @@
 		},
 	}
 
+	const projectData = {
+		arch: [
+			{
+				projId: "renders",
+				title: {
+					es: "Renders varios",
+					en: "Renders misc",
+					de: ""
+				}
+			},
+			{
+				projId: "castell",
+				title: {
+					es: "",
+					en: "Castell de Ferro",
+					de: ""
+				}
+			},
+			{
+				projId: "conjunto-mi",
+				title: {
+					es: "",
+					en: "Conjunto M.I.",
+					de: ""
+				}
+			},
+			{
+				projId: "hornedo",
+				title: {
+					es: "",
+					en: "Remod. Hornedo",
+					de: ""
+				}
+			},
+			{
+				projId: "black-box",
+				title: {
+					es: "",
+					en: "The Black Box",
+					de: ""
+				}
+			},
+			{
+				projId: "cenco-pv",
+				title: {
+					es: "Centro Comunitario P.V.",
+					en: "Community Centre P.V.",
+					de: ""
+				}
+			},
+			{
+				projId: "infonavit-proj",
+				title: {
+					es: "Concurso INFONAVIT 2020",
+					en: "INFONAVIT Contest 2020",
+					de: ""
+				}
+			},
+			{
+				projId: "es-amehos1",
+				title: {
+					es: "",
+					en: "AMEHOS I",
+					de: ""
+				}
+			},
+			{
+				projId: "es-amehos2",
+				title: {
+					es: "",
+					en: "AMEHOS II",
+					de: ""
+				}
+			},
+		],
+		tech: [
+			// {
+			// 	projId: "2521",
+			// 	title: {
+			// 		es: "",
+			// 		en: "Website 2521",
+			// 		de: ""
+			// 	}
+			// },
+			{
+				projId: "vigilost",
+				title: {
+					es: "",
+					en: "VigiLost",
+					de: ""
+				}
+			},
+			// {
+			// 	projId: "bloom",
+			// 	title: {
+			// 		es: "",
+			// 		en: "Bloom Portfolio",
+			// 		de: ""
+			// 	}
+			// },
+			{
+				projId: "splash-creator",
+				title: {
+					es: "",
+					en: "Splash Creator",
+					de: ""
+				}
+			},
+			{
+				projId: "lshdrms",
+				title: {
+					es: "",
+					en: "LSHD//DRMS + Chrome Extension",
+					de: ""
+				}
+			},
+			{
+				projId: "es-web",
+				title: {
+					es: "",
+					en: "Webapp + Website Estudio Sustenta",
+					de: ""
+				}
+			},
+			// {
+			// 	projId: "vr-ctrl",
+			// 	title: {
+			// 		es: "",
+			// 		en: "VR Controller",
+			// 		de: ""
+			// 	}
+			// },
+			{
+				projId: "iot",
+				title: {
+					es: "",
+					en: "IoT firmware",
+					de: ""
+				}
+			},
+			{
+				projId: "no-poll",
+				title: {
+					es: "",
+					en: "Pub-sub broker + Control API",
+					de: ""
+				}
+			},
+			{
+				projId: "es-pcwin",
+				title: {
+					es: "",
+					en: "Remote Access Tool + Protocol Handler",
+					de: ""
+				}
+			},
+			{
+				projId: "es-proj-viz",
+				title: {
+					es: "",
+					en: "Project Mapper",
+					de: ""
+				}
+			},
+			{
+				projId: "app-gtd",
+				title: {
+					es: "",
+					en: "App Getting Things Done",
+					de: ""
+				}
+			},
+			{
+				projId: "landa",
+				title: {
+					es: "",
+					en: "LANDA",
+					de: ""
+				}
+			},
+			{
+				projId: "lade",
+				title: {
+					es: "",
+					en: "CIDE: Los Archivos del Ejercito",
+					de: ""
+				}
+			},
+		],
+		auviz: [
+			{
+				projId: "bluish",
+				title: {
+					es: "",
+					en: "Bluish",
+					de: ""
+				}
+			},
+			{
+				projId: "dovele",
+				title: {
+					es: "",
+					en: "Dovele",
+					de: ""
+				}
+			},
+			{
+				projId: "palmasur",
+				title: {
+					es: "",
+					en: "Collab: Palmasur",
+					de: ""
+				}
+			},
+			{
+				projId: "dosis-sonoras",
+				title: {
+					es: "",
+					en: "Dosis Sonoras",
+					de: ""
+				}
+			},
+			{
+				projId: "antidoto",
+				title: {
+					es: "",
+					en: "Podcast Antídoto",
+					de: ""
+				}
+			},
+			{
+				projId: "pangea",
+				title: {
+					es: "",
+					en: "PANGEA Mapamundi",
+					de: ""
+				}
+			},
+		]
+	};
+
 	let contactEmail = "";
 	let contactMessage = "";
 	let contactError = false;
@@ -441,72 +682,26 @@
 
 		<h3>{content[$appLang].architecture || content['en'].architecture}</h3>
 		<div class="proj-container">
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="renders">Renders varios</project>
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="castell">Castell de Ferro</project>
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="conjunto-mi">Conjunto M.I.</project>
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="hornedo">Remod. Hornedo</project>
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="black-box">The Black Box</project>
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="cenco-pv">Centro Comunitario P.V.</project>
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="infonavit-proj">Concurso Infonavit 2020</project>
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="es-amehos1">AMEHOS I</project>
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="es-amehos2">AMEHOS II</project>
+			{#each projectData.arch as proj}
+				<!-- svelte-ignore a11y-click-events-have-key-events -->
+				<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id={proj.projId}>{proj.title[$appLang] || proj.title["en"]}</project>
+			{/each}
 		</div>
 
 		<h3>Software / Hardware</h3>
 		<div class="proj-container">
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<!-- <project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="2521">Website 2521</div> project>
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="vigilost">VigiLost</project>
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<!-- <project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="bloom">Bloom Portfolio</div> project>
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="splash-creator">Splash Creator</project>
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="lshdrms">LSHD//DRMS + Chrome Extension</project>
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="es-web">Webapp + Website Estudio Sustenta</project>
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<!-- <project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="vr-ctrl">VR Controller</div> project>
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="iot">IoT firmware</project>
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="no-poll">Pub-sub broker + Control API</project>
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="es-pcwin">Remote Access Tool + Protocol Handler</project>
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="es-proj-viz">Project Mapper</project>
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="app-gtd">App Getting Things Done</project>
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="landa">LANDA</project>
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="lade">CIDE: Los Archivos del Ejercito</project>
+			{#each projectData.tech as proj}
+				<!-- svelte-ignore a11y-click-events-have-key-events -->
+				<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id={proj.projId}>{proj.title[$appLang] || proj.title["en"]}</project>
+			{/each}
 		</div>
 
 		<h3>{content[$appLang].audioviz || content['en'].audioviz}</h3>
 		<div class="proj-container">
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="bluish">Bluish</project>
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="dovele">Dovele</project>
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="palmasur">Collab: Palmasur</project>
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="dosis-sonoras">Dosis Sonoras</project>
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="antidoto">Podcast Antídoto</project>
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id="pangea">PANGEA Mapamundi</project>
+			{#each projectData.auviz as proj}
+				<!-- svelte-ignore a11y-click-events-have-key-events -->
+				<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id={proj.projId}>{proj.title[$appLang] || proj.title["en"]}</project>
+			{/each}
 		</div>
 	</section>
 

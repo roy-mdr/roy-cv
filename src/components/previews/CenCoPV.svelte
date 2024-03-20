@@ -22,8 +22,8 @@
 			descHTML: `El Centro Comunitario Primo Verdad en la colonia Primo Verdad alberga acividades que la misma comunidad ya hace sin un lugar dedicado, provocando que las calles se aglomeren y en ocaciones se vuelvan hostiles. Este desarrollo urbano facilitará una mejor dinámica en el barrio, promoviendo que ciudadanos externos y locales coexistan.`,
 		},
 		en: {
-			title: "Primo Verdad Community Center",
-			descHTML: `The Community Center in the suburb "Primo Verdad" hosts activities that the community don't have a place to do, so the streets get clogged and sometimes hostile. This urban development will facilitate a better dynamic for the community, encouraging external citizens and locals to live together.`,
+			title: "Primo Verdad Community Centre",
+			descHTML: `The Community Centre in the suburb "Primo Verdad" hosts activities that the community don't have a place to do, so the streets get clogged and sometimes hostile. This urban development will facilitate a better dynamic for the community, encouraging external citizens and locals to live together.`,
 		},
 		de: {
 			title: "",
