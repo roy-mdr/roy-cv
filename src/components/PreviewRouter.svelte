@@ -128,7 +128,7 @@
 		width: 100%;
 		position: sticky;
 		top: 0px;
-		height: 100vh;
+		height: 100dvh;
 		/* background-color: red; */
 		display: flex;
 		flex-direction: column;

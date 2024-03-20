@@ -24,7 +24,7 @@
 		es: {
 			altCoverPic: "Foto de portada",
 			altProfilePic: "Foto de perfil",
-			profPicToggMsg: "Click aquí para alternar foto de perfil",
+			profPicToggMsg: "Click aquí para alternar la foto de perfil",
 			h2Presentation: "Presentación",
 			presentationP_1: "Arquitecto, web dev y amante de la música. De Aguascalientes, México.",
 			presentationP_2: "Me apasiona encontrar puntos de fusión entre mis intereses y desarrollar proyectos creativos que desafíen el estado de lo tradicional, buscando la incorporación y creación de tecnologías sin extraviar la sensibilidad.",
@@ -85,7 +85,7 @@
 		en: {
 			altCoverPic: "Cover pic",
 			altProfilePic: "Profile pic",
-			profPicToggMsg: "Click here to toggle Profile Picture",
+			profPicToggMsg: "Click here to toggle the profile picture",
 			h2Presentation: "Presentation",
 			presentationP_1: "Architect, web developer and music lover from Aguascalientes, Mexico.",
 			presentationP_2: "I find passionate looking for common areas between my interests and developing creative projects that challenge the state of the traditional, seeking the incorporation and creation of technologies without losing the aspect of sensitivity.",
@@ -287,14 +287,14 @@
 
 		<div class="pad light">
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<div class="p-pic noselect" style="background-color: var(--main-text); width: 150px; height: 150px;" on:click={ () => { $showProfPic = !$showProfPic; } }>
+			<div class="p-pic noselect" on:click={ () => { $showProfPic = !$showProfPic; } }>
 				{#if $showProfPic}
 					{#if $appTheme == 'vapor'}
-					<img src={vwStatue} alt={content[$appLang].altProfilePic || content['en'].altProfilePic} width="150px" height="150px">
+					<img src={vwStatue} alt={content[$appLang].altProfilePic || content['en'].altProfilePic} width="100%" height="100%">
 					{:else if $appTheme == 'backrooms'}
-					<img src={brEntity} alt={content[$appLang].altProfilePic || content['en'].altProfilePic} width="150px" height="150px">
+					<img src={brEntity} alt={content[$appLang].altProfilePic || content['en'].altProfilePic} width="100%" height="100%">
 					{:else}
-					<img src={pPic} alt={content[$appLang].altProfilePic || content['en'].altProfilePic} width="150px" height="150px">
+					<img src={pPic} alt={content[$appLang].altProfilePic || content['en'].altProfilePic} width="100%" height="100%">
 					{/if}
 				{:else}
 					<span><small>{content[$appLang].profPicToggMsg || content['en'].profPicToggMsg}</small></span>
@@ -302,10 +302,10 @@
 			</div>
 			<h2>{content[$appLang].h2Presentation || content['en'].h2Presentation}</h2>
 			<i>
-				<p style="max-width: 60%;">{content[$appLang].presentationP_1 || content['en'].presentationP_1}</p>
+				<p class="shrink-for-ppic">{content[$appLang].presentationP_1 || content['en'].presentationP_1}</p>
 				<p>{content[$appLang].presentationP_2 || content['en'].presentationP_2}</p>
 			</i>
-			<div style="display: flex; justify-content: center;">
+			<div class="stack-on-small" style="display: flex; justify-content: center;">
 				<a href="/download/Martinez_Del_Rio_Rodrigo-cv_arq.pdf" target="_blank" class="btn cta"><b>{content[$appLang].downloadCV || content['en'].downloadCV}</b> {content[$appLang].profileArq || content['en'].profileArq}</a>
 				<a href="/download/Martinez_Del_Rio_Rodrigo-cv_dev.pdf" target="_blank" class="btn cta"><b>{content[$appLang].downloadCV || content['en'].downloadCV}</b> {content[$appLang].profileDev || content['en'].profileDev}</a>
 				<a href="/download/Martinez_Del_Rio_Rodrigo-cv_aud.pdf" target="_blank" class="btn cta"><b>{content[$appLang].downloadCV || content['en'].downloadCV}</b> {content[$appLang].profileAudio || content['en'].profileAudio}</a>
@@ -380,7 +380,7 @@
 
 	<section id="languages">
 		<h2>{content[$appLang].h2Lang || content['en'].h2Lang}</h2>
-		<div style="display: flex;">
+		<div class="stack-on-small" style="display: flex;">
 			<div class="lang">
 				<span>{content[$appLang].langEs || content['en'].langEs}</span>
 				<div class="level" style="max-width: 100%;"></div>
@@ -633,12 +633,6 @@
 		transition: background-color var(--speed-normal);
 	}
 
-	@container (width < 700px) {
-		main {
-			margin: 0 1em 1em 1em;
-		}
-	}
-
 	main section:not(:first-child) {
 		/* color: red; */
 		margin-top: 4em;
@@ -652,8 +646,8 @@
 
 	h1 {
 		letter-spacing: 0.25em;
-		/* margin-top: 0; */
-		margin-bottom: 1em;
+		margin-top: 0.5em;
+		margin-bottom: 1.5em;
 	}
 
 	/*
@@ -696,6 +690,9 @@
 		justify-content: center;
 		align-items: center;
 		cursor: pointer;
+		background-color: var(--main-text);
+		width: 150px;
+		height: 150px;
 	}
 
 	.p-pic span {
@@ -703,6 +700,10 @@
 		text-align: center;
 		margin: 1em;
 		line-height: 1em;
+	}
+
+	.shrink-for-ppic {
+		max-width: 60%;
 	}
 
 	li :global(.prev-proj) {
@@ -759,7 +760,6 @@
 		padding: 0.2em 0.5em;
 		z-index: 0;
 		flex: 1;
-		width: 100%;
 		align-items: center;
 		text-align: center;
 	}
@@ -823,39 +823,39 @@
 		flex-wrap: wrap;
 	}
 
-.contact-form {
-	display: flex;
-	flex-direction: column;
-	/* max-width: 50%; */
-}
+	.contact-form {
+		display: flex;
+		flex-direction: column;
+		/* max-width: 50%; */
+	}
 
-.contact-form input[type="email"] {
-	font-size: 14px;
-	font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
-	border: none;
-	margin: 1px;
-	padding: 1em;
-	background-color: var(--main-text);
-	color: var(--carpet);
-}
+	.contact-form input[type="email"] {
+		font-size: 14px;
+		font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+		border: none;
+		margin: 1px;
+		padding: 1em;
+		background-color: var(--main-text);
+		color: var(--carpet);
+	}
 
-.contact-form textarea {
-	font-size: 14px;
-	font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
-	border: none;
-	margin: 1px;
-	padding: 1em;
-	background-color: var(--main-text);
-	min-height: 10em;
-	color: var(--carpet);
-}
+	.contact-form textarea {
+		font-size: 14px;
+		font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+		border: none;
+		margin: 1px;
+		padding: 1em;
+		background-color: var(--main-text);
+		min-height: 10em;
+		color: var(--carpet);
+	}
 
-.contact-form input:focus,
-.contact-form textarea:focus {
-	outline: none;
-}
+	.contact-form input:focus,
+	.contact-form textarea:focus {
+		outline: none;
+	}
 
-.contact-form button {
+	.contact-form button {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -872,5 +872,32 @@
 		margin: 1em 0 0 0;
 		width: max-content;
 		transition: background-color var(--speed-normal), color var(--speed-normal);
+	}
+
+	@container (width < 700px) {
+		main {
+			margin: 0 1em 1em 1em;
+			padding: 1em;
+		}
+
+		.stack-on-small {
+			flex-direction: column;
+		}
+	}
+
+	@container (width < 500px) {
+		.p-pic {
+			width: 100px;
+			height: 100px;
+			right: 1em;
+		}
+
+		.p-pic span {
+			margin: 0.5em;
+		}
+
+		.shrink-for-ppic {
+			max-width: unset;
+		}
 	}
 </style>
