@@ -444,6 +444,14 @@
 					de: ""
 				}
 			},
+			{
+				projId: "ghost-show",
+				title: {
+					es: "",
+					en: "Ghost Show",
+					de: ""
+				}
+			},
 		]
 	};
 

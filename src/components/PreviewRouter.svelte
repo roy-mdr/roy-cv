@@ -26,6 +26,7 @@
 	import Palmasur from './previews/Palmasur.svelte';
 	import Antidoto from './previews/Antidoto.svelte';
 	import Pangea from './previews/Pangea.svelte';
+    import GhostShow from './previews/GhostShow.svelte';
 
 	function checkProjIdExists(previewing) {
 		if (!previewing) {
@@ -44,7 +45,6 @@
 	$: checkProjIdExists($prevProj);
 
 	function setBodyPreviewingClass(previewing) {
-		console.log(previewing);
 		if (previewing) {
 			document.body.classList.add("previewing");
 		} else {
@@ -131,6 +131,9 @@
 		{:else if $existingProjId === 'pangea'}
 		<Pangea />
 
+		{:else if $existingProjId === 'ghost-show'}
+		<GhostShow />
+
 		{:else}
 		<NotFound projKey={$existingProjId} />
 		{/if}
@@ -160,6 +163,17 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+	}
+
+	.previewer .content :global(.pad) {
+		padding: 1em 2em;
+		position: relative;
+	}
+
+	.previewer .content :global(.light) {
+		background-color: var(--carpet);
+		color: var(--main-text);
+		transition: background-color var(--speed-normal);
 	}
 
 	/* @container (width < 1500px) {
