@@ -9,17 +9,22 @@
 	export let title: string;
 	export let link = "";
 	export let technologies = [];
-	export let buttonText = "";
 
 	const content = {
 		es: {
 			btnTxt: "VER PROYECTO",
+			btnShort: "¡IR!",
+			shareTxt: "¡Mira este proyecto!",
 		},
 		en: {
 			btnTxt: "GO TO PROJECT",
+			btnShort: "GO!",
+			shareTxt: "Checkout this project!",
 		},
 		de: {
 			btnTxt: "",
+			btnShort: "",
+			shareTxt: "",
 		},
 	};
 
@@ -37,27 +42,58 @@
 		};
 	}
 
+	function shareProj() {
+		navigator.share({
+			title: title,
+			text: `${content[$appLang].shareTxt}\n`,
+			url: window.location.href,
+		});
+	}
+
 	function closeProj() {
 		$prevProj = "";
-		history.pushState("", document.title, window.location.pathname + window.location.search);
+		history.pushState(
+			"",
+			document.title,
+			window.location.pathname + window.location.search,
+		);
 	}
 </script>
 
 <div in:drop={{ duration: 500 }} class="container-wrapper">
-	<div class="close-bar">
+	<div class="top-bar">
 		<!-- svelte-ignore a11y-click-events-have-key-events -->
-		<svg
-			data-src="https://s2.svgbox.net/hero-outline.svg?ic=chevron-left"
-			width="24"
-			height="24"
-			color="var(--carpet)"
-			class="close"
-			on:click={() => closeProj()}
-		/>
-		<span>Back</span>
+		<div class="close-btn" on:click={() => closeProj()}>
+			<svg
+				data-src="https://s2.svgbox.net/hero-outline.svg?ic=chevron-left"
+				width="24"
+				height="24"
+				color="var(--carpet)"
+			/>
+			<span>Back</span>
+		</div>
+		<div class="action-btns">
+			<button class="share-btn" on:click={shareProj}>
+				<svg
+					data-src="https://s2.svgbox.net/materialui.svg?ic=share"
+					width="24"
+					height="24"
+					color="var(--mid)"
+				/>
+			</button>
+			{#if link !== ""}
+				<a
+					href={link}
+					target="_blank"
+					class="go-btn"
+					style="margin-right: 0.5em;"
+				>
+					{content[$appLang].btnShort || content["en"].btnShort}
+				</a>
+			{/if}
+		</div>
 	</div>
 	<div class="container">
-
 		<h1 class="title">{title}</h1>
 		<div class="center" in:drop={{ duration: 1000 }}>
 			<div class="content">
@@ -65,19 +101,19 @@
 				<slot name="description" class="description" />
 				<div class="skillset">
 					{#each technologies as skill}
-					<Skill {skill} />
+						<Skill {skill} />
 					{/each}
 				</div>
 				{#if link !== ""}
-				<a
-				href={link}
-				target="_blank"
-				class="btn"
-				in:drop={{ duration: 1500 }}
-				>{buttonText ||
-						content[$appLang].btnTxt ||
-						content["en"].btnTxt}</a
-				>
+					<a
+						href={link}
+						target="_blank"
+						class="go-btn"
+						style="margin-top: 2em;"
+						in:drop={{ duration: 1500 }}
+					>
+						{content[$appLang].btnTxt || content["en"].btnTxt}
+					</a>
 				{/if}
 			</div>
 		</div>
@@ -94,25 +130,36 @@
 		overflow: hidden;
 	}
 
-	.container-wrapper .close-bar {
+	.container-wrapper .top-bar {
 		background-color: var(--main-text);
 		border-bottom: 2px solid var(--carpet);
 		display: flex;
 		color: var(--carpet);
 		align-items: center;
+		justify-content: space-between;
 	}
 
-	.container-wrapper .close {
-		padding: 1em;
+	.container-wrapper .top-bar .close-btn {
 		cursor: pointer;
+		display: flex;
+		align-items: center;
 	}
 
-	.container-wrapper span {
-		display: none;
+	.container-wrapper .top-bar .close-btn svg {
+		padding: 1em;
 	}
 
-	.container-wrapper .close:hover + span {
-		display: block;
+	.container-wrapper .top-bar .close-btn span {
+		opacity: 0;
+	}
+
+	.container-wrapper .top-bar .close-btn:hover span {
+		opacity: 1;
+	}
+
+	.container-wrapper .top-bar .action-btns {
+		display: flex;
+		align-items: center;
 	}
 
 	.container {
@@ -165,7 +212,21 @@
 		text-decoration: underline;
 	}
 
-	.btn {
+	.share-btn {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		text-decoration: none;
+		padding: 0.5em 1em;
+		background-color: transparent;
+		color: var(--mid);
+		width: max-content;
+		transition: background-color var(--speed-normal);
+	}
+
+	.go-btn {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -179,9 +240,9 @@
 		color: var(--main-text);
 		/* width: min-content; */
 		font-weight: bold;
-		margin-top: 2em;
 		width: max-content;
-		transition: background-color var(--speed-normal),
+		transition:
+			background-color var(--speed-normal),
 			color var(--speed-normal);
 	}
 
