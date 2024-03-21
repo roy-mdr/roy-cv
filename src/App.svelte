@@ -89,7 +89,7 @@
 	<div class="r-navigator">
 		<Navigator />
 	</div>
-	<div class="t-navigator">
+	<div class="t-navigator" class:previewing={$existingProjId}>
 		<MobileNavigator />
 	</div>
 	<div class="main-wrapper">
@@ -227,6 +227,10 @@
 
 		.t-navigator {
 			display: flex;
+		}
+
+		.t-navigator.previewing {
+			position: absolute;
 		}
 	}
 </style>
