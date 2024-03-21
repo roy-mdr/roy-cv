@@ -165,17 +165,6 @@
 		align-items: center;
 	}
 
-	.previewer .content :global(.pad) {
-		padding: 1em 2em;
-		position: relative;
-	}
-
-	.previewer .content :global(.light) {
-		background-color: var(--carpet);
-		color: var(--main-text);
-		transition: background-color var(--speed-normal);
-	}
-
 	/* @container (width < 1500px) {
 		.previewer .content {
 			margin: 0;

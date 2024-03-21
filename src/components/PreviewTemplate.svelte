@@ -197,6 +197,25 @@
 		/* flex: 0 1 auto; */
 	}
 
+	.container :global(.pad) {
+		padding: 1em 2em;
+		position: relative;
+	}
+
+	.container :global(.light) {
+		background-color: var(--carpet);
+		color: var(--main-text);
+		transition: background-color var(--speed-normal);
+	}
+
+	.container :global(.small) {
+		font-size: small;
+	}
+
+	.container :global(.italic) {
+		font-style: italic;
+	}
+
 	.content {
 		min-height: 0;
 		max-width: 600px;

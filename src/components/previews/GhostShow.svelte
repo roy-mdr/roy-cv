@@ -17,7 +17,7 @@
 		es: {
 			title: "Ghost Show (2023)",
 			descHTML: `
-				<div class="pad light" style="margin-top: 1em;">
+				<div class="pad light small italic" style="margin-top: 1em;">
 					<p>Un evento local privado hecho posible por amigos y por mí para una celebración.</p>
 					<p>Una espeluznante noche de disfraces de Halloween con películas, amigos y comida se convirtió en una pista de baile industrial con luces intermitentes y el sonido de DJ locales, desde neoperreo hasta techno industrial.</p>
 				</div>
@@ -36,7 +36,7 @@
 		en: {
 			title: "Ghost Show (2023)",
 			descHTML: `
-				<div class="pad light" style="margin-top: 1em;">
+				<div class="pad light small italic" style="margin-top: 1em;">
 					<p>A private local event made possible by friends and I for a celebration.</p>
 					<p>A spooky halloween costume night with movies, friends and food became an industrial dance floor with flashing lights and the sound of local DJs, from neo-perreo to industrial techno.</p>
 				</div>
