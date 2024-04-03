@@ -209,10 +209,34 @@
 	const projectData = {
 		arch: [
 			{
-				projId: "renders",
+				projId: "modeling-rendering",
 				title: {
-					es: "Renders varios",
-					en: "Renders misc",
+					es: "[misc] Modelado y renderizado",
+					en: "[misc] Render & Modeling",
+					de: ""
+				}
+			},
+			{
+				projId: "parametric",
+				title: {
+					es: "[misc] Diseño paramétrico y herramientas",
+					en: "[misc] Parametric design and tooling",
+					de: ""
+				}
+			},
+			{
+				projId: "topographic",
+				title: {
+					es: "[misc] Levantamiento topográfico + sitio",
+					en: "[misc] Topographic + site survey",
+					de: ""
+				}
+			},
+			{
+				projId: "solar-analysis",
+				title: {
+					es: "[misc] Análisis solar",
+					en: "[misc] Solar analysis",
 					de: ""
 				}
 			},
@@ -389,13 +413,21 @@
 			{
 				projId: "lade",
 				title: {
-					es: "",
-					en: "CIDE: Los Archivos del Ejercito",
+					es: "CIDE: Los Archivos del Ejercito",
+					en: "CIDE: The Army Files",
 					de: ""
 				}
 			},
 		],
 		auviz: [
+			{
+				projId: "experimental-graphics",
+				title: {
+					es: "[misc] Gráficos experimentales",
+					en: "[misc] Experimental graphics",
+					de: ""
+				}
+			},
 			{
 				projId: "bluish",
 				title: {
