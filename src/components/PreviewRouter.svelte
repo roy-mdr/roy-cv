@@ -1,14 +1,14 @@
 <script>
 	import { prevProj, existingProjId } from '../stores/previewing.js';
-    import BlackBox from './previews/BlackBox.svelte';
-    import Castell from './previews/Castell.svelte';
-    import CenCoPv from './previews/CenCoPV.svelte';
-    import ConjuntoMi from './previews/ConjuntoMI.svelte';
+	import BlackBox from './previews/BlackBox.svelte';
+	import Castell from './previews/Castell.svelte';
+	import CenCoPv from './previews/CenCoPV.svelte';
+	import ConjuntoMi from './previews/ConjuntoMI.svelte';
 
 	import Default from "./previews/Default.svelte";
 	import EsProjViz from "./previews/EsProjViz.svelte";
 	import GtdApp from './previews/GTDApp.svelte';
-    import Hornedo from './previews/Hornedo.svelte';
+	import Hornedo from './previews/Hornedo.svelte';
 	import InfonavitProj from './previews/InfonavitProj.svelte';
 	import IoTFirmware from './previews/IoTFirmware.svelte';
 	import IotPcWin from './previews/IotPCWin.svelte';
@@ -26,10 +26,11 @@
 	import Palmasur from './previews/Palmasur.svelte';
 	import Antidoto from './previews/Antidoto.svelte';
 	import Pangea from './previews/Pangea.svelte';
-    import GhostShow from './previews/GhostShow.svelte';
-    import Topographic from './previews/Topographic.svelte';
-    import DosisSonora from './previews/DosisSonora.svelte';
-  import ModelingRendering from './previews/ModelingRendering.svelte';
+	import GhostShow from './previews/GhostShow.svelte';
+	import Topographic from './previews/Topographic.svelte';
+	import DosisSonora from './previews/DosisSonora.svelte';
+	import ModelingRendering from './previews/ModelingRendering.svelte';
+	import ExperimentalGraphics from './previews/ExperimentalGraphics.svelte';
 
 	function checkProjIdExists(previewing) {
 		if (!previewing) {
@@ -127,6 +128,9 @@
 
 		{:else if $existingProjId === 'dosis-sonora'}
 		<DosisSonora />
+
+		{:else if $existingProjId === 'experimental-graphics'}
+		<ExperimentalGraphics />
 
 		{:else if $existingProjId === 'bluish'}
 		<Bluish />

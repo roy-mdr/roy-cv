@@ -473,15 +473,15 @@
 			},
 		],
 		auviz: [
-			// {
-			// 	projId: "experimental-graphics",
-			// 	is_misc: true,
-			// 	title: {
-			// 		es: "Gráficos experimentales",
-			// 		en: "Experimental graphics",
-			// 		de: ""
-			// 	}
-			// },
+			{
+				projId: "experimental-graphics",
+				is_misc: true,
+				title: {
+					es: "Gráficos experimentales",
+					en: "Experimental graphics",
+					de: ""
+				}
+			},
 			{
 				projId: "bluish",
 				is_misc: false,
