@@ -197,6 +197,11 @@
 		/* flex: 0 1 auto; */
 	}
 
+	.container :global(hr) {
+		margin: 2em 0;
+		border: 1px solid var(--mid);
+	}
+
 	.container :global(.pad) {
 		padding: 1em 2em;
 		position: relative;

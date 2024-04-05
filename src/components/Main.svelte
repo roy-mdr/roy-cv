@@ -208,40 +208,72 @@
 
 	const projectData = {
 		arch: [
+			// {
+			// 	projId: "CAD-drawing",
+			// 	is_misc: true,
+			// 	title: {
+			// 		es: "Dibujo CAD",
+			// 		en: "2D CAD drawing",
+			// 		de: ""
+			// 	}
+			// },
+			// {
+			// 	projId: "hand-drawing",
+			// 	is_misc: true,
+			// 	title: {
+			// 		es: "Dibujo a mano",
+			// 		en: "Hand drawing",
+			// 		de: ""
+			// 	}
+			// },
 			{
 				projId: "modeling-rendering",
+				is_misc: true,
 				title: {
-					es: "[misc] Modelado y renderizado",
-					en: "[misc] Render & Modeling",
+					es: "Modelado y renderizado",
+					en: "Modeling & rendering",
 					de: ""
 				}
 			},
-			{
-				projId: "parametric",
-				title: {
-					es: "[misc] Diseño paramétrico y herramientas",
-					en: "[misc] Parametric design and tooling",
-					de: ""
-				}
-			},
+			// {
+			// 	projId: "parametric",
+			// 	is_misc: true,
+			// 	title: {
+			// 		es: "Diseño paramétrico y herramientas",
+			// 		en: "Parametric design and tooling",
+			// 		de: ""
+			// 	}
+			// },
 			{
 				projId: "topographic",
+				is_misc: true,
 				title: {
-					es: "[misc] Levantamiento topográfico + sitio",
-					en: "[misc] Topographic + site survey",
+					es: "Levantamiento topográfico + sitio",
+					en: "Topographic + site survey",
 					de: ""
 				}
 			},
-			{
-				projId: "solar-analysis",
-				title: {
-					es: "[misc] Análisis solar",
-					en: "[misc] Solar analysis",
-					de: ""
-				}
-			},
+			// {
+			// 	projId: "solar-analysis",
+			// 	is_misc: true,
+			// 	title: {
+			// 		es: "Análisis solar",
+			// 		en: "Solar analysis",
+			// 		de: ""
+			// 	}
+			// },
+			// {
+			// 	projId: "virtual-reality",
+			// 	is_misc: true,
+			// 	title: {
+			// 		es: "Realidad virtual",
+			// 		en: "VR Viz",
+			// 		de: ""
+			// 	}
+			// },
 			{
 				projId: "castell",
+				is_misc: false,
 				title: {
 					es: "",
 					en: "Castell de Ferro",
@@ -250,6 +282,7 @@
 			},
 			{
 				projId: "conjunto-mi",
+				is_misc: false,
 				title: {
 					es: "",
 					en: "Conjunto M.I.",
@@ -258,6 +291,7 @@
 			},
 			{
 				projId: "hornedo",
+				is_misc: false,
 				title: {
 					es: "",
 					en: "Remod. Hornedo",
@@ -266,6 +300,7 @@
 			},
 			{
 				projId: "black-box",
+				is_misc: false,
 				title: {
 					es: "",
 					en: "The Black Box",
@@ -274,6 +309,7 @@
 			},
 			{
 				projId: "cenco-pv",
+				is_misc: false,
 				title: {
 					es: "Centro Comunitario P.V.",
 					en: "Community Centre P.V.",
@@ -282,6 +318,7 @@
 			},
 			{
 				projId: "infonavit-proj",
+				is_misc: false,
 				title: {
 					es: "Concurso INFONAVIT 2020",
 					en: "INFONAVIT Contest 2020",
@@ -290,6 +327,7 @@
 			},
 			{
 				projId: "es-amehos1",
+				is_misc: false,
 				title: {
 					es: "",
 					en: "AMEHOS I",
@@ -298,6 +336,7 @@
 			},
 			{
 				projId: "es-amehos2",
+				is_misc: false,
 				title: {
 					es: "",
 					en: "AMEHOS II",
@@ -308,6 +347,7 @@
 		tech: [
 			// {
 			// 	projId: "2521",
+			// 	is_misc: false,
 			// 	title: {
 			// 		es: "",
 			// 		en: "Website 2521",
@@ -316,6 +356,7 @@
 			// },
 			{
 				projId: "vigilost",
+				is_misc: false,
 				title: {
 					es: "",
 					en: "VigiLost",
@@ -324,6 +365,7 @@
 			},
 			// {
 			// 	projId: "bloom",
+			// 	is_misc: false,
 			// 	title: {
 			// 		es: "",
 			// 		en: "Bloom Portfolio",
@@ -332,6 +374,7 @@
 			// },
 			{
 				projId: "splash-creator",
+				is_misc: false,
 				title: {
 					es: "",
 					en: "Splash Creator",
@@ -340,6 +383,7 @@
 			},
 			{
 				projId: "lshdrms",
+				is_misc: false,
 				title: {
 					es: "",
 					en: "LSHD//DRMS + Chrome Extension",
@@ -348,6 +392,7 @@
 			},
 			{
 				projId: "es-web",
+				is_misc: false,
 				title: {
 					es: "",
 					en: "Webapp + Website Estudio Sustenta",
@@ -356,6 +401,7 @@
 			},
 			// {
 			// 	projId: "vr-ctrl",
+			// 	is_misc: false,
 			// 	title: {
 			// 		es: "",
 			// 		en: "VR Controller",
@@ -364,6 +410,7 @@
 			// },
 			{
 				projId: "iot",
+				is_misc: false,
 				title: {
 					es: "",
 					en: "IoT firmware",
@@ -372,6 +419,7 @@
 			},
 			{
 				projId: "no-poll",
+				is_misc: false,
 				title: {
 					es: "",
 					en: "Pub-sub broker + Control API",
@@ -380,6 +428,7 @@
 			},
 			{
 				projId: "es-pcwin",
+				is_misc: false,
 				title: {
 					es: "",
 					en: "Remote Access Tool + Protocol Handler",
@@ -388,6 +437,7 @@
 			},
 			{
 				projId: "es-proj-viz",
+				is_misc: false,
 				title: {
 					es: "",
 					en: "Project Mapper",
@@ -396,6 +446,7 @@
 			},
 			{
 				projId: "app-gtd",
+				is_misc: false,
 				title: {
 					es: "",
 					en: "App Getting Things Done",
@@ -404,6 +455,7 @@
 			},
 			{
 				projId: "landa",
+				is_misc: false,
 				title: {
 					es: "",
 					en: "LANDA",
@@ -412,6 +464,7 @@
 			},
 			{
 				projId: "lade",
+				is_misc: false,
 				title: {
 					es: "CIDE: Los Archivos del Ejercito",
 					en: "CIDE: The Army Files",
@@ -420,16 +473,18 @@
 			},
 		],
 		auviz: [
-			{
-				projId: "experimental-graphics",
-				title: {
-					es: "[misc] Gráficos experimentales",
-					en: "[misc] Experimental graphics",
-					de: ""
-				}
-			},
+			// {
+			// 	projId: "experimental-graphics",
+			// 	is_misc: true,
+			// 	title: {
+			// 		es: "Gráficos experimentales",
+			// 		en: "Experimental graphics",
+			// 		de: ""
+			// 	}
+			// },
 			{
 				projId: "bluish",
+				is_misc: false,
 				title: {
 					es: "",
 					en: "Bluish",
@@ -438,6 +493,7 @@
 			},
 			{
 				projId: "dovele",
+				is_misc: false,
 				title: {
 					es: "",
 					en: "Dovele",
@@ -446,6 +502,7 @@
 			},
 			{
 				projId: "palmasur",
+				is_misc: false,
 				title: {
 					es: "",
 					en: "Collab: Palmasur",
@@ -453,15 +510,17 @@
 				}
 			},
 			{
-				projId: "dosis-sonoras",
+				projId: "dosis-sonora",
+				is_misc: false,
 				title: {
 					es: "",
-					en: "Dosis Sonoras",
+					en: "Dosis Sonora",
 					de: ""
 				}
 			},
 			{
 				projId: "antidoto",
+				is_misc: false,
 				title: {
 					es: "",
 					en: "Podcast Antídoto",
@@ -470,6 +529,7 @@
 			},
 			{
 				projId: "pangea",
+				is_misc: false,
 				title: {
 					es: "",
 					en: "PANGEA Mapamundi",
@@ -478,6 +538,7 @@
 			},
 			{
 				projId: "ghost-show",
+				is_misc: false,
 				title: {
 					es: "",
 					en: "Ghost Show",
@@ -724,7 +785,16 @@
 		<div class="proj-container">
 			{#each projectData.arch as proj}
 				<!-- svelte-ignore a11y-click-events-have-key-events -->
-				<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id={proj.projId}>{proj.title[$appLang] || proj.title["en"]}</project>
+				<project
+					class="project noselect"
+					class:misc={proj.is_misc}
+					tabindex="0"
+					role="button"
+					on:click={setPrevProj}
+					proj-id={proj.projId}
+				>
+					{proj.title[$appLang] || proj.title["en"]}
+				</project>
 			{/each}
 		</div>
 
@@ -732,7 +802,16 @@
 		<div class="proj-container">
 			{#each projectData.tech as proj}
 				<!-- svelte-ignore a11y-click-events-have-key-events -->
-				<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id={proj.projId}>{proj.title[$appLang] || proj.title["en"]}</project>
+				<project
+					class="project noselect"
+					class:misc={proj.is_misc}
+					tabindex="0"
+					role="button"
+					on:click={setPrevProj}
+					proj-id={proj.projId}
+				>
+					{proj.title[$appLang] || proj.title["en"]}
+				</project>
 			{/each}
 		</div>
 
@@ -740,7 +819,16 @@
 		<div class="proj-container">
 			{#each projectData.auviz as proj}
 				<!-- svelte-ignore a11y-click-events-have-key-events -->
-				<project class="project noselect" tabindex="0" role="button" on:click={setPrevProj} proj-id={proj.projId}>{proj.title[$appLang] || proj.title["en"]}</project>
+				<project
+					class="project noselect"
+					class:misc={proj.is_misc}
+					tabindex="0"
+					role="button"
+					on:click={setPrevProj}
+					proj-id={proj.projId}
+				>
+					{proj.title[$appLang] || proj.title["en"]}
+				</project>
 			{/each}
 		</div>
 	</section>
@@ -1033,12 +1121,40 @@
 		display: block;
 		/* width: max-content; */
 		width: 20%;
+		position: relative;
+		overflow: hidden;
 		transition: background-color var(--speed-normal), color var(--speed-normal);
 	}
 
 	.project:hover {
 		color: var(--accent);
 	}
+
+	.project.misc::after {
+		content: "";
+		position: absolute;
+		margin: -8px;
+		width: 16px;
+		height: 16px;
+		transform: rotate(45deg);
+		background-color: var(--carpet);
+		top: 0;
+		left: 0;
+	}
+
+	/* .project.misc {
+		clip-path: polygon(
+			0 5px,
+			0px 0,
+			55px 0,
+			60px 5px,
+			100% 5px,
+			100% 100%,
+			0 100%
+		);
+
+		padding-top: calc(0.5em + 5px);
+	} */
 
 	.logo-text {
 		margin: 1em;

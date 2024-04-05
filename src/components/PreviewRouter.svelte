@@ -27,6 +27,9 @@
 	import Antidoto from './previews/Antidoto.svelte';
 	import Pangea from './previews/Pangea.svelte';
     import GhostShow from './previews/GhostShow.svelte';
+    import Topographic from './previews/Topographic.svelte';
+    import DosisSonora from './previews/DosisSonora.svelte';
+  import ModelingRendering from './previews/ModelingRendering.svelte';
 
 	function checkProjIdExists(previewing) {
 		if (!previewing) {
@@ -61,6 +64,12 @@
 
 		{#if $existingProjId === ''}
 		<Default />
+
+		{:else if $existingProjId === 'modeling-rendering'}
+		<ModelingRendering />
+
+		{:else if $existingProjId === 'topographic'}
+		<Topographic />
 
 		{:else if $existingProjId === 'castell'}
 		<Castell />
@@ -115,6 +124,9 @@
 
 		{:else if $existingProjId === 'lade'}
 		<LADE />
+
+		{:else if $existingProjId === 'dosis-sonora'}
+		<DosisSonora />
 
 		{:else if $existingProjId === 'bluish'}
 		<Bluish />
