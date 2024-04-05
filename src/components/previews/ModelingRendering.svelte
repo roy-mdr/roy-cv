@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+
 	import PreviewTemplate from '../PreviewTemplate.svelte';
 	import { appLang } from '../../stores/appState.js';
 
@@ -11,6 +13,15 @@
 	import img_archived_temples_1 from '../../assets/projects/archived_temples_1.jpg';
 	import img_archived_temples_2 from '../../assets/projects/archived_temples_2.jpg';
 	import img_archived_temples_3 from '../../assets/projects/archived_temples_3.jpg';
+
+	let gymSchoolVid;
+
+	onMount(() => {
+		// Start video on an interesting part... not the title
+		gymSchoolVid.addEventListener('loadedmetadata', (ev) => {
+			ev.target.currentTime = 5.5;
+		}, false);
+	});
 
 	const skills = [
 		"_3dsmax",
@@ -42,7 +53,7 @@
 <PreviewTemplate title={content[$appLang].title || content['en'].title} link="" technologies={skills}>
 	<div slot="preview">
 		<h2>Unileão Gym and School</h2>
-		<video src={vid_gym_school} autoplay loop muted playsinline></video>
+		<video src={vid_gym_school} autoplay loop muted playsinline bind:this={gymSchoolVid}></video>
 
 		<hr>
 
