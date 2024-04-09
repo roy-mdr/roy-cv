@@ -19,6 +19,8 @@
 	import svgLandelof from '../assets/icons/landelof.svg';
 	import svgPopmusic from '../assets/icons/popmusic.svg';
 	import svgMasterclass from '../assets/icons/masterclass.svg';
+	import svgDomestika from '../assets/icons/domestika.svg';
+	import svgPlatzi from '../assets/icons/platzi.svg';
 
 	const content = {
 		es: {
@@ -52,6 +54,8 @@
 			xCourse_1: "Post-producción de audio y video certificación Adobe en Master Class Ags (2012)",
 			xCourse_2: "Curso de producción, mezcla y master musical en Pop Music Ags (2015)",
 			xCourse_3: "Landelof Ceramics",
+			xCourse_4: "Blender, Grasshopper y diseño de iluminación en Domestika.com",
+			xCourse_5: "SQL, APIs y UX/UI en Platzi.com",
 			h2Exp: "Experiencia",
 			h3ESustenta: "Estudio Sustenta Arq. (desde 2016)",
 			eSus_1: "Residente de obra",
@@ -113,6 +117,8 @@
 			xCourse_1: "Audio and video post-production training (Adobe certification) at Master Class Ags (2012)",
 			xCourse_2: "Music production, mix and master bootcamp at Pop Music Ags (2015)",
 			xCourse_3: "Landelof Ceramics",
+			xCourse_4: "Blender, Grasshopper and architectural light design at Domestika.com",
+			xCourse_5: "SQL, APIs and UX/UI at Platzi.com",
 			h2Exp: "Experience",
 			h3ESustenta: "Estudio Sustenta (Arq. Firm) (since 2016)",
 			eSus_1: "On-Site Building Project Manager",
@@ -174,6 +180,8 @@
 			xCourse_1: "",
 			xCourse_2: "",
 			xCourse_3: "",
+			xCourse_4: "",
+			xCourse_5: "",
 			h2Exp: "",
 			h3ESustenta: "",
 			eSus_1: "",
@@ -724,6 +732,18 @@
 				<svg data-src={svgLandelof} width="4em" height="4em" color={"#"}></svg>
 				<span>{content[$appLang].xCourse_3 || content['en'].xCourse_3}</span>
 			</div>
+		</div>
+		<div style="display: flex; font-size:small;">
+			<div style="flex: 0.5;"></div>
+			<div class="logo-text">
+				<svg data-src={svgDomestika} width="4em" height="4em" color={"#"}></svg>
+				<span>{content[$appLang].xCourse_4 || content['en'].xCourse_4}</span>
+			</div>
+			<div class="logo-text">
+				<svg data-src={svgPlatzi} width="4em" height="4em" color={"#"}></svg>
+				<span>{content[$appLang].xCourse_5 || content['en'].xCourse_5}</span>
+			</div>
+			<div style="flex: 0.5;"></div>
 		</div>
 
 	</section>
