@@ -1119,7 +1119,7 @@
 		margin: 1px;
 		padding: 0.5em 1em;
 		display: block;
-		/* width: max-content; */
+		min-width: min-content;
 		width: 20%;
 		position: relative;
 		overflow: hidden;
