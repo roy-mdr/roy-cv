@@ -4,9 +4,10 @@
 	import pPic from '../assets/pp_bw.jpg';
 	import vwStatue from '../assets/helios.jpg';
 	import brEntity from '../assets/entity.jpg';
-	import imgVoid from '../assets/void_bw.jpg';
 	import imgVapor from '../assets/vapor.jpg';
 	import imgBackroom from '../assets/backroom.jpg';
+
+	import HeaderSelector from "./HeaderSelector.svelte";
 	import PrevProjBtn from './PrevProjBtn.svelte';
 	import Skill from './Skill.svelte';
 
@@ -630,9 +631,9 @@
 		{:else if $appTheme == 'backrooms'}
 		<img src={imgBackroom} alt={content[$appLang].altCoverPic || content['en'].altCoverPic} style="width: 100%; display: block;">
 		{:else}
-		<img src={imgVoid} alt={content[$appLang].altCoverPic || content['en'].altCoverPic} style="width: 100%; display: block;">
+		<HeaderSelector></HeaderSelector>
 		{/if}
-		<div class="my-name">
+		<div id="my-name">
 			<!-- <img src={pPic} alt="Foto de perfil" width="100px" height="100px"> -->
 			{#if $appTheme == 'vapor'}
 			<h1>リサフランク420 / 現代のコンピュー</h1>
@@ -1002,7 +1003,7 @@
 	}
 
 	/*
-	.my-name {
+	#my-name {
 		background-color: var(--main-text);
 		display: flex;
 		justify-content: center;
@@ -1016,7 +1017,7 @@
 		position: absolute;
 	}
 
-	.my-name img {
+	#my-name img {
 		margin: 20px;
 		position: absolute;
 		left: 0;
@@ -1025,7 +1026,7 @@
 		border-radius: 100px;
 	}
 
-	.my-name h1 {
+	#my-name h1 {
 		margin: 20px 20px 20px 120px;
 		font-weight: 100;
 		letter-spacing: 0.2em;

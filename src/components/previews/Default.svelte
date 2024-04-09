@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { onMount, onDestroy } from 'svelte';
 
 	import Parallax from 'parallax-js';
 
@@ -8,7 +8,20 @@
 	let separationMultip = 0.025; // higher = more separation
 	let frictionMultip = 0.75; // higher = more friction in lower layers
 
+	let targetSection: HTMLElement;
+	let showSvg = false;
+	function evalScroll() {
+		if ( targetSection.getBoundingClientRect().top > 0 ) {
+			showSvg = false;
+		} else {
+			showSvg = true;
+		}
+	}
+
 	onMount( async () => {
+		targetSection = document.getElementById('my-name');
+		window.addEventListener('scroll', evalScroll);
+		evalScroll();
 
 		// parallaxSvg.querySelector('g').remove();
 
@@ -31,18 +44,23 @@
 			el.setAttribute('data-friction', rampFunction);
 		});
 
+		const isDesktop = !navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|BB10|mobi|tablet|opera mini|nexus 7)/i);
 
-		// if (isDesktop) {
+		if (isDesktop) {
 			let parallaxInstance = new Parallax(parallaxSvg);
 			parallaxInstance.friction(0.1, 0.1);
 			// parallaxInstance.scalar(20, 20);
-		// }
+		}
+	} );
+
+	onDestroy( () => {
+		window.removeEventListener('scroll', evalScroll)
 	} );
 </script>
 
 
 
-<svg bind:this={parallaxSvg} xmlns="http://www.w3.org/2000/svg" viewBox="-100 -100 1500 1300" preserveAspectRatio="xMidYMid slice" >
+<svg bind:this={parallaxSvg} class:show={showSvg} xmlns="http://www.w3.org/2000/svg" viewBox="-100 -100 1500 1300" preserveAspectRatio="xMidYMid slice" >
 	<defs>
 		<style>
 			.cls-1 {
@@ -365,5 +383,11 @@
 		max-width: 500px;
 		width: 100%;
 		min-width: 100px;
+		opacity: 0;
+		transition: opacity var(--speed-normal);
+	}
+
+	svg.show {
+		opacity: 1;
 	}
 </style>
