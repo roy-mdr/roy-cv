@@ -244,15 +244,15 @@
 					de: ""
 				}
 			},
-			// {
-			// 	projId: "parametric",
-			// 	is_misc: true,
-			// 	title: {
-			// 		es: "Diseño paramétrico y herramientas",
-			// 		en: "Parametric design and tooling",
-			// 		de: ""
-			// 	}
-			// },
+			{
+				projId: "parametric-design",
+				is_misc: true,
+				title: {
+					es: "Diseño paramétrico y herramientas",
+					en: "Parametric design & tooling",
+					de: ""
+				}
+			},
 			{
 				projId: "topographic",
 				is_misc: true,
@@ -262,15 +262,15 @@
 					de: ""
 				}
 			},
-			// {
-			// 	projId: "solar-analysis",
-			// 	is_misc: true,
-			// 	title: {
-			// 		es: "Análisis solar",
-			// 		en: "Solar analysis",
-			// 		de: ""
-			// 	}
-			// },
+			{
+				projId: "sun-study",
+				is_misc: true,
+				title: {
+					es: "Estudio solar y soluciones",
+					en: "Sun study & solutions",
+					de: ""
+				}
+			},
 			// {
 			// 	projId: "virtual-reality",
 			// 	is_misc: true,

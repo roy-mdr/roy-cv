@@ -62,17 +62,17 @@
 
 		<hr>
 
-		<h2>Archived Temples</h2>
-		<img src={img_archived_temples_1} alt="Space Brutalism 1">
-		<img src={img_archived_temples_2} alt="Space Brutalism 2">
-		<img src={img_archived_temples_3} alt="Space Brutalism 3">
-
-		<hr>
-
 		<h2>Space Brutalism</h2>
 		<img src={img_space_brutalism_1} alt="Archived Temples 1">
 		<img src={img_space_brutalism_2} alt="Archived Temples 2">
 		<img src={img_space_brutalism_3} alt="Archived Temples 3">
+
+		<hr>
+
+		<h2>Archived Temples</h2>
+		<img src={img_archived_temples_1} alt="Space Brutalism 1">
+		<img src={img_archived_temples_2} alt="Space Brutalism 2">
+		<img src={img_archived_temples_3} alt="Space Brutalism 3">
 	</div>
 
 	<span slot="description">{@html content[$appLang].descHTML || content['en'].descHTML}</span>

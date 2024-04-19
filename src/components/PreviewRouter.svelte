@@ -31,6 +31,8 @@
 	import DosisSonora from './previews/DosisSonora.svelte';
 	import ModelingRendering from './previews/ModelingRendering.svelte';
 	import ExperimentalGraphics from './previews/ExperimentalGraphics.svelte';
+	import ParametricDesign from './previews/ParametricDesign.svelte';
+	import SunStudy from './previews/SunStudy.svelte';
 
 	function checkProjIdExists(previewing) {
 		if (!previewing) {
@@ -71,6 +73,12 @@
 
 		{:else if $existingProjId === 'topographic'}
 		<Topographic />
+
+		{:else if $existingProjId === 'parametric-design'}
+		<ParametricDesign />
+
+		{:else if $existingProjId === 'sun-study'}
+		<SunStudy />
 
 		{:else if $existingProjId === 'castell'}
 		<Castell />

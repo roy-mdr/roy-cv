@@ -14,11 +14,11 @@
 		imgAkvTpl1,
 		imgAkvTpl2,
 		// imgAkvTpl3,
-		imgSpcBrut1,
+		// imgSpcBrut1,
 		// imgSpcBrut2,
 		// imgSpcBrut3,
 		vidTdShapes,
-		vidTdSilk,
+		// vidTdSilk,
 		// vidTdWave,
 	];
 
