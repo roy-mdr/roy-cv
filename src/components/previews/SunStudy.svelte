@@ -3,27 +3,31 @@
 	import { appLang } from "../../stores/appState.js";
 
 	/* IMAGES */
+	import vid_shadows_interior from "../../assets/projects/shadows_interior.mp4";
 	import vid_AMEHOS_louvers from "../../assets/projects/AMEHOS_louvers.mp4";
 	import shadows_arrollo_iso from "../../assets/projects/shadows_arrollo_iso-op1.gif";
 	import shadows_arrollo_top from "../../assets/projects/shadows_arrollo_top-op1.gif";
 
-	const skills = ["rhinoceros", "grasshopper"];
+	const skills = ["rhinoceros", "grasshopper", "vray"];
 
 	const content = {
 		es: {
 			title: "Estudio solar y soluciones",
+			interior: "Estudio de incidencia en interiores",
 			passivesol: "Soluciones pasivas",
 			shadowfx: "Afectaciones de sombras",
 			descHTML: ``,
 		},
 		en: {
 			title: "Sun study & solutions",
+			interior: "Interior Sun study",
 			passivesol: "Passive solutions",
 			shadowfx: "Building shadows side-effects",
 			descHTML: ``,
 		},
 		de: {
 			title: "",
+			interior: "",
 			passivesol: "",
 			shadowfx: "",
 			descHTML: ``,
@@ -37,6 +41,12 @@
 	technologies={skills}
 >
 	<div slot="preview">
+		<h2>{content[$appLang].interior || content["en"].interior}</h2>
+		<video src={vid_shadows_interior} autoplay loop muted playsinline
+		></video>
+
+		<hr />
+
 		<h2>{content[$appLang].passivesol || content["en"].passivesol}</h2>
 		<video src={vid_AMEHOS_louvers} autoplay loop muted playsinline></video>
 
