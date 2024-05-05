@@ -1,6 +1,8 @@
 <script lang="ts">
 	import {onMount} from 'svelte';
 
+	import { tracker } from './lib/track';
+
 	import Navigator from './components/Navigator.svelte';
 	import MobileNavigator from './components/MobileNavigator.svelte';
 	import Main from './components/Main.svelte';
@@ -62,6 +64,10 @@
 		$appLang     = appSettings.lang;
 		$appProfile  = appSettings.profile;
 		$showProfPic = appSettings.ppic;
+
+		if (settingsJSON) {
+			tracker.checkin();
+		}
 	});
 
 	/* WATCHER */
@@ -79,7 +85,9 @@
 	function closeModal() {
 		modal = false;
 		$showProfPic = setProfPicOnClose;
-		onAppSettingsChange($appTheme, $appLang, $appProfile, $showProfPic)
+		onAppSettingsChange($appTheme, $appLang, $appProfile, $showProfPic);
+
+		tracker.checkin();
 	}
 </script>
 
