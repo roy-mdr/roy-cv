@@ -4,7 +4,7 @@
 	import svgRoy from "../assets/icons/roy.svg";
 
     import { tracker } from "../lib/track";
-	import { appTheme, appLang, appProfile } from '../stores/appState.js';
+	import { appTheme, appLang, appProfile, currSection } from '../stores/appState.js';
 
 	const content = {
 		es: {
@@ -101,14 +101,14 @@
 		<button on:click={toggleTheme} style="text-align: center; align-items: center; justify-content: center;">— <svg data-src="https://s2.svgbox.net/materialui.svg?ic=lightbulb" width="16" height="16" color={"#"}></svg> —</button>
 	</div>
 	<div class="vertical">
-		<a href="#presentation">{content[$appLang].presentation || content['en'].presentation}</a>
-		<a href="#education">{content[$appLang].education || content['en'].education}</a>
-		<a href="#languages">{content[$appLang].languages || content['en'].languages}</a>
-		<a href="#experience">{content[$appLang].experience || content['en'].experience}</a>
-		<a href="#projects">{content[$appLang].projects || content['en'].projects}</a>
-		<a href="#skills">{content[$appLang].skills || content['en'].skills}</a>
-		<a href="#references">{content[$appLang].references || content['en'].references}</a>
-		<a href="#contact">{content[$appLang].contact || content['en'].contact}</a>
+		<a class:current={$currSection == "presentation"} href="#presentation">{content[$appLang].presentation || content['en'].presentation}</a>
+		<a class:current={$currSection == "education"}    href="#education">{content[$appLang].education || content['en'].education}</a>
+		<a class:current={$currSection == "languages"}    href="#languages">{content[$appLang].languages || content['en'].languages}</a>
+		<a class:current={$currSection == "experience"}   href="#experience">{content[$appLang].experience || content['en'].experience}</a>
+		<a class:current={$currSection == "projects"}     href="#projects">{content[$appLang].projects || content['en'].projects}</a>
+		<a class:current={$currSection == "skills"}       href="#skills">{content[$appLang].skills || content['en'].skills}</a>
+		<a class:current={$currSection == "references"}   href="#references">{content[$appLang].references || content['en'].references}</a>
+		<a class:current={$currSection == "contact"}      href="#contact">{content[$appLang].contact || content['en'].contact}</a>
 	</div>
 </div>
 

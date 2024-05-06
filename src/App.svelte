@@ -9,7 +9,7 @@
 	import Modal from './components/Modal.svelte';
 	import PreviewRouter from './components/PreviewRouter.svelte';
 
-	import { appTheme, appLang, appProfile, showProfPic } from './stores/appState.js';
+	import { appTheme, appLang, appProfile, showProfPic, currSection } from './stores/appState.js';
 	import { prevProj, existingProjId } from './stores/previewing.js';
 
 	let init = false;
@@ -45,6 +45,22 @@
 				history.pushState("", document.title, window.location.pathname + window.location.search);
 				return;
 			}
+		})
+
+		const sections = document.querySelectorAll('main > section');
+
+		window.addEventListener('scroll', (ev) => {
+			let closest = null;
+
+			sections.forEach( (section) => {
+				let position = section.getBoundingClientRect();
+				/* IF TOP OF SECTION IS ABOVE 1/3 SCREEN */
+				if (position.top < (window.innerHeight / 3)) {
+					closest = section.id;
+				}
+			} );
+
+			$currSection = closest;
 		})
 
 		// --------------------------------------------------------
