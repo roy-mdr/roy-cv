@@ -3,6 +3,7 @@
 
 	import svgRoy from "../assets/icons/roy.svg";
 
+    import { tracker } from "../lib/track";
 	import { appTheme, appLang, appProfile } from "../stores/appState.js";
 
 	function toggleTheme() {
@@ -33,6 +34,8 @@
 				$appTheme = "light"; // appTheme.set('light');
 				break;
 		}
+
+		tracker.interaction.theme($appTheme);
 	}
 </script>
 

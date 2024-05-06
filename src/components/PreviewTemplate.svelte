@@ -4,6 +4,7 @@
 
 	import { prevProj } from "../stores/previewing.js";
 	import { appLang } from "../stores/appState.js";
+	import { tracker } from "../lib/track.js";
 	import Skill from "./Skill.svelte";
 
 	export let title: string;
@@ -43,11 +44,15 @@
 	}
 
 	function shareProj() {
-		navigator.share({
-			title: title,
-			text: `${content[$appLang].shareTxt}\n`,
-			url: window.location.href,
-		});
+		navigator
+			.share({
+				title: title,
+				text: `${content[$appLang].shareTxt}\n`,
+				url: window.location.href,
+			})
+			.then(() => {
+				tracker.interaction.proj_share($prevProj);
+			});
 	}
 
 	function closeProj() {
@@ -87,6 +92,7 @@
 					target="_blank"
 					class="go-btn"
 					style="margin-right: 0.5em;"
+					on:click={() => tracker.interaction.proj_go_ext($prevProj)}
 				>
 					{content[$appLang].btnShort || content["en"].btnShort}
 				</a>
@@ -111,6 +117,8 @@
 						class="go-btn"
 						style="margin-top: 2em;"
 						in:drop={{ duration: 1500 }}
+						on:click={() =>
+							tracker.interaction.proj_go_ext($prevProj)}
 					>
 						{content[$appLang].btnTxt || content["en"].btnTxt}
 					</a>

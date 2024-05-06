@@ -23,12 +23,12 @@
 		}
 
 		window.addEventListener('hashchange', (ev) => {
-			if ($prevProj && window.location.hash != `#${$prevProj}`) {
-				$prevProj = '';
-			}
+			const newURL = new URL(ev.newURL);
 
-			if (window.location.hash != "" && window.location.hash != "#") {
-				$prevProj = window.location.hash.slice(1);
+			if (newURL.hash == "" || newURL.hash == "#") {
+				$prevProj = "";
+			} else {
+				$prevProj = newURL.hash.slice(1);
 			}
 		});
 

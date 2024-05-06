@@ -615,8 +615,6 @@
 	function setPrevProj(ev) {
 		const projId = ev.target.attributes["proj-id"].nodeValue;
 
-		$prevProj = projId;
-
 		// Handle go-back navigation to close Project Panel
 		window.location.hash = projId;
 	}

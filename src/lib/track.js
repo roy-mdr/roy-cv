@@ -22,5 +22,49 @@ export const tracker = {
 			method: 'POST',
 			body: JSON.stringify(TrackCheckinReq)
 		});
+	},
+
+	interaction: {
+		async _sendAction(actionName, data) {
+			const location = new URL(window.location.href);
+
+			const TrackActionReq = {
+				tid: location.searchParams.get('tid'),
+				shared: location.searchParams.get('shared') == "true" ? true : false,
+				no_log: location.searchParams.get('no_log') == "true" ? true : false,
+				action: actionName,
+				data
+			};
+
+			fetch(baseURL + '/interaction', {
+				method: 'POST',
+				body: JSON.stringify(TrackActionReq)
+			});
+		},
+
+		ack_welcome() {
+			this._sendAction("ack-welcome", "true");
+		},
+
+		ack_proj_sel() {
+			this._sendAction("ack-proj-sel", "true");
+		},
+
+		proj_view(projId) {
+			this._sendAction("proj-view", projId);
+		},
+
+		proj_go_ext(projId) {
+			this._sendAction("proj-go-ext", projId);
+		},
+
+		proj_share(projId) {
+			this._sendAction("proj-share", projId);
+		},
+
+		theme(themeName) {
+			this._sendAction("theme", themeName);
+		},
+
 	}
 }
