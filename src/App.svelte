@@ -64,6 +64,10 @@
 			$currSection = closest;
 		})
 
+		window.addEventListener('beforeunload', (ev) => {
+			tracker.interaction.exit();
+		})
+
 		// --------------------------------------------------------
 
 		init = true;

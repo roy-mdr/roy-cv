@@ -64,6 +64,10 @@ export const tracker = {
 
 		theme(themeName) {
 			this._sendAction("theme", themeName);
+		},
+
+		exit() {
+			this._sendAction("exit", "true");
 		}
 	},
 
