@@ -6,3 +6,4 @@ export const appProfile  = writable('all');
 export const showProfPic = writable(false);
 
 export const currSection = writable('presentation');
+export const userInTab   = writable(false);

@@ -64,7 +64,23 @@ export const tracker = {
 
 		theme(themeName) {
 			this._sendAction("theme", themeName);
-		},
+		}
+	},
+
+	async ping(viewing, interval) {
+		const location = new URL(window.location.href);
+
+		const TrackActionReq = {
+			tid: location.searchParams.get('tid'),
+			no_log: location.searchParams.get('no_log') == "true" ? true : false,
+			view: viewing,
+			intervalMs: interval
+		};
+
+		fetch(baseURL + '/ping', {
+			method: 'POST',
+			body: JSON.stringify(TrackActionReq)
+		});
 
 	}
 }

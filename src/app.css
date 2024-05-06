@@ -85,7 +85,7 @@ a, p, li, span, button {
 }
 
 a {
-  font-weight: 500;
+  /* font-weight: 500; */
   color: var(--mid);
   /* text-decoration: inherit; */
   text-decoration: none;

@@ -2,6 +2,7 @@
 	import {onMount} from 'svelte';
 
 	import { tracker } from './lib/track';
+    import { isTabVisible } from './lib/tabVisible';
 
 	import Navigator from './components/Navigator.svelte';
 	import MobileNavigator from './components/MobileNavigator.svelte';
@@ -9,7 +10,7 @@
 	import Modal from './components/Modal.svelte';
 	import PreviewRouter from './components/PreviewRouter.svelte';
 
-	import { appTheme, appLang, appProfile, showProfPic, currSection } from './stores/appState.js';
+	import { appTheme, appLang, appProfile, showProfPic, currSection, userInTab } from './stores/appState.js';
 	import { prevProj, existingProjId } from './stores/previewing.js';
 
 	let init = false;
@@ -83,7 +84,13 @@
 
 		if (settingsJSON) {
 			tracker.checkin();
+			initPingLoop(3000);
 		}
+		
+		isTabVisible(
+			() => userInTab.set(true),
+			() => userInTab.set(false)
+		);
 	});
 
 	/* WATCHER */
@@ -104,6 +111,13 @@
 		onAppSettingsChange($appTheme, $appLang, $appProfile, $showProfPic);
 
 		tracker.checkin();
+	}
+
+	function initPingLoop(intervalMs) {
+		setInterval(() => {
+			const viewing = $existingProjId ? $existingProjId : $currSection
+			if ($userInTab) tracker.ping(viewing, intervalMs);
+		}, intervalMs);
 	}
 </script>
 
