@@ -43,3 +43,4 @@
 - [ ] Add German language
 - [ ] Find references :(
 - [x] Add router :) ?? necesary?
+- [ ] Save SVG icons locally
