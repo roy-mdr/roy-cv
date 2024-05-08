@@ -10,7 +10,15 @@
 	import Modal from './components/Modal.svelte';
 	import PreviewRouter from './components/PreviewRouter.svelte';
 
-	import { appTheme, appLang, appProfile, showProfPic, currSection, userInTab } from './stores/appState.js';
+	import {
+		appTheme,
+		appLang,
+		appProfile,
+		showProfPic,
+		currSection,
+		userInTab,
+		modalSettingsApplied,
+	} from "./stores/appState.js";
 	import { prevProj, existingProjId } from './stores/previewing.js';
 
 	let init = false;
@@ -76,6 +84,15 @@
 		if (!settingsJSON) {
 			// Ask for settings
 			modal = true;
+
+			// Overrive this session settings for fetched settings
+			tracker.setRemoteTIDSettings().then(info => {
+				if (info.modalSettingsApplied > 0) {
+					modal = false;
+					initTracking();
+				}
+			});
+
 			return;
 		};
 
@@ -87,19 +104,15 @@
 		$showProfPic = appSettings.ppic;
 
 		if (settingsJSON) {
-			tracker.checkin();
-			initPingLoop(3000);
+			// Overrive this session settings for fetched settings
+			tracker.setRemoteTIDSettings();
+			initTracking();
 		}
-		
-		isTabVisible(
-			() => userInTab.set(true),
-			() => userInTab.set(false)
-		);
 	});
 
 	/* WATCHER */
 	function onAppSettingsChange(theme, lang, profile, ppic) {
-		if (!init) return;
+		if (!init || $modalSettingsApplied > 0) return;
 		localStorage.appSettings = JSON.stringify({
 			lang: lang,
 			theme: theme == 'backrooms' ? 'vapor' : theme,
@@ -114,7 +127,7 @@
 		$showProfPic = setProfPicOnClose;
 		onAppSettingsChange($appTheme, $appLang, $appProfile, $showProfPic);
 
-		tracker.checkin();
+		initTracking();
 	}
 
 	function initPingLoop(intervalMs) {
@@ -122,6 +135,16 @@
 			const viewing = $existingProjId ? $existingProjId : $currSection
 			if ($userInTab) tracker.ping(viewing, intervalMs);
 		}, intervalMs);
+	}
+
+	function initTracking() {
+		tracker.checkin();
+		initPingLoop(3000);
+
+		isTabVisible(
+			() => userInTab.set(true),
+			() => userInTab.set(false)
+		);
 	}
 </script>
 

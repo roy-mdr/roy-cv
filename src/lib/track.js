@@ -5,6 +5,50 @@ const baseURL = 'https://cvm.estudiosustenta.com/track';
 
 export const tracker = {
 
+	async setRemoteTIDSettings() {
+		const location = new URL(window.location.href);
+
+		const tid = location.searchParams.get('tid');
+
+		let data = undefined;
+		let modalSettingsApplied = 0;
+
+		try {
+			const res = await fetch(baseURL + '/checkin?tid=' + tid);
+			data = await res.json();
+
+			data?.tname && appState.visitorName.set(data.tname);
+			data?.projMsg && appState.showProjMsg.set(data.projMsg);
+			data?.welcomeMsg && appState.showWelcomeMsg.set(data.welcomeMsg);
+			data?.highlightProj && appState.highlightProj.set(data.highlightProj);
+			data?.hideProj && appState.hideProj.set(data.hideProj);
+
+			if (data?.appTheme !== null) {
+				appState.appTheme.set(data.appTheme);
+			}
+
+			if (data?.appLang !== null) {
+				appState.appLang.set(data.appLang);
+				modalSettingsApplied++;
+			}
+
+			if (data?.appProfile !== null) {
+				appState.appProfile.set(data.appProfile);
+				modalSettingsApplied++;
+			}
+
+			if (data?.showProfPic !== null) {
+				appState.showProfPic.set(data.showProfPic);
+				modalSettingsApplied++;
+			}
+		} catch (error) {
+			console.error("Error fetching tid info.");
+		}
+
+		appState.modalSettingsApplied.set(modalSettingsApplied);
+		return { modalSettingsApplied }
+	},
+
 	async checkin() {
 		const location = new URL(window.location.href);
 

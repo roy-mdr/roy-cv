@@ -11,7 +11,7 @@
 	import PrevProjBtn from './PrevProjBtn.svelte';
 	import Skill from './Skill.svelte';
 
-	import { appTheme, appLang, showProfPic } from '../stores/appState.js';
+	import { appTheme, appLang, showProfPic, highlightProj, hideProj } from '../stores/appState.js';
 	import { prevProj } from '../stores/previewing.js';
 
 	/* IMAGES */
@@ -803,51 +803,60 @@
 		<h3>{content[$appLang].architecture || content['en'].architecture}</h3>
 		<div class="proj-container">
 			{#each projectData.arch as proj}
-				<!-- svelte-ignore a11y-click-events-have-key-events -->
-				<project
-					class="project noselect"
-					class:misc={proj.is_misc}
-					tabindex="0"
-					role="button"
-					on:click={setPrevProj}
-					proj-id={proj.projId}
-				>
-					{proj.title[$appLang] || proj.title["en"]}
-				</project>
+				{#if !$hideProj.includes(proj.projId)}
+					<!-- svelte-ignore a11y-click-events-have-key-events -->
+					<project
+						class="project noselect"
+						class:misc={proj.is_misc}
+						class:fade={$highlightProj.length > 0 && !$highlightProj.includes(proj.projId)}
+						tabindex="0"
+						role="button"
+						on:click={setPrevProj}
+						proj-id={proj.projId}
+					>
+						{proj.title[$appLang] || proj.title["en"]}
+					</project>
+				{/if}
 			{/each}
 		</div>
 
 		<h3>Software / Hardware</h3>
 		<div class="proj-container">
 			{#each projectData.tech as proj}
-				<!-- svelte-ignore a11y-click-events-have-key-events -->
-				<project
-					class="project noselect"
-					class:misc={proj.is_misc}
-					tabindex="0"
-					role="button"
-					on:click={setPrevProj}
-					proj-id={proj.projId}
-				>
-					{proj.title[$appLang] || proj.title["en"]}
-				</project>
+				{#if !$hideProj.includes(proj.projId)}
+					<!-- svelte-ignore a11y-click-events-have-key-events -->
+					<project
+						class="project noselect"
+						class:misc={proj.is_misc}
+						class:fade={$highlightProj.length > 0 && !$highlightProj.includes(proj.projId)}
+						tabindex="0"
+						role="button"
+						on:click={setPrevProj}
+						proj-id={proj.projId}
+					>
+						{proj.title[$appLang] || proj.title["en"]}
+					</project>
+				{/if}
 			{/each}
 		</div>
 
 		<h3>{content[$appLang].audioviz || content['en'].audioviz}</h3>
 		<div class="proj-container">
 			{#each projectData.auviz as proj}
-				<!-- svelte-ignore a11y-click-events-have-key-events -->
-				<project
-					class="project noselect"
-					class:misc={proj.is_misc}
-					tabindex="0"
-					role="button"
-					on:click={setPrevProj}
-					proj-id={proj.projId}
-				>
-					{proj.title[$appLang] || proj.title["en"]}
-				</project>
+				{#if !$hideProj.includes(proj.projId)}
+					<!-- svelte-ignore a11y-click-events-have-key-events -->
+					<project
+						class="project noselect"
+						class:misc={proj.is_misc}
+						class:fade={$highlightProj.length > 0 && !$highlightProj.includes(proj.projId)}
+						tabindex="0"
+						role="button"
+						on:click={setPrevProj}
+						proj-id={proj.projId}
+					>
+						{proj.title[$appLang] || proj.title["en"]}
+					</project>
+				{/if}
 			{/each}
 		</div>
 	</section>
@@ -1146,7 +1155,17 @@
 	}
 
 	.project:hover {
-		color: var(--accent);
+		color: var(--main-text);
+		background-color: var(--accent);
+	}
+
+	.project.fade {
+		background-color: var(--mid);
+	}
+
+	.project.fade:hover {
+		color: var(--carpet);
+		background-color: var(--main-text);
 	}
 
 	.project.misc::after {
@@ -1159,6 +1178,7 @@
 		background-color: var(--carpet);
 		top: 0;
 		left: 0;
+		transition: background-color var(--speed-normal);
 	}
 
 	/* .project.misc {
