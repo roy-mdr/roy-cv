@@ -1,6 +1,9 @@
 <script lang="ts">
 	import "external-svg-loader";
 
+    import { get } from "svelte/store";
+	import { scale } from 'svelte/transition';
+
 	import pPic from '../assets/pp_bw.jpg';
 	import vwStatue from '../assets/helios.jpg';
 	import brEntity from '../assets/entity.jpg';
@@ -11,7 +14,16 @@
 	import PrevProjBtn from './PrevProjBtn.svelte';
 	import Skill from './Skill.svelte';
 
-	import { appTheme, appLang, showProfPic, highlightProj, hideProj } from '../stores/appState.js';
+	import {
+		appTheme,
+		appLang,
+		showProfPic,
+		highlightProj,
+		_fetched_highlightProj,
+		hideProj,
+		_fetched_hideProj,
+		visitorName
+	} from '../stores/appState.js';
 	import { prevProj } from '../stores/previewing.js';
 
 	/* IMAGES */
@@ -212,6 +224,33 @@
 			contact: "",
 			contact_txt: "",
 			send: "",
+		},
+	}
+
+	const projMsgData = {
+		es: {
+			discmr: 'A continuación hay una selección especial de proyectos para tí.<br/>Si lo deseas, puedes ',
+			btn_showAll: 'mostrar todos los proyectos',
+			btn_showSel: 'mostrar sólo tu selección',
+			or: 'o',
+			btn_highlAll: 'iluminar todos los proyectos',
+			btn_highlSel: 'iluminar sólo tu selección',
+		},
+		en: {
+			discmr: 'Below is a special project selection for you.<br/>If you wish, you may ',
+			btn_showAll: 'show all projects',
+			btn_showSel: 'show your selection only',
+			or: 'or',
+			btn_highlAll: 'highlight all projects',
+			btn_highlSel: 'highlight your selection only',
+		},
+		de: {
+			discmr: '',
+			btn_showAll: '',
+			btn_showSel: '',
+			or: 'oder',
+			btn_highlAll: '',
+			btn_highlSel: '',
 		},
 	}
 
@@ -800,12 +839,56 @@
 	<section id="projects">
 		<h2>{content[$appLang].projects || content['en'].projects}</h2>
 
+		{#if $_fetched_hideProj.length > 0 || $_fetched_highlightProj.length > 0}
+			<div class="pad light proj-msg">
+				<p>
+					{#if $visitorName}
+						{#if $appLang == 'es'}
+							¡Hola {$visitorName}!<br/><br/>
+						{/if}
+						{#if $appLang == 'en'}
+							Hi {$visitorName}!<br/><br/>
+						{/if}
+						{#if $appLang == 'de'}
+							Hallo {$visitorName}!<br/><br/>
+						{/if}
+					{/if}
+					{@html projMsgData[$appLang].discmr || projMsgData['en'].discmr}
+					{#if $hideProj.length > 0}
+						<button on:click={() => $hideProj = []}>
+							{projMsgData[$appLang].btn_showAll || projMsgData['en'].btn_showAll}
+						</button>
+					{/if}
+					{#if $hideProj.length != $_fetched_hideProj.length}
+						<button on:click={() => $hideProj = get(_fetched_hideProj)}>
+							{projMsgData[$appLang].btn_showSel || projMsgData['en'].btn_showSel}
+						</button>
+					{/if}
+					{#if $_fetched_hideProj.length > 0 && $_fetched_highlightProj.length > 0}
+						{projMsgData[$appLang].or || projMsgData['en'].or}
+					{/if}
+					{#if $highlightProj.length > 0}
+						<button on:click={() => $highlightProj = []}>
+							{projMsgData[$appLang].btn_highlAll || projMsgData['en'].btn_highlAll}
+						</button>
+					{/if}
+					{#if $highlightProj.length != $_fetched_highlightProj.length}
+						<button on:click={() => $highlightProj = get(_fetched_highlightProj)}>
+							{projMsgData[$appLang].btn_highlSel || projMsgData['en'].btn_highlSel}
+						</button>
+					{/if}
+					.
+				</p>
+			</div>
+		{/if}
+
 		<h3>{content[$appLang].architecture || content['en'].architecture}</h3>
 		<div class="proj-container">
 			{#each projectData.arch as proj}
 				{#if !$hideProj.includes(proj.projId)}
 					<!-- svelte-ignore a11y-click-events-have-key-events -->
 					<project
+						transition:scale={{duration: 400}}
 						class="project noselect"
 						class:misc={proj.is_misc}
 						class:fade={$highlightProj.length > 0 && !$highlightProj.includes(proj.projId)}
@@ -1137,6 +1220,12 @@
 	.lang:hover .level {
 		position: absolute;
 		background-color: var(--accent);
+	}
+
+	.proj-msg button {
+		color: var(--main-text);
+		background: none;
+		text-decoration: underline;
 	}
 
 	.project {

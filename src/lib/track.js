@@ -20,8 +20,16 @@ export const tracker = {
 			data?.tname && appState.visitorName.set(data.tname);
 			data?.projMsg && appState.showProjMsg.set(data.projMsg);
 			data?.welcomeMsg && appState.showWelcomeMsg.set(data.welcomeMsg);
-			data?.highlightProj && appState.highlightProj.set(data.highlightProj);
-			data?.hideProj && appState.hideProj.set(data.hideProj);
+
+			if (data?.highlightProj !== null) {
+				appState.highlightProj.set(data.highlightProj);
+				appState._fetched_highlightProj.set(structuredClone(data.highlightProj));
+			}
+
+			if (data?.hideProj !== null) {
+				appState.hideProj.set(data.hideProj);
+				appState._fetched_hideProj.set(structuredClone(data.hideProj));
+			}
 
 			if (data?.appTheme !== null) {
 				appState.appTheme.set(data.appTheme);
