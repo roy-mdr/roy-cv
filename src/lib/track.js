@@ -15,7 +15,12 @@ export const tracker = {
 
 		try {
 			const res = await fetch(baseURL + '/checkin?tid=' + tid);
+
+			if (!res.ok) throw new Error();
+
 			data = await res.json();
+
+			if (!data) throw new Error();
 
 			data?.tname && appState.visitorName.set(data.tname);
 			data?.projMsg && appState.showProjMsg.set(data.projMsg);

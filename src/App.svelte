@@ -2,7 +2,7 @@
 	import {onMount} from 'svelte';
 
 	import { tracker } from './lib/track';
-    import { isTabVisible } from './lib/tabVisible';
+	import { isTabVisible } from './lib/tabVisible';
 
 	import Navigator from './components/Navigator.svelte';
 	import MobileNavigator from './components/MobileNavigator.svelte';
