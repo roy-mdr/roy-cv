@@ -909,6 +909,7 @@
 				{#if !$hideProj.includes(proj.projId)}
 					<!-- svelte-ignore a11y-click-events-have-key-events -->
 					<project
+						transition:scale={{duration: 400}}
 						class="project noselect"
 						class:misc={proj.is_misc}
 						class:fade={$highlightProj.length > 0 && !$highlightProj.includes(proj.projId)}
@@ -929,6 +930,7 @@
 				{#if !$hideProj.includes(proj.projId)}
 					<!-- svelte-ignore a11y-click-events-have-key-events -->
 					<project
+						transition:scale={{duration: 400}}
 						class="project noselect"
 						class:misc={proj.is_misc}
 						class:fade={$highlightProj.length > 0 && !$highlightProj.includes(proj.projId)}
