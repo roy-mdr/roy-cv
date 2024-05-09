@@ -105,8 +105,9 @@
 
 		if (settingsJSON) {
 			// Overrive this session settings for fetched settings
-			tracker.setRemoteTIDSettings();
-			initTracking();
+			tracker.setRemoteTIDSettings().finally(() => {
+				initTracking();
+			});
 		}
 	});
 
