@@ -22,6 +22,7 @@
 		_fetched_highlightProj,
 		hideProj,
 		_fetched_hideProj,
+        showProjMsg,
 		visitorName
 	} from '../stores/appState.js';
 	import { prevProj } from '../stores/previewing.js';
@@ -839,7 +840,7 @@
 	<section id="projects">
 		<h2>{content[$appLang].projects || content['en'].projects}</h2>
 
-		{#if $_fetched_hideProj.length > 0 || $_fetched_highlightProj.length > 0}
+		{#if $showProjMsg && ($_fetched_hideProj.length > 0 || $_fetched_highlightProj.length > 0)}
 			<div class="pad light proj-msg">
 				<p>
 					{#if $visitorName}
