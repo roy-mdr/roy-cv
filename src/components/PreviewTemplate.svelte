@@ -44,11 +44,15 @@
 	}
 
 	function shareProj() {
+		const shareURL = new URL(window.location.href);
+		shareURL.searchParams.delete('tid');
+		shareURL.searchParams.set('shared', 'true');
+
 		navigator
 			.share({
 				title: title,
 				text: `${content[$appLang].shareTxt}\n`,
-				url: window.location.href,
+				url: shareURL.toString(),
 			})
 			.then(() => {
 				tracker.interaction.proj_share($prevProj);
