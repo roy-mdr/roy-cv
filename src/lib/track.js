@@ -3,6 +3,8 @@ import * as appState from "../stores/appState";
 
 const baseURL = 'https://cvm.estudiosustenta.com/track';
 
+let init = false;
+
 export const tracker = {
 
 	async setRemoteTIDSettings() {
@@ -62,7 +64,7 @@ export const tracker = {
 		return { modalSettingsApplied }
 	},
 
-	async checkin() {
+	async checkin(callback) {
 		const location = new URL(window.location.href);
 
 		const TrackCheckinReq = {
@@ -78,11 +80,16 @@ export const tracker = {
 		fetch(baseURL + '/checkin', {
 			method: 'POST',
 			body: JSON.stringify(TrackCheckinReq)
-		});
+		})
+			.finally(callback);
+
+		init = true;
 	},
 
 	interaction: {
 		async _sendAction(actionName, data) {
+
+			if (!init) return;
 			const location = new URL(window.location.href);
 
 			const TrackActionReq = {
@@ -129,6 +136,8 @@ export const tracker = {
 	},
 
 	async ping(viewing, interval) {
+
+		if (!init) return;
 		const location = new URL(window.location.href);
 
 		const TrackActionReq = {

@@ -139,7 +139,9 @@
 	}
 
 	function initTracking() {
-		tracker.checkin();
+		tracker.checkin(() => {
+			if ($existingProjId) tracker.interaction.proj_view($existingProjId);
+		});
 		initPingLoop(3000);
 
 		isTabVisible(
