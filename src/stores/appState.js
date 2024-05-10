@@ -1,6 +1,6 @@
 import { writable } from 'svelte/store';
 
-export const modalSettingsApplied = writable(0);
+export const settingsFetched = writable([]);
 
 export const appTheme    = writable('light');
 export const appLang     = writable('en');

@@ -17,7 +17,7 @@
 		showProfPic,
 		currSection,
 		userInTab,
-		modalSettingsApplied,
+		settingsFetched,
 	} from "./stores/appState.js";
 	import { prevProj, existingProjId } from './stores/previewing.js';
 
@@ -87,7 +87,10 @@
 
 			// Overrive this session settings for fetched settings
 			tracker.setRemoteTIDSettings().then(info => {
-				if (info.modalSettingsApplied > 0) {
+				if (
+					info.settingsFetched.includes('appLang') &&
+					info.settingsFetched.includes('showProfPic')
+				) {
 					modal = false;
 					initTracking();
 				}
@@ -113,7 +116,7 @@
 
 	/* WATCHER */
 	function onAppSettingsChange(theme, lang, profile, ppic) {
-		if (!init || $modalSettingsApplied > 0) return;
+		if (!init || $settingsFetched.length > 0) return;
 		localStorage.appSettings = JSON.stringify({
 			lang: lang,
 			theme: theme == 'backrooms' ? 'vapor' : theme,
@@ -168,64 +171,68 @@
 	</div>
 	{#if modal}
 	<Modal on:closeModal={closeModal}>
-		<div class="card-seccion">
-			<span class="titulo">Language / Idioma / Sprache</span>
-			<div class="radio-style-1">
-				<label for="lan_en">
-					<input type="radio" name="lan" bind:group={$appLang} id="lan_en" value="en">
-					<span>EN</span>
-				</label>
-				<label for="lan_es">
-					<input type="radio" name="lan" bind:group={$appLang} id="lan_es" value="es">
-					<span>ES</span>
-				</label>
-				<!--
-				<label for="lan_de">
-					<input type="radio" name="lan" bind:group={$appLang} id="lan_de" value="de">
-					<span>DE</span>
-				</label>
-				-->
+		{#if !$settingsFetched.includes('appLang')}
+			<div class="card-seccion">
+				<span class="titulo">Language / Idioma / Sprache</span>
+				<div class="radio-style-1">
+					<label for="lan_en">
+						<input type="radio" name="lan" bind:group={$appLang} id="lan_en" value="en">
+						<span>EN</span>
+					</label>
+					<label for="lan_es">
+						<input type="radio" name="lan" bind:group={$appLang} id="lan_es" value="es">
+						<span>ES</span>
+					</label>
+					<!--
+					<label for="lan_de">
+						<input type="radio" name="lan" bind:group={$appLang} id="lan_de" value="de">
+						<span>DE</span>
+					</label>
+					-->
+				</div>
 			</div>
-		</div>
-		<div class="card-seccion">
-			<span class="titulo">
-				{#if $appLang == 'es'}
-				Ver foto de perfil
-				{:else if $appLang == 'de'}
-				Profilbild anzeigen
-				{:else}
-				Show profile picture
-				{/if}
-			</span>
-			<div class="radio-style-1">
-				<label>
-					<input type="radio" name="ppic" checked={!setProfPicOnClose}>
-					<!-- svelte-ignore a11y-click-events-have-key-events -->
-					<span on:click={ () => { setProfPicOnClose = false } }>
-						{#if $appLang == 'es'}
-						No
-						{:else if $appLang == 'de'}
-						Nein
-						{:else}
-						No
-						{/if}
-					</span>
-				</label>
-				<label>
-					<input type="radio" name="ppic" checked={setProfPicOnClose}>
-					<!-- svelte-ignore a11y-click-events-have-key-events -->
-					<span on:click={ () => { setProfPicOnClose = true } }>
-						{#if $appLang == 'es'}
-						Sí
-						{:else if $appLang == 'de'}
-						Ja
-						{:else}
-						Yes
-						{/if}
-					</span>
-				</label>
+		{/if}
+		{#if !$settingsFetched.includes('showProfPic')}
+			<div class="card-seccion">
+				<span class="titulo">
+					{#if $appLang == 'es'}
+					Ver foto de perfil
+					{:else if $appLang == 'de'}
+					Profilbild anzeigen
+					{:else}
+					Show profile picture
+					{/if}
+				</span>
+				<div class="radio-style-1">
+					<label>
+						<input type="radio" name="ppic" checked={!setProfPicOnClose}>
+						<!-- svelte-ignore a11y-click-events-have-key-events -->
+						<span on:click={ () => { setProfPicOnClose = false } }>
+							{#if $appLang == 'es'}
+							No
+							{:else if $appLang == 'de'}
+							Nein
+							{:else}
+							No
+							{/if}
+						</span>
+					</label>
+					<label>
+						<input type="radio" name="ppic" checked={setProfPicOnClose}>
+						<!-- svelte-ignore a11y-click-events-have-key-events -->
+						<span on:click={ () => { setProfPicOnClose = true } }>
+							{#if $appLang == 'es'}
+							Sí
+							{:else if $appLang == 'de'}
+							Ja
+							{:else}
+							Yes
+							{/if}
+						</span>
+					</label>
+				</div>
 			</div>
-		</div>
+		{/if}
 		<hr>
 		<div class="card-seccion">
 			<button on:click={closeModal}>OK</button>

@@ -13,7 +13,7 @@ export const tracker = {
 		const tid = location.searchParams.get('tid');
 
 		let data = undefined;
-		let modalSettingsApplied = 0;
+		let settingsFetched = [];
 
 		try {
 			const res = await fetch(baseURL + '/checkin?tid=' + tid);
@@ -40,28 +40,29 @@ export const tracker = {
 
 			if (data?.appTheme !== null) {
 				appState.appTheme.set(data.appTheme);
+				settingsFetched.push('appTheme');
 			}
 
 			if (data?.appLang !== null) {
 				appState.appLang.set(data.appLang);
-				modalSettingsApplied++;
+				settingsFetched.push('appLang');
 			}
 
 			if (data?.appProfile !== null) {
 				appState.appProfile.set(data.appProfile);
-				modalSettingsApplied++;
+				settingsFetched.push('appProfile');
 			}
 
 			if (data?.showProfPic !== null) {
 				appState.showProfPic.set(data.showProfPic);
-				modalSettingsApplied++;
+				settingsFetched.push('showProfPic');
 			}
 		} catch (error) {
 			console.error("Error fetching tid info.");
 		}
 
-		appState.modalSettingsApplied.set(modalSettingsApplied);
-		return { modalSettingsApplied }
+		appState.settingsFetched.set(settingsFetched);
+		return { settingsFetched }
 	},
 
 	async checkin(callback) {
