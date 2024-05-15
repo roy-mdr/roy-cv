@@ -35,7 +35,7 @@
 
 
 
-<PreviewTemplate title={content[$appLang].title || content['en'].title} link="http://lshdrms.c1.biz/demo" technologies={skills}>
+<PreviewTemplate title={content[$appLang].title || content['en'].title} link="https://lshdrms.estudiosustenta.myds.me/demo" technologies={skills}>
 	<div slot="preview">
 		<img src={img_lshdrms} alt="LSHD//DRMS">
 	</div>
