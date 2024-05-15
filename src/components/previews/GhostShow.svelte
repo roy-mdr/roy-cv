@@ -4,6 +4,7 @@
 
 	/* IMAGES */
 	import img_ghost_show from '../../assets/projects/ghost_show.jpg';
+	import vid_light_bars from '../../assets/projects/light_bars.mp4';
 
 	const skills = [
 		"arduino",
@@ -66,10 +67,27 @@
 	<div slot="preview">
 		<img src={img_ghost_show} alt="IoT GUI">
 	</div>
-	<span slot="description">{@html content[$appLang].descHTML || content['en'].descHTML}</span>
+	<div slot="description">
+		{@html content[$appLang].descHTML || content['en'].descHTML}
+		<div class="crop-21-9">
+			<video src={vid_light_bars} autoplay loop muted playsinline></video>
+		</div>
+	</div>
 </PreviewTemplate>
 
 
 
 <style>
+	.crop-21-9 {
+		width: 100%;
+		display: flex;
+		object-fit: cover;
+		aspect-ratio: 21 / 9;
+		align-items: start;
+		overflow: hidden;
+	}
+
+	.crop-21-9 video {
+		width: 100%;
+	}
 </style>
