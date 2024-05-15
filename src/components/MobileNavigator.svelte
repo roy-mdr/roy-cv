@@ -82,7 +82,7 @@
 
 		<div class="horizontal end-border" style="justify-content: center;">
 			<a
-				href="https://www.linkedin.com/in/rodrigo-mart%C3%ADnez-del-r%C3%ADo-363a7424b/"
+				href="https://www.linkedin.com/in/rodrigo-mtz/"
 				target="_blank"
 			>
 				<svg

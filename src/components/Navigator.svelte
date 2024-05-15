@@ -92,7 +92,7 @@
 		<!-- <button on:click={() => { $appLang = 'de'}} class:current={$appLang == 'de'}>DE <svg data-src="https://s2.svgbox.net/materialui.svg?ic=translate" width="16" height="16" color={"#"}></svg></button> -->
 	</div>
 	<div class="horizontal end-border" style="justify-content: center;">
-		<a href="https://www.linkedin.com/in/rodrigo-mart%C3%ADnez-del-r%C3%ADo-363a7424b/" target="_blank"><svg data-src="https://s2.svgbox.net/social.svg?ic=linkedin" width="16" height="16" color={"#"}></svg></a>
+		<a href="https://www.linkedin.com/in/rodrigo-mtz/" target="_blank"><svg data-src="https://s2.svgbox.net/social.svg?ic=linkedin" width="16" height="16" color={"#"}></svg></a>
 		<a href="https://github.com/roy-mdr" target="_blank"><svg data-src="https://s2.svgbox.net/social.svg?ic=github" width="16" height="16" color={"#"}></svg></a>
 		<a href="mailto://roy.mdr.mx@gmail.com" target="_blank"><svg data-src="https://s2.svgbox.net/octicons.svg?ic=mail-bold" width="16" height="16" color={"#"}></svg></a>
 		<!-- <a href="/">- instagram? xD</a> -->
