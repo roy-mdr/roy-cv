@@ -1,7 +1,7 @@
 import { get } from 'svelte/store';
 import * as appState from "../stores/appState";
 
-const baseURL = 'https://cvm.estudiosustenta.com/track';
+const baseURL = 'https://cvm.v23.studio/track';
 
 let init = false;
 
